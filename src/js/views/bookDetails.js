@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 // import "../../styles/home.scss";
-import {CardBookDetails} from "../component/cardBookDetails.js"
+import { CardBookDetails } from "../component/cardBookDetails.js";
 
 export const BookDetails = () => {
-    <Fragment>
-        <div>
-            <CardBookDetails />
-        </div>
-    </Fragment>
+	return (
+		<Fragment>
+			<div>
+				<CardBookDetails />
+			</div>
+		</Fragment>
+	);
 };

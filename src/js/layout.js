@@ -9,6 +9,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { BookDetails } from "./views/bookDetails";
 
 //create your first component
 const Layout = () => {
@@ -30,6 +31,10 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						{/* falta añadir la ruta completa */}
+						<Route exact path="/book/">
+							<BookDetails />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
