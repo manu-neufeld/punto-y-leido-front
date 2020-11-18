@@ -342,3 +342,84 @@ books = [
         price: 12.95    
     }
 ]
+
+ id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), unique=False, nullable=False)
+    biography = db.Column(db.String(255), unique=False, nullable=False)
+    image = db.Column(db.String(255), unique=False, nullable=True)
+    book_and_author_relationship = db.relationship("Book_and_author", lazy = True)
+
+
+authors=[
+    {
+        id: 1,
+        name: "Jane Austen",
+        biography: "Jane Austen (Steventon, 16 de diciembre de 1775-Winchester, 18 de julio de 1817) fue una novelista británica que vivió durante la época georgiana. La ironía que emplea para dotar de comicidad a sus novelas hace que Jane Austen sea considerada entre los clásicos de la novela inglesa, a la vez que su recepción va, incluso en la actualidad, más allá del interés académico, siendo sus obras leídas por un público más amplio.",
+        // image : ""
+    },
+
+    {
+        id: 2,
+        name: "Henar Álvarez",
+        biography: "Henar Álvarez (Madrid, 1984) es una de las voces más visibles del nuevo humor femenino. Además de cómica, tiene un largo recorrido como guionista y presentadora de radio y televisión. Dirigió un programa de radio con Leticia Dolera en La Ser, escribió crónicas feministas en El Confidencial, fue guionista de Hoy por hoy y presentadora de los programas de televisión Likes y Las que faltaban (Movistar +). Actualmente presenta Buenismo bien (Cadena Ser), junto a Quique Peinado y Manuel Burque.",
+        // image: ""
+    },
+
+     {
+        id: 3,
+        name: "Audrey Carlan",
+        biography: "Audrey Carlan ha alcanzado el número 1 en las listas de libros más vendidos de The New York Times, USA Today, y The Wall Street Journal. conviertiéndose en pocos meses en la autora revelación de la novela romántica. Entre sus obras se encuentra las series Calendar Girl, Falling y la trilogía Trinity.   Vive en el valle de California, donde disfruta de sus dos hijos y del amor de su vida. Cuando no está escribiendo, puedes encontrarla enseñando yoga, tomándose unos vinos con sus amigas del alma o con la nariz enterrada en una novela romántica calentita calentita. ",
+        // image: ""
+    },
+
+    {
+        id: 4,
+        name: "Juan Gómez Jurado",
+        biography: "Juan Gómez-Jurado (Madrid, 16 de diciembre de 1977) es un novelista español, uno de los más populares de su generación​. Se formó como periodista, iniciando su carrera en los medios de comunicación. Su primera novela Espía de Dios supuso un notable éxito, que fue seguido por Contrato con Dios y El emblema del traidor. En la actualidad combina su labor literario con colaboraciones en radio y en revistas.",
+        // image: ""
+    },
+
+    {
+        id: 5,
+        name: "Reyna Grande",
+        biography: "Reyna Grande se crio en la localidad mexicana de Iguala (estado de Guerrero) en condiciones de extrema pobreza. Cuando contaba con 4 años, su padre emigró a los Estados Unidos en busca de trabajo. Poco después, su madre haría lo mismo, dejando a Reyna y sus hermanos al cuidado de su abuela. Siendo todavía una niña, la citada autora cruzó la frontera de Estados Unidos-México de manera ilegal para instalarse en Los Ángeles con su padre. Fue el primer miembro de su familia en obtener un título universitario, un camino marcado por un sinfín de dificultades.",
+        // image: ""
+    },
+
+    {
+        id: 6,
+        name: "Laura Gallego",
+        biography: "Laura Gallego García (Cuart de Poblet, Valencia; 11 de octubre de 1977) es una autora española de literatura infantil y juvenil, especializada en temática fantástica. Ha estudiado Filología Hispánica en la Universidad de Valencia. Hasta el año 2019 ha escrito un total de 41 libros, siendo una referente en lecturas juveniles.",
+        // image: ""
+    },
+
+    {
+        id: 7,
+        name: "Diana Gabaldón",
+        biography: "Diana J. Gabaldon (Scottsdale, Arizona, 11 de enero de 1952) es una escritora estadounidense conocida por la saga de novelas Forastera (Outlander en su idioma original). En sus libros se desarrolla una trama que mezcla varios estilos como pueden ser la ficción histórica, la novela romántica, el misterio, la aventura y la fantasía.",
+        // image: ""
+    },
+
+    {
+        id: 8,
+        name: "Eduardo Galeano",
+        biography: "Eduardo Germán María Hughes Galeano (Montevideo, Uruguay; 3 de septiembre de 1940-ibidem, 13 de abril de 2015)1​ fue un periodista y escritor uruguayo, considerado uno de los escritores más influyentes de la izquierda latinoamericana. Sus libros más conocidos, Las venas abiertas de América Latina (1971) y Memoria del fuego (1986), han sido traducidos a veinte idiomas. Sus trabajos trascienden géneros ortodoxos y combinan documental, ficción, periodismo, análisis político e historia.",
+        // image: ""
+    },
+
+    {
+        id: 9,
+        name: "Stephen King",
+        biography: "Stephen Edwin King (Portland, Maine; 21 de septiembre de 1947) es un escritor estadounidense de novelas de terror, ficción sobrenatural, misterio, ciencia ficción y literatura fantástica. Sus libros han vendido más de 350 millones de copias1​ y en su mayoría han sido adaptados al cine y a la televisión. Ha publicado 75 novelas (siete de ellas, bajo el seudónimo Richard Bachman) y siete libros de no ficción. Ha escrito, además, alrededor de doscientos relatos y novelas cortas, la mayoría de los cuales han sido recogidos en once colecciones.",
+        // image: ""
+    },
+
+    {
+        id: 10,
+        name: "María Martínez",
+        biography: "Stephen Edwin King (Portland, Maine; 21 de septiembre de 1947) es un escritor estadounidense de novelas de terror, ficción sobrenatural, misterio, ciencia ficción y literatura fantástica. Sus libros han vendido más de 350 millones de copias1​ y en su mayoría han sido adaptados al cine y a la televisión. Ha publicado 75 novelas (siete de ellas, bajo el seudónimo Richard Bachman) y siete libros de no ficción. Ha escrito, además, alrededor de doscientos relatos y novelas cortas, la mayoría de los cuales han sido recogidos en once colecciones.",
+        // image: ""
+    },
+
+
+]
