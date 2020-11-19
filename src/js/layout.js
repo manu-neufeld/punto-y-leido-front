@@ -33,7 +33,7 @@ const Layout = () => {
 							<Single />
 						</Route>
 						{/* falta añadir la ruta completa */}
-						<Route exact path="/book/">
+						<Route exact path="/book/:idBook">
 							<BookDetails />
 						</Route>
 						<Route>
