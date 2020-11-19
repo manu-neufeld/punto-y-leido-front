@@ -33,7 +33,7 @@ const Layout = () => {
 							<Single />
 						</Route>
 						{/* AÑADIREMOS LUEGO :THEID QUE LLEVE AL AUTOR ESPECIFICO */}
-						<Route exact path="/author">
+						<Route exact path="/author/:idAuthor">
 							<AuthorDetails />
 						</Route>
 						<Route>
