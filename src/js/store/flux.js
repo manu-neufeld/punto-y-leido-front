@@ -141,7 +141,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			readers: [
 				{
 					id: 1,
-					is_active: True,
+					is_active: true,
 					usernae: "crduque",
 					email: "cduque@gmail.com",
 					password: "123456",
@@ -152,7 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					id: 2,
-					is_active: True,
+					is_active: true,
 					username: "manuneufeld",
 					email: "manuneufeld@gmail.com",
 					password: "123456",
@@ -163,7 +163,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					id: 3,
-					is_active: True,
+					is_active: true,
 					username: "jancarlo",
 					email: "jancarlo@gmail.com",
 					password: "123456",
@@ -174,7 +174,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					id: 4,
-					is_active: True,
+					is_active: true,
 					username: "alexandrito",
 					email: "alexandrito@gmail.com",
 					password: "123456",
@@ -200,7 +200,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					readed: [18, 19, 20, 1],
 					favorites: [1],
 					pending: [],
-					bought: [1]
+					bought: [1, 18, 19, 20]
 				},
 
 				{
