@@ -184,14 +184,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date_of_birth: [1991, 3, 25]
 				}
 			],
-			shelves: {
-				id_reader: 0,
-				commented: [],
-				readed: [],
-				favorites: [],
-				pending: [],
-				bought: []
-			}
+			shelves: [
+				{
+					id_reader: 1,
+					commented: [12, 21],
+					readed: [12, 14, 21],
+					favorites: [14, 21],
+					pending: [18, 19, 20],
+					bought: [1, 12, 14, 21]
+				},
+
+				{
+					id_reader: 2,
+					commented: [18, 19, 20],
+					readed: [18, 19, 20, 1],
+					favorites: [1],
+					pending: [],
+					bought: [1]
+				},
+
+				{
+					id_reader: 3,
+					commented: [],
+					readed: [],
+					favorites: [],
+					pending: [21, 18],
+					bought: []
+				},
+
+				{
+					id_reader: 4,
+					commented: [],
+					readed: [12, 14],
+					favorites: [14],
+					pending: [1, 21],
+					bought: [12]
+				}
+			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
