@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
+import { AuthorDetails } from "./views/authorDetails.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -32,9 +33,15 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+<<<<<<< HEAD
 						{/* DESPUÉS AÑADIMOS :THEID PARA QUE VARÍE EL PERFIL QUE SE MUESTRA */}
 						<Route exact path="/profile">
 							<Profile />
+=======
+						{/* AÑADIREMOS LUEGO :THEID QUE LLEVE AL AUTOR ESPECIFICO */}
+						<Route exact path="/author/:idAuthor">
+							<AuthorDetails />
+>>>>>>> 3f0488220ff2d1beed2c121691fff39084d2a22d
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

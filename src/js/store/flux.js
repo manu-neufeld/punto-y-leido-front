@@ -221,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					bought: [12]
 				}
 			]
-		},
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
