@@ -137,91 +137,103 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_author: 15,
 					id_book: 20
 				}
+			],
+			readers: [
+				{
+					id: 1,
+					is_active: true,
+					usernae: "crduque",
+					email: "cduque@gmail.com",
+					password: "123456",
+					name: "Cristina",
+					description: "Soy una lectora empedernida de fantasía",
+					address: "Madrid",
+					date_of_birth: [1994, 2, 17]
+				},
+				{
+					id: 2,
+					is_active: true,
+					username: "manuneufeld",
+					email: "manuneufeld@gmail.com",
+					password: "123456",
+					name: "Manuela",
+					description: "Me gusta leer novelas históricas",
+					address: "Madrid",
+					date_of_birth: [1993, 8, 19]
+				},
+				{
+					id: 3,
+					is_active: true,
+					username: "jancarlo",
+					email: "jancarlo@gmail.com",
+					password: "123456",
+					name: "Jan Carlo",
+					description: "Seguidor aférrimo de Stephen King",
+					address: "Burgos",
+					date_of_birth: [1992, 11, 18]
+				},
+				{
+					id: 4,
+					is_active: true,
+					username: "alexandrito",
+					email: "alexandrito@gmail.com",
+					password: "123456",
+					name: "Alexander",
+					description: "Marvel power!",
+					address: "Barcelona",
+					date_of_birth: [1991, 3, 25]
+				}
+			],
+			shelves: [
+				{
+					id_reader: 1,
+					id_book: 12,
+					name: "readed"
+				},
+
+				{
+					id_reader: 1,
+					id_book: 18,
+					name: "readed"
+				}
+			],
+			queryShelfBook: [
+				{
+					id_reader: 1,
+					id_book: 12,
+					name: "readed",
+					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
+					title: "Orgullo y prejuicio",
+					format_type: "Ilustrado"
+				},
+				{
+					id_reader: 1,
+					id_book: 18,
+					name: "readed",
+					image:
+						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
+					title: "El imperio final (Nacidos de la bruma I)",
+					format_type: "Tapa dura"
+				},
+				{
+					id_reader: 2,
+					id_book: 12,
+					name: "readed",
+					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
+					title: "Orgullo y prejuicio",
+					format_type: "Ilustrado"
+				},
+				{
+					id_reader: 2,
+					id_book: 18,
+					name: "readed",
+					image:
+						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
+					title: "El imperio final (Nacidos de la bruma I)",
+					format_type: "Tapa dura"
+				}
 			]
 		},
-		readers: [
-			{
-				id: 1,
-				is_active: true,
-				usernae: "crduque",
-				email: "cduque@gmail.com",
-				password: "123456",
-				name: "Cristina",
-				description: "Soy una lectora empedernida de fantasía",
-				address: "Madrid",
-				date_of_birth: [1994, 2, 17]
-			},
-			{
-				id: 2,
-				is_active: true,
-				username: "manuneufeld",
-				email: "manuneufeld@gmail.com",
-				password: "123456",
-				name: "Manuela",
-				description: "Me gusta leer novelas históricas",
-				address: "Madrid",
-				date_of_birth: [1993, 8, 19]
-			},
-			{
-				id: 3,
-				is_active: true,
-				username: "jancarlo",
-				email: "jancarlo@gmail.com",
-				password: "123456",
-				name: "Jan Carlo",
-				description: "Seguidor aférrimo de Stephen King",
-				address: "Burgos",
-				date_of_birth: [1992, 11, 18]
-			},
-			{
-				id: 4,
-				is_active: true,
-				username: "alexandrito",
-				email: "alexandrito@gmail.com",
-				password: "123456",
-				name: "Alexander",
-				description: "Marvel power!",
-				address: "Barcelona",
-				date_of_birth: [1991, 3, 25]
-			}
-		],
-		shelves: [
-			{
-				id_reader: 1,
-				commented: [12, 21],
-				readed: [12, 14, 21],
-				favorites: [14, 21],
-				pending: [18, 19, 20],
-				bought: [1, 12, 14, 21]
-			},
-
-			{
-				id_reader: 2,
-				commented: [18, 19, 20],
-				readed: [18, 19, 20, 1],
-				favorites: [1],
-				pending: [],
-				bought: [1, 18, 19, 20]
-			},
-
-			{
-				id_reader: 3,
-				commented: [],
-				readed: [],
-				favorites: [],
-				pending: [21, 18],
-				bought: []
-			},
-
-			{
-				id_reader: 4,
-				commented: [],
-				readed: [12, 14],
-				favorites: [14],
-				pending: [1, 21],
-				bought: [12]
-			}
-		],
 
 		actions: {
 			// Use getActions to call a function within a fuction

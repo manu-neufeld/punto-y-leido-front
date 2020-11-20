@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { LeidosShelf } from "./leidosShelf.jsx";
 
 export const ProfileShelves = () => {
 	return (
@@ -67,7 +68,7 @@ export const ProfileShelves = () => {
 			</ul>
 			<div className="tab-content" id="myTabContent">
 				<div className="tab-pane fade show active" id="leidos" role="tabpanel" aria-labelledby="leidos-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL LEIDOS
+					<LeidosShelf />
 				</div>
 				<div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
 					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL FAVORITOS
