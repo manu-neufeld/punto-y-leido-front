@@ -1,15 +1,17 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { Fragment } from "react";
 import "../../styles/home.scss";
+import { AboutUsHome } from "../component/aboutUsHome.jsx";
+import { RegisterHome } from "../component/registerHome.jsx";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	return (
+		<Fragment>
+			<div className="header-home">
+				<AboutUsHome />
+			</div>
+			<div className="register-login-welcome">
+				<RegisterHome />
+			</div>
+		</Fragment>
+	);
+};
