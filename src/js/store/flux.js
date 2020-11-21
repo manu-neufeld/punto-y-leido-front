@@ -300,13 +300,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Durante mil años han caído cenizas del cielo. Durante mil años nada ha florecido. Durante mil años los skaa han sido esclavizados y viven en la miseria, sumidos en un miedo inevitable. Durante mil años el Lord Legislador ha reinado con poder absoluto, dominando gracias al terror, a sus poderes y a su inmortalidad, ayudado por «obligadores» e «inquisidores», junto a la poderosa magia de la alomancia. Pero los nobles a menudo han tenido trato sexual con jóvenes skaa y, aunque la ley lo prohíbe, algunos de sus bastardos han sobrevivido y heredado los poderes alománticos: son los «nacidos de la bruma» (mistborn). Ahora, Kelsier, el «superviviente», el único que ha logrado huir de los Pozos de Hathsin, ha encontrado a Vin, una pobre chica skaa con mucha suerte... Tal vez los dos, con el mejor equipo criminal jamás reunido, unidos a la rebelión que los skaa intentan desde hace mil años, logren cambiar el mundo y acabar con la atroz mano de hierro del Lord Legislador. Pero, ¿qué pasa si el héroe de la profecía falla?"
 					}
 				];
-				fetch(url)
-					.then(() => {
-						return infoReturned;
-					})
-					.then(jsonSpecies => {
-						setStore({ written_by: infoReturned.flat() });
-					});
+				// fetch(url)
+				// 	.then(() => {
+				// 		return infoReturned;
+				// 	})
+				// 	.then(jsonSpecies => {
+				// 		setStore({ written_by: [...getStore().written_by, infoReturned].flat() });
+				// 	});
+				setStore({ written_by: [...getStore().written_by, infoReturned].flat() });
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
