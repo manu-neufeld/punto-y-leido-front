@@ -10,6 +10,7 @@ import { AuthorDetails } from "./views/authorDetails.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { BookDetails } from "./views/bookDetails";
 
 //create your first component
 const Layout = () => {
@@ -35,6 +36,10 @@ const Layout = () => {
 						{/* AÑADIREMOS LUEGO :THEID QUE LLEVE AL AUTOR ESPECIFICO */}
 						<Route exact path="/author/:idAuthor">
 							<AuthorDetails />
+                        </Route>
+						{/* falta añadir la ruta completa */}
+						<Route exact path="/book/:idBook">
+							<BookDetails />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

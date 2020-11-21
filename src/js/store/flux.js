@@ -138,7 +138,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_book: 20
 				}
 			],
-<<<<<<< HEAD
 			readers: [
 				{
 					id: 1,
@@ -235,16 +234,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					format_type: "Tapa dura"
 				}
 			]
-=======
-			shelves: {
-				id_reader: 0,
-				commented: [],
-				readed: [],
-				favorites: [],
-				pending: [],
-				bought: []
-			}
->>>>>>> 3f0488220ff2d1beed2c121691fff39084d2a22d
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
