@@ -11,22 +11,22 @@ export const CardBookDetails = props => {
 					<div className="col-md-4 book-image">
 						<img src={props.image} className="card-img" alt="Portada del libro" />
 					</div>
-					<div className="col-md-8">
+					<div className="col-md-8 book-info">
 						<div className="card-body">
 							<h5 className="card-title">{props.title}</h5>
 							<Link to={"/author/" + props.id_author}>
 								<h5>{props.author}</h5>
 							</Link>
-							<h6>{props.genre}</h6>
-							<div>
-								<h6>{props.format_type}</h6>
+							<h6>Género: {props.genre}</h6>
+							<div className="format-price">
+								<h6>Formato: {props.format_type}</h6>
 								<h6>{props.price} €</h6>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="synopsis">
 				<h6>Sinopsis:</h6>
 				<p className="card-text">{props.synopsis}</p>
 			</div>
