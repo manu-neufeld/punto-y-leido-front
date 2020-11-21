@@ -36,7 +36,7 @@ const Layout = () => {
 						{/* AÑADIREMOS LUEGO :THEID QUE LLEVE AL AUTOR ESPECIFICO */}
 						<Route exact path="/author/:idAuthor">
 							<AuthorDetails />
-                        </Route>
+						</Route>
 						{/* falta añadir la ruta completa */}
 						<Route exact path="/book/:idBook">
 							<BookDetails />

@@ -14,9 +14,9 @@ export const CardBookDetails = props => {
 					<div className="col-md-8">
 						<div className="card-body">
 							<h5 className="card-title">{props.title}</h5>
-							{/* author estará dentro de un link que enlazará con la vista detalle del autor */}
-							{/* <h5>{props.author}</h5> */}
-							<h5>Autor</h5>
+							<Link to={"/author/" + props.id_author}>
+								<h5>{props.author}</h5>
+							</Link>
 							<h6>{props.genre}</h6>
 							<div>
 								<h6>{props.format_type}</h6>
@@ -41,5 +41,6 @@ CardBookDetails.propTypes = {
 	synopsis: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.string
+	price: PropTypes.string,
+	id_author: PropTypes.integer
 };

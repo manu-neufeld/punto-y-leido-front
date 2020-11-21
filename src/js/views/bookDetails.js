@@ -7,24 +7,24 @@ import "../../styles/book-details-view.scss";
 export const BookDetails = () => {
 	const { store, actions } = useContext(Context);
 	let idBook = useParams();
-	let bookIndex = -1;
-	console.log(idBook.idBook);
+	let writtenByIndex = -1;
 	for (let index = 0; index < store.books.length; index++) {
-		if (idBook.idBook == store.books[index].id) {
-			bookIndex = index;
+		if (idBook.idBook == store.written_by[index].id_book) {
+			writtenByIndex = index;
 		}
 	}
-	console.log(store.books);
 	return (
 		<Fragment>
 			<div className="book-details">
 				<CardBookDetails
-					title={store.books[bookIndex].title}
-					genre={store.books[bookIndex].genre}
-					synopsis={store.books[bookIndex].synopsis}
-					image={store.books[bookIndex].image}
-					format_type={store.books[bookIndex].format_type}
-					price={store.books[bookIndex].price}
+					title={store.written_by[writtenByIndex].title}
+					genre={store.written_by[writtenByIndex].genre}
+					synopsis={store.written_by[writtenByIndex].synopsis}
+					image={store.written_by[writtenByIndex].image}
+					format_type={store.written_by[writtenByIndex].format_type}
+					price={store.written_by[writtenByIndex].price}
+					author={store.written_by[writtenByIndex].name}
+					id_author={store.written_by[writtenByIndex].id_author}
 				/>
 			</div>
 			<div className="book-reviews">Aquí van las reseñas</div>
