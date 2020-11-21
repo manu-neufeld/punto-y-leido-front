@@ -8,6 +8,7 @@ export const BookDetails = () => {
 	const { store, actions } = useContext(Context);
 	let idBook = useParams();
 	let writtenByIndex = -1;
+	console.log("Store: ", store.written_by);
 	for (let index = 0; index < store.books.length; index++) {
 		if (idBook.idBook == store.written_by[index].id_book) {
 			writtenByIndex = index;
