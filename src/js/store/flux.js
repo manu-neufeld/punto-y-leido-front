@@ -138,52 +138,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_book: 20
 				}
 			],
-			readers: [
-				{
-					id: 1,
-					is_active: true,
-					usernae: "crduque",
-					email: "cduque@gmail.com",
-					password: "123456",
-					name: "Cristina",
-					description: "Soy una lectora empedernida de fantasía",
-					address: "Madrid",
-					date_of_birth: [1994, 2, 17]
-				},
-				{
-					id: 2,
-					is_active: true,
-					username: "manuneufeld",
-					email: "manuneufeld@gmail.com",
-					password: "123456",
-					name: "Manuela",
-					description: "Me gusta leer novelas históricas",
-					address: "Madrid",
-					date_of_birth: [1993, 8, 19]
-				},
-				{
-					id: 3,
-					is_active: true,
-					username: "jancarlo",
-					email: "jancarlo@gmail.com",
-					password: "123456",
-					name: "Jan Carlo",
-					description: "Seguidor aférrimo de Stephen King",
-					address: "Burgos",
-					date_of_birth: [1992, 11, 18]
-				},
-				{
-					id: 4,
-					is_active: true,
-					username: "alexandrito",
-					email: "alexandrito@gmail.com",
-					password: "123456",
-					name: "Alexander",
-					description: "Marvel power!",
-					address: "Barcelona",
-					date_of_birth: [1991, 3, 25]
-				}
-			],
+			readers: [],
 			shelves: {
 				id_reader: 0,
 				commented: [],
@@ -191,16 +146,67 @@ const getState = ({ getStore, getActions, setStore }) => {
 				favorites: [],
 				pending: [],
 				bought: []
-			}
+			},
+			show: false
 		},
 		actions: {
+			showComponent: () => {
+				if (getStore().show == false) {
+					setStore((getStore().show = true));
+				} else {
+					setStore((getStore().show = false));
+				}
+			},
 			getReaders: () => {
-				return getStore().readers;
+				// fetch metodo get falseado
+				let readersReturned = [
+					{
+						id: 1,
+						is_active: true,
+						usernae: "crduque",
+						email: "cduque@gmail.com",
+						password: "123456",
+						name: "Cristina",
+						description: "Soy una lectora empedernida de fantasía",
+						address: "Madrid"
+					},
+					{
+						id: 2,
+						is_active: true,
+						username: "manuneufeld",
+						email: "manuneufeld@gmail.com",
+						password: "123456",
+						name: "Manuela",
+						description: "Me gusta leer novelas históricas",
+						address: "Madrid"
+					},
+					{
+						id: 3,
+						is_active: true,
+						username: "jancarlo",
+						email: "jancarlo@gmail.com",
+						password: "123456",
+						name: "Jan Carlo",
+						description: "Seguidor aférrimo de Stephen King",
+						address: "Burgos"
+					},
+					{
+						id: 4,
+						is_active: true,
+						username: "alexandrito",
+						email: "alexandrito@gmail.com",
+						password: "123456",
+						name: "Alexander",
+						description: "Marvel power!",
+						address: "Barcelona"
+					}
+				];
+				setStore({ readers: [...getStore().readers, readersReturned].flat() });
 			},
 			addReader: reader => {
-				getActions()
-					.getReaders()
-					.push(reader);
+				// fetch metodo post falseado, reader será el objeto que meteremos en el body del post
+				setStore({ readers: [...getStore().readers, reader] });
+				console.log(getStore().readers);
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

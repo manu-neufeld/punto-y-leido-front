@@ -5,7 +5,7 @@ import "../../styles/register-login-welcome.scss";
 export const RegisterLoginWelcome = () => {
 	return (
 		<div className="register-login-welcome">
-			<ul className="nav nav-tabs" id="pillsRegisterLogin" role="tablist">
+			<ul className="nav nav-tabs pillsRegisterLogin" id="pillsRegisterLogin" role="tablist">
 				<li className="nav-item" role="presentation">
 					<a
 						className="nav-link active"
