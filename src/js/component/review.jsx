@@ -1,14 +1,18 @@
 import "../../styles/reviews-book-details-component.scss";
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import "../../styles/review-component.scss";
 
 export const Review = props => {
 	return (
 		<Fragment>
 			<div className="review-header">
+				{/* <Link to={"profile/" + props.username}> */}
 				<h6>{props.username}</h6>
+				{/* </Link> */}
 				<h6>
-					{props.stars}
+					Puntuación: {props.stars}
 					/5
 				</h6>
 			</div>

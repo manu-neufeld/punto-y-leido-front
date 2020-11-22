@@ -2,15 +2,28 @@
     margin-left: 14rem;
     margin-right: 14rem;
 }
+.book-reviews{
+    margin-top: 2rem;
+    margin-left: 14rem;
+    margin-right: 14rem;
+}
 @media (max-width: 992px) {
-  .book-details {
-      margin-left: 5rem;
-      margin-right: 5rem;
-  }
+    .book-details {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    .book-reviews{
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
 }
 @media (max-width: 450px) {
-  .book-details {
-      margin-left: 2rem;
-      margin-right: 2rem;
-  }
+    .book-details {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .book-reviews{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
 }

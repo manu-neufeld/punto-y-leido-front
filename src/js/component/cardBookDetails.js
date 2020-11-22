@@ -15,7 +15,7 @@ export const CardBookDetails = props => {
 						<div className="card-body">
 							<h5 className="card-title">{props.title}</h5>
 							<Link to={"/author/" + props.id_author}>
-								<h5>{props.author}</h5>
+								<h6>{props.author}</h6>
 							</Link>
 							<h6>Género: {props.genre}</h6>
 							<div className="format-price">

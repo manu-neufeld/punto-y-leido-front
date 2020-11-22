@@ -14,7 +14,7 @@ export const ReviewsBookDetails = () => {
 		const reviews = store.reviews.map((eachReview, index) => {
 			if (idBook.idBook == eachReview.id_book) {
 				return (
-					<div key={index}>
+					<div key={index} className="review">
 						<Review username={eachReview.username} stars={eachReview.stars} review={eachReview.review} />
 					</div>
 				);
