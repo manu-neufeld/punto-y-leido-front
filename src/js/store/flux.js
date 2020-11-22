@@ -147,15 +147,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				pending: [],
 				bought: []
 			},
-			show: false
+			logged: false
 		},
 		actions: {
-			showComponent: () => {
-				if (getStore().show == false) {
-					setStore((getStore().show = true));
-				} else {
-					setStore((getStore().show = false));
-				}
+			setLogged: () => {
+				let isLogged = getStore().logged ? false : true;
+				setStore({ logged: isLogged });
 			},
 			getReaders: () => {
 				// fetch metodo get falseado
@@ -206,7 +203,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addReader: reader => {
 				// fetch metodo post falseado, reader será el objeto que meteremos en el body del post
 				setStore({ readers: [...getStore().readers, reader] });
-				console.log(getStore().readers);
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

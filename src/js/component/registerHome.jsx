@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/register-component.scss";
 // import { Link } from "react-router-dom";
 
 export const RegisterHome = () => {
 	const { store, actions } = useContext(Context);
-	const [open, setOpen] = useState(false);
 
 	const addingReader = () => {
 		let usernameValue = document.querySelector("#username").value;
@@ -28,8 +27,6 @@ export const RegisterHome = () => {
 		if (passwordValue == confirmPasswordValue) {
 			finalPassword = passwordValue;
 			return newReader;
-		} else {
-			setOpen(true);
 		}
 	};
 
@@ -42,6 +39,7 @@ export const RegisterHome = () => {
 					onSubmit={event => {
 						if (addingReader() !== undefined) {
 							actions.addReader(addingReader());
+							actions.setLogged();
 						} else {
 							event.preventDefault();
 							alert("Has escrito mal la contraseña, inténtalo de nuevo.");

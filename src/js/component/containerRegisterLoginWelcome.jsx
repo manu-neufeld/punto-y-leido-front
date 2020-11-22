@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext.js";
 import { RegisterHome } from "../component/registerHome.jsx";
 import "../../styles/register-login-welcome.scss";
 
 export const RegisterLoginWelcome = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="register-login-welcome">
 			<ul className="nav nav-tabs pillsRegisterLogin" id="pillsRegisterLogin" role="tablist">
@@ -27,7 +29,7 @@ export const RegisterLoginWelcome = () => {
 						role="tab"
 						aria-controls="login"
 						aria-selected="false">
-						Log-in
+						Entrar
 					</a>
 				</li>
 			</ul>

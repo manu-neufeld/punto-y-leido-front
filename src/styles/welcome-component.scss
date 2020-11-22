@@ -1,0 +1,12 @@
+.welcome-text {
+    text-align: center;
+    padding-left: 5rem;
+    align-self: center;
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .welcome-text {
+        padding-left: 0;
+        width: 100%;
+    }
+}
