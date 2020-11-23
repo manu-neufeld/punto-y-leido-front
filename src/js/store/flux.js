@@ -1,5 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let url = "https://3000-decf7cf8-c75d-48e3-800c-748818184b17.ws-eu01.gitpod.io/";
+	// let url = "https://3000-decf7cf8-c75d-48e3-800c-748818184b17.ws-eu01.gitpod.io/";
+
 	return {
 		store: {
 			books: [
@@ -367,6 +368,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				];
 				setStore({ reviews: [...getStore().reviews, reviewsReturned].flat() });
+			},
+			addReview: review => {
+				setStore({ reviews: [...getStore().reviews, review] });
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
