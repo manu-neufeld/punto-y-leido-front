@@ -56,6 +56,18 @@ export const ProfileShelves = () => {
 				<li className="nav-item" role="presentation">
 					<a
 						className="nav-link"
+						id="comentados-tab"
+						data-toggle="tab"
+						href="#comentados"
+						role="tab"
+						aria-controls="comentados"
+						aria-selected="true">
+						Comentados
+					</a>
+				</li>
+				<li className="nav-item" role="presentation">
+					<a
+						className="nav-link"
 						id="comprados-tab"
 						data-toggle="tab"
 						href="#comprados"
@@ -78,6 +90,9 @@ export const ProfileShelves = () => {
 				</div>
 				<div className="tab-pane fade" id="leyendo" role="tabpanel" aria-labelledby="leyendo-tab">
 					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL LEYENDO
+				</div>
+				<div className="tab-pane fade" id="comentados" role="tabpanel" aria-labelledby="comentados-tab">
+					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL COMENTADOS
 				</div>
 				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
 					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL COMPRADOS
