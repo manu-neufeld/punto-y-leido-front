@@ -1,0 +1,31 @@
+.container-card{
+    margin-left: 10rem;
+    margin-right: 10rem;
+    border: none;
+    img{
+        max-width: 13rem;
+        margin: 2rem;
+    }
+}
+@media (max-width: 992px) {
+  .container-card {
+      margin-left: 5rem;
+      margin-right: 5rem;
+  }
+}
+@media (max-width: 768px) {
+    h5 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.80rem;
+    }
+}
+ 
+@media (max-width: 450px) {
+  .container-card {
+      margin-left: 2rem;
+      margin-right: 2rem;
+  }
+
+}

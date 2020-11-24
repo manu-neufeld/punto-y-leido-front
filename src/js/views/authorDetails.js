@@ -4,6 +4,7 @@ import { AuthorDetail } from "../component/cardAuthorDetail.jsx";
 import { LittleBookCover } from "../component/littleBookCover.jsx";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/authorDetail.scss";
 
 export const AuthorDetails = () => {
 	const { store } = useContext(Context);
@@ -17,7 +18,7 @@ export const AuthorDetails = () => {
 	if (store.author.length != 0) {
 		return (
 			<Fragment>
-				<div>
+				<div className="container-card">
 					<AuthorDetail
 						img={store.author[authorIndex].image}
 						name={store.author[authorIndex].name}
