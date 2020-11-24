@@ -76,38 +76,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					price: 12.95
 				}
 			],
-			authors: [
-				{
-					id: 1,
-					name: "Jane Austen",
-					biography:
-						"Jane Austen (Steventon, 16 de diciembre de 1775-Winchester, 18 de julio de 1817) fue una novelista británica que vivió durante la época georgiana. La ironía que emplea para dotar de comicidad a sus novelas hace que Jane Austen sea considerada entre los clásicos de la novela inglesa, a la vez que su recepción va, incluso en la actualidad, más allá del interés académico, siendo sus obras leídas por un público más amplio.",
-					image:
-						"data:image/jpeg;base64,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"
-				},
-				{
-					id: 8,
-					name: "Eduardo Galeano",
-					biography:
-						"Eduardo Germán María Hughes Galeano (Montevideo, Uruguay; 3 de septiembre de 1940-ibidem, 13 de abril de 2015)1​ fue un periodista y escritor uruguayo, considerado uno de los escritores más influyentes de la izquierda latinoamericana. Sus libros más conocidos, Las venas abiertas de América Latina (1971) y Memoria del fuego (1986), han sido traducidos a veinte idiomas. Sus trabajos trascienden géneros ortodoxos y combinan documental, ficción, periodismo, análisis político e historia.",
-					image:
-						"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Eduardo_Galeano_ltk_%28cropped%29.jpg/330px-Eduardo_Galeano_ltk_%28cropped%29.jpg"
-				},
-				{
-					id: 13,
-					name: "Santiago Posteguillo",
-					biography:
-						"Santiago Posteguillo nació en Valencia, España, en 1967. Estudió Literatura Creativa en la Universidad de Denison, en Granville (Ohio), Estados Unidos y lingüística y traducción en Gran Bretaña. Es profesor titular de Lengua y Literatura Inglesa en la Universitat Jaume I en Castellón. Fue director del Instituto Interuniversitario de Filología Valenciana.",
-					image: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Santiago_Posteguillo.jpg"
-				},
-				{
-					id: 15,
-					name: "Brandon Sanderson",
-					biography:
-						"Brandon Sanderson es un escritor nacido en Nebraska, Estados Unidos, el 19 de diciembre de 1975. Es un conocido escritor de literatura fantástica, cuyas obras le han llevado a ser nominado dos veces al Premio John W. Campbell. Parte de su éxito llega por haberse hecho cargo del libro final de una saga ajena, La rueda del tiempo. Este hecho ocurrió justo después de la muerte de Robert Jordan, autor original de los libros anteriores, ante lo cual su propia mujer (Harriet McDougal) escogió a Sanderson como escritor del final de la saga de su difunto marido. Harriet le escogió tras quedar sorprendida por la calidad de los libros de este autor.",
-					image: "https://momoko.es/images/author-avatar/sanderson-bio_thumbnail_1_563px_741px.jpg"
-				}
-			],
 			written_by: [
 				{
 					id_author: 13,
@@ -138,38 +106,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_book: 20
 				}
 			],
-			shelves: {
-				id_reader: 0,
-				commented: [],
-				readed: [],
-				favorites: [],
-				pending: [],
-				bought: []
-			}
+			author: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			getAllAuthorInfo: () => {
+				fetch("https://3000-b0101060-a89b-4be7-9cb3-3274cc16ab32.ws-eu01.gitpod.io/authors/")
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonApiResponse => {
+						setStore({ author: jsonApiResponse });
+						console.log("data ,", getStore().author);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
 			}
 		}
 	};
