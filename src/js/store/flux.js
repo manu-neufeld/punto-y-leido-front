@@ -201,7 +201,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id_reader: 1,
 					id_book: 12,
-					name: "readed",
+					name: "Leídos",
 					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
 					title: "Orgullo y prejuicio",
 					format_type: "Ilustrado"
@@ -209,7 +209,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id_reader: 1,
 					id_book: 18,
-					name: "readed",
+					name: "Leídos",
 					image:
 						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
 					title: "El imperio final (Nacidos de la bruma I)",
@@ -218,7 +218,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id_reader: 2,
 					id_book: 12,
-					name: "readed",
+					name: "Leídos",
+					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
+					title: "Orgullo y prejuicio",
+					format_type: "Ilustrado"
+				},
+				{
+					id_reader: 1,
+					id_book: 18,
+					name: "Leídos",
+					image:
+						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
+					title: "El imperio final (Nacidos de la bruma I)",
+					format_type: "Tapa dura"
+				},
+				{
+					id_reader: 2,
+					id_book: 12,
+					name: "Favoritos",
 					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
 					title: "Orgullo y prejuicio",
 					format_type: "Ilustrado"
@@ -226,7 +243,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id_reader: 2,
 					id_book: 18,
-					name: "readed",
+					name: "Favoritos",
+					image:
+						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
+					title: "El imperio final (Nacidos de la bruma I)",
+					format_type: "Tapa dura"
+				},
+				{
+					id_reader: 1,
+					id_book: 12,
+					name: "Pendientes",
+					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
+					title: "Orgullo y prejuicio",
+					format_type: "Ilustrado"
+				},
+				{
+					id_reader: 1,
+					id_book: 18,
+					name: "Pendientes",
 					image:
 						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
 					title: "El imperio final (Nacidos de la bruma I)",

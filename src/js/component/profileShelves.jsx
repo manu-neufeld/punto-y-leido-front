@@ -1,5 +1,9 @@
 import React, { Fragment } from "react";
 import { LeidosShelf } from "./leidosShelf.jsx";
+import { FavoritosShelf } from "./favoritosShelf.jsx";
+import { PendientesShelf } from "./pendientesShelf.jsx";
+import { ComentadosShelf } from "./comentadosShelf.jsx";
+import { CompradosShelf } from "./compradosShelf.jsx";
 
 export const ProfileShelves = () => {
 	return (
@@ -44,18 +48,6 @@ export const ProfileShelves = () => {
 				<li className="nav-item" role="presentation">
 					<a
 						className="nav-link"
-						id="leyendo-tab"
-						data-toggle="tab"
-						href="#leyendo"
-						role="tab"
-						aria-controls="leyendo"
-						aria-selected="false">
-						Leyendo
-					</a>
-				</li>
-				<li className="nav-item" role="presentation">
-					<a
-						className="nav-link"
 						id="comentados-tab"
 						data-toggle="tab"
 						href="#comentados"
@@ -83,19 +75,16 @@ export const ProfileShelves = () => {
 					<LeidosShelf />
 				</div>
 				<div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL FAVORITOS
+					<FavoritosShelf />
 				</div>
 				<div className="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL PENDIENTES
-				</div>
-				<div className="tab-pane fade" id="leyendo" role="tabpanel" aria-labelledby="leyendo-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL LEYENDO
+					<PendientesShelf />
 				</div>
 				<div className="tab-pane fade" id="comentados" role="tabpanel" aria-labelledby="comentados-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL COMENTADOS
+					<ComentadosShelf />
 				</div>
 				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL COMPRADOS
+					<CompradosShelf />
 				</div>
 			</div>
 		</Fragment>
