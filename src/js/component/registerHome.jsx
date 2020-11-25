@@ -13,15 +13,9 @@ export const RegisterHome = () => {
 		let confirmPasswordValue = document.querySelector("#confirmPassword").value;
 		let finalPassword = null;
 		let newReader = {
-			id: 0,
-			is_active: true,
 			username: usernameValue,
 			email: emailValue,
-			password: finalPassword,
-			name: "",
-			description: "",
-			address: "",
-			date_of_birth: []
+			password: finalPassword
 		};
 
 		if (passwordValue == confirmPasswordValue) {
