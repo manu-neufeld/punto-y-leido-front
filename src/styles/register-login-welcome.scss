@@ -1,0 +1,16 @@
+.register-login-welcome {
+    width: 50%;
+    .pillsRegisterLogin{
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-login-welcome {
+        width: 100%;
+        input{
+            font-size: 0.8rem;
+        }
+    }
+}

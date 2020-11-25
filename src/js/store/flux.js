@@ -138,52 +138,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_book: 20
 				}
 			],
-			readers: [
-				{
-					id: 1,
-					is_active: true,
-					username: "crduque",
-					email: "cduque@gmail.com",
-					password: "123456",
-					name: "Cristina",
-					description: "Soy una lectora empedernida de fantasía",
-					address: "Madrid",
-					date_of_birth: [1994, 2, 17]
-				},
-				{
-					id: 2,
-					is_active: true,
-					username: "manuneufeld",
-					email: "manuneufeld@gmail.com",
-					password: "123456",
-					name: "Manuela",
-					description: "Me gusta leer novelas históricas",
-					address: "Madrid",
-					date_of_birth: [1993, 8, 19]
-				},
-				{
-					id: 3,
-					is_active: true,
-					username: "jancarlo",
-					email: "jancarlo@gmail.com",
-					password: "123456",
-					name: "Jan Carlo",
-					description: "Seguidor aférrimo de Stephen King",
-					address: "Burgos",
-					date_of_birth: [1992, 11, 18]
-				},
-				{
-					id: 4,
-					is_active: true,
-					username: "alexandrito",
-					email: "alexandrito@gmail.com",
-					password: "123456",
-					name: "Alexander",
-					description: "Marvel power!",
-					address: "Barcelona",
-					date_of_birth: [1991, 3, 25]
-				}
-			],
 			shelves: [
 				{
 					id_reader: 1,
@@ -233,9 +187,62 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "El imperio final (Nacidos de la bruma I)",
 					format_type: "Tapa dura"
 				}
-			]
+			],
+			readers: [],
+			shelves: {
+				id_reader: 0,
+				commented: [],
+				readed: [],
+				favorites: [],
+				pending: [],
+				bought: []
+			},
+			logged: false
 		},
 		actions: {
+			setLogged: () => {
+				let isLogged = getStore().logged ? false : true;
+				setStore({ logged: isLogged });
+			},
+			getReaders: () => {
+				fetch("https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/readers")
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(jsonReaders => {
+						setStore({ readers: jsonReaders });
+					})
+					.catch(error => {
+						console.log("Error status: ", error);
+					});
+			},
+			addReader: reader => {
+				fetch("https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/register", {
+					method: "POST",
+					body: JSON.stringify(reader),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getReaders();
+						console.log("Success: Contact created");
+					})
+					.catch(error => {
+						console.log("Creating contact, error status: ", error);
+					});
+
+				// setStore({ readers: [...getStore().readers, reader] });
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
