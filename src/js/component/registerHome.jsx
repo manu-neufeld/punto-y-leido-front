@@ -19,7 +19,7 @@ export const RegisterHome = () => {
 		};
 
 		if (passwordValue == confirmPasswordValue) {
-			finalPassword = passwordValue;
+			newReader.password = passwordValue;
 			return newReader;
 		}
 	};
@@ -32,6 +32,7 @@ export const RegisterHome = () => {
 				<form
 					onSubmit={event => {
 						if (addingReader() !== undefined) {
+							event.preventDefault();
 							actions.addReader(addingReader());
 							actions.setLogged();
 						} else {
