@@ -1,0 +1,34 @@
+import React, { Fragment, useContext } from "react";
+import "../../styles/home.scss";
+import { AuthorDetail } from "../component/cardAuthorDetail.jsx";
+import { LittleBookCover } from "../component/littleBookCover.jsx";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+import "../../styles/authorDetail.scss";
+
+export const AuthorDetails = () => {
+	const { store } = useContext(Context);
+	let idAuthor = useParams();
+	let authorIndex = -1;
+	for (let index = 0; index < store.author.length; index++) {
+		if (idAuthor.idAuthor == store.author[index].id) {
+			authorIndex = index;
+		}
+	}
+	if (store.author.length != 0) {
+		return (
+			<Fragment>
+				<div className="container-card">
+					<AuthorDetail
+						img={store.author[authorIndex].image}
+						name={store.author[authorIndex].name}
+						biography={store.author[authorIndex].biography}
+					/>
+				</div>
+				<div>
+					<LittleBookCover />
+				</div>
+			</Fragment>
+		);
+	} else return "Estamos buscando el autor!";
+};

@@ -1,15 +1,20 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { Fragment, useContext } from "react";
+import { Context } from "../store/appContext.js";
 import "../../styles/home.scss";
+import { AboutUsHome } from "../component/aboutUsHome.jsx";
+import { RegisterLoginWelcome } from "../component/containerRegisterLoginWelcome.jsx";
+import { WelcomeHome } from "../component/welcomeHome.jsx";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+	return (
+		<Fragment>
+			<div className="home-header">
+				<AboutUsHome />
+				{store.logged ? <WelcomeHome /> : <RegisterLoginWelcome />}
+			</div>
+			<div>{/* Más vendidos random */}</div>
+			<div>{/* Autores random */}</div>
+		</Fragment>
+	);
+};
