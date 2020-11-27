@@ -25,6 +25,7 @@ const injectContext = PassedComponent => {
 			state.actions.getReaders();
 			state.actions.getWrittenBy();
 			state.actions.getReviews();
+			state.actions.getAllAuthorInfo();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
