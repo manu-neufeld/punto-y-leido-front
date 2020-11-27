@@ -118,14 +118,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			readers: [],
-			logged: false,
-			reviews: []
+			reviews: [],
+			logged: false
 		},
 		actions: {
-			// setLogged: () => {
-			// 	let isLogged = getStore().logged ? false : true;
-			// 	setStore({ logged: isLogged });
-			// },
+			setLogged: () => {
+				setStore((getStore().logged = !getStore().logged));
+			},
+			getToken: reader => {
+				fetch(url + "login", {
+					method: "POST",
+					body: JSON.stringify(reader),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(response => {
+						localStorage.setItem("x-access-tokens", response[0].token);
+					})
+					.catch(error => {
+						console.log("Creating contact, error status: ", error);
+					});
+			},
 			getReaders: () => {
 				fetch(url + "readers")
 					.then(response => {
