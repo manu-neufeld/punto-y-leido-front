@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let url = "https://3000-decf7cf8-c75d-48e3-800c-748818184b17.ws-eu01.gitpod.io/";
+	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/";
 	return {
 		store: {
 			books: [
@@ -311,7 +311,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ written_by: [...getStore().written_by, infoReturned].flat() });
 			},
 			getReviews: () => {
-				fetch("https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/reviews")
+				fetch(url + "reviews")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
