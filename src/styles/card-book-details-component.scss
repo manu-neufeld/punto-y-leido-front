@@ -1,0 +1,59 @@
+a {
+    color: black;
+}
+.card {
+    border: none;
+    margin-bottom: 3rem;
+}
+.book-image {
+    max-width: 12rem;
+}
+.book-info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+}
+.card-body {
+    height: fit-content;
+}
+.format-price{
+    h6:last-child {
+            font-size: 1.25rem;
+        }
+}
+
+@media (max-width: 768px) {
+    .row {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .card-body {
+        text-align: center;
+        padding: 0;
+    }
+    .card {
+        margin-bottom: 0;
+    }
+    .book-image {
+        max-width: 10rem;
+    }
+    .format-price {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1rem;
+        h6:last-child {
+            font-size: 1rem;
+        }
+    }
+    h5 {
+        font-size: 1rem;
+    }
+    h6 {
+        font-size: 0.80rem;
+    }
+    p {
+        font-size: 0.80rem;
+    }
+}
