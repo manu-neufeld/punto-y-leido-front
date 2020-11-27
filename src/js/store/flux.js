@@ -161,8 +161,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			readers: [],
-            logged: false,
-            reviews: []
+			logged: false,
+			reviews: []
 		},
 		actions: {
 			// setLogged: () => {
@@ -170,8 +170,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	setStore({ logged: isLogged });
 			// },
 			getReaders: () => {
-				fetch(url+"readers")
-		    },
+				fetch(url + "readers")
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(jsonReaders => {
+						setStore({ readers: jsonReaders });
+					})
+					.catch(error => {
+						console.log("Error status: ", error);
+					});
+			},
 			getWrittenBy: () => {
 				let infoReturned = [
 					{
@@ -289,7 +301,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			addReader: reader => {
-				fetch(url+"register", {
+				fetch(url + "register", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
