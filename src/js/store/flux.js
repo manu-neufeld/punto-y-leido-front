@@ -145,16 +145,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date_of_birth: [1992, 11, 18]
 				}
 			],
-			idReaderShelfBook: [],
+			idReaderShelfLeidoBook: [],
+			idReaderShelfFavoritosBook: [],
+			idReaderShelfPendientesBook: [],
+			idReaderShelfComentadosBook: [],
+			idReaderShelfCompradosBook: [],
 			readers: [],
 			logged: false,
 			reviews: []
 		},
 		actions: {
-			// setLogged: () => {
-			// 	let isLogged = getStore().logged ? false : true;
-			// 	setStore({ logged: isLogged });
-			// },
 			getReaders: () => {
 				fetch(url_back_manu + "readers")
 					.then(response => {
@@ -205,14 +205,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Error", error);
 					});
 			},
-			getBooksByShelfAndReader: () => {
-				fetch("https://3000-b0101060-a89b-4be7-9cb3-3274cc16ab32.ws-eu01.gitpod.io/")
+			getBooksReadedByShelfAndReader: readerId => {
+				console.log("reader id, ", readerId);
+
+				fetch(url_back_manu + readerId + "/leidos/books")
 					.then(response => {
 						return response.json();
 					})
 					.then(bookShelfJson => {
-						setStore({ idReaderShelfBook: bookShelfJson });
-						console.log("books data, ", getStore().idReaderShelfBook);
+						setStore({ idReaderShelfLeidoBook: bookShelfJson });
+						console.log("books leidos, ", getStore().idReaderShelfLeidoBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksFavoritesByShelfAndReader: () => {
+				fetch(url_back_manu + "1/favoritos/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfFavoritosBook: bookShelfJson });
+						console.log("books data, ", getStore().idReaderShelfFavoritosBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksPendingByShelfAndReader: () => {
+				fetch(url_back_manu + "1/pendientes/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfPendientesBook: bookShelfJson });
+						console.log("books data, ", getStore().idReaderShelfPendientesBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksComentedByShelfAndReader: () => {
+				fetch(url_back_manu + "1/comentados/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfComentadosBook: bookShelfJson });
+						console.log("books data, ", getStore().idReaderShelfComentadosBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksBuyiedByShelfAndReader: () => {
+				fetch(url_back_manu + "1/comprados/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfCompradosBook: bookShelfJson });
+						console.log("books data, ", getStore().idReaderShelfCompradosBook);
 					})
 					.catch(error => {
 						console.error("Error", error);

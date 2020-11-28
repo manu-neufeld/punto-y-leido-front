@@ -3,13 +3,12 @@ import { Context } from "../store/appContext";
 import { LittleBookCover } from "./littleBookCover.jsx";
 import { useParams } from "react-router-dom";
 
-export const LeidosShelf = props => {
+export const LeidosShelf = () => {
 	const { store } = useContext(Context);
-
-	let readerId = useParams();
-
-	const cards = store.idReaderShelfBook.map((shelfIndex, index) => {
-		if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Leídos") {
+	let params = useParams();
+	console.log("Reader is: " + readerId);
+	const cards = store.idReaderShelfLeidoBook.map((shelfIndex, index) => {
+		if (params.readerId == shelfIndex.id_reader) {
 			return (
 				<LittleBookCover
 					key={index}
@@ -20,6 +19,5 @@ export const LeidosShelf = props => {
 			);
 		}
 	});
-
 	return cards;
 };

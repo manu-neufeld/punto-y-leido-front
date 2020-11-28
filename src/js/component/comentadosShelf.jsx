@@ -8,17 +8,17 @@ export const ComentadosShelf = props => {
 
 	let readerId = useParams();
 
-	const cards = store.idReaderShelfBook.map((shelfIndex, index) => {
-		if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Comentados") {
-			return (
-				<LittleBookCover
-					key={index}
-					img={shelfIndex.image}
-					name={shelfIndex.title}
-					subName={shelfIndex.format_type}
-				/>
-			);
-		}
+	const cards = store.idReaderShelfComentadosBook.map((shelfIndex, index) => {
+		// if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Comentados") {
+		return (
+			<LittleBookCover
+				key={index}
+				img={shelfIndex.image}
+				name={shelfIndex.title}
+				subName={shelfIndex.format_type}
+			/>
+		);
+		// }
 	});
 
 	return cards;
