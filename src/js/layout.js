@@ -36,11 +36,11 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-
+						{/* DESPUÉS AÑADIMOS :THEID PARA QUE VARÍE EL PERFIL QUE SE MUESTRA */}
 						<Route exact path="/profile/:readerId">
 							<Profile />
 						</Route>
-
+						{/* AÑADIREMOS LUEGO :THEID QUE LLEVE AL AUTOR ESPECIFICO */}
 						<Route exact path="/author/:idAuthor">
 							<AuthorDetails />
 						</Route>

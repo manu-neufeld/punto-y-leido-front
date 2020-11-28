@@ -1,4 +1,9 @@
 import React, { Fragment } from "react";
+import { LeidosShelf } from "./leidosShelf.jsx";
+import { FavoritosShelf } from "./favoritosShelf.jsx";
+import { PendientesShelf } from "./pendientesShelf.jsx";
+import { ComentadosShelf } from "./comentadosShelf.jsx";
+import { CompradosShelf } from "./compradosShelf.jsx";
 
 export const ProfileShelves = () => {
 	return (
@@ -43,13 +48,13 @@ export const ProfileShelves = () => {
 				<li className="nav-item" role="presentation">
 					<a
 						className="nav-link"
-						id="leyendo-tab"
+						id="comentados-tab"
 						data-toggle="tab"
-						href="#leyendo"
+						href="#comentados"
 						role="tab"
-						aria-controls="leyendo"
-						aria-selected="false">
-						Leyendo
+						aria-controls="comentados"
+						aria-selected="true">
+						Comentados
 					</a>
 				</li>
 				<li className="nav-item" role="presentation">
@@ -67,19 +72,19 @@ export const ProfileShelves = () => {
 			</ul>
 			<div className="tab-content" id="myTabContent">
 				<div className="tab-pane fade show active" id="leidos" role="tabpanel" aria-labelledby="leidos-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL LEIDOS
+					<LeidosShelf />
 				</div>
 				<div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL FAVORITOS
+					<FavoritosShelf />
 				</div>
 				<div className="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL PENDIENTES
+					<PendientesShelf />
 				</div>
-				<div className="tab-pane fade" id="leyendo" role="tabpanel" aria-labelledby="leyendo-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL LEYENDO
+				<div className="tab-pane fade" id="comentados" role="tabpanel" aria-labelledby="comentados-tab">
+					<ComentadosShelf />
 				</div>
 				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
-					AQUI METEREMOS EL COMPONENTE QUE CORRESPONDA PARA LA PILL COMPRADOS
+					<CompradosShelf />
 				</div>
 			</div>
 		</Fragment>
