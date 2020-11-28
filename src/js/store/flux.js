@@ -206,8 +206,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getBooksReadedByShelfAndReader: readerId => {
-				console.log("reader id, ", readerId);
-
 				fetch(url_back_manu + readerId + "/leidos/books")
 					.then(response => {
 						return response.json();
@@ -220,8 +218,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Error", error);
 					});
 			},
-			getBooksFavoritesByShelfAndReader: () => {
-				fetch(url_back_manu + "1/favoritos/books")
+			getBooksFavoritesByShelfAndReader: readerId => {
+				fetch(url_back_manu + readerId + "/favoritos/books")
 					.then(response => {
 						return response.json();
 					})
@@ -233,8 +231,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Error", error);
 					});
 			},
-			getBooksPendingByShelfAndReader: () => {
-				fetch(url_back_manu + "1/pendientes/books")
+			getBooksPendingByShelfAndReader: readerId => {
+				fetch(url_back_manu + readerId + "/pendientes/books")
 					.then(response => {
 						return response.json();
 					})
@@ -246,8 +244,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Error", error);
 					});
 			},
-			getBooksComentedByShelfAndReader: () => {
-				fetch(url_back_manu + "1/comentados/books")
+			getBooksComentedByShelfAndReader: readerId => {
+				fetch(url_back_manu + readerId + "/comentados/books")
 					.then(response => {
 						return response.json();
 					})
@@ -259,8 +257,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Error", error);
 					});
 			},
-			getBooksBuyiedByShelfAndReader: () => {
-				fetch(url_back_manu + "1/comprados/books")
+			getBooksBuyiedByShelfAndReader: readerId => {
+				fetch(url_back_manu + readerId + "/comprados/books")
 					.then(response => {
 						return response.json();
 					})

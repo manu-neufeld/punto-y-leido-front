@@ -1,17 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { ProfileShelves } from "../component/profileShelves.jsx";
+import { useParams } from "react-router-dom";
 
 export const Profile = () => {
-
+	const { actions } = useContext(Context);
 	let params = useParams();
 
-    useEffect(() => {
-        state.actions.getBooksReadedByShelfAndReader(params.readerId);
-        state.actions.getBooksFavoritesByShelfAndReader();
-        state.actions.getBooksPendingByShelfAndReader();
-        state.actions.getBooksComentedByShelfAndReader();
-        state.actions.getBooksBuyiedByShelfAndReader();
-    }, []);
+	useEffect(() => {
+		actions.getBooksReadedByShelfAndReader(params.readerId);
+		actions.getBooksFavoritesByShelfAndReader(params.readerId);
+		actions.getBooksPendingByShelfAndReader(params.readerId);
+		actions.getBooksComentedByShelfAndReader(params.readerId);
+		actions.getBooksBuyiedByShelfAndReader(params.readerId);
+	}, []);
 
 	return (
 		<Fragment>

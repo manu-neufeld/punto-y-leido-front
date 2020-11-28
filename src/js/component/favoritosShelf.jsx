@@ -3,10 +3,10 @@ import { Context } from "../store/appContext";
 import { LittleBookCover } from "./littleBookCover.jsx";
 import { useParams } from "react-router-dom";
 
-export const FavoritosShelf = props => {
+export const FavoritosShelf = () => {
 	const { store } = useContext(Context);
 
-	let readerId = useParams();
+	let params = useParams();
 
 	const cards = store.idReaderShelfFavoritosBook.map((shelfIndex, index) => {
 		// if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Favoritos") {
