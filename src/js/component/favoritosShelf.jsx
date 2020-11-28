@@ -8,7 +8,7 @@ export const FavoritosShelf = props => {
 
 	let readerId = useParams();
 
-	const cards = store.queryShelfBook.map((shelfIndex, index) => {
+	const cards = store.idReaderShelfBook.map((shelfIndex, index) => {
 		if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Favoritos") {
 			return (
 				<LittleBookCover

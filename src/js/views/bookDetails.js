@@ -1,7 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CardBookDetails } from "../component/cardBookDetails.js";
-import { ReviewsBookDetails } from "../component/reviewsBookDetails.jsx";
 import { Context } from "../store/appContext";
 import "../../styles/book-details-view.scss";
 
@@ -33,7 +32,6 @@ export const BookDetails = () => {
 				</div>
 				<div className="book-reviews">
 					<h5>Reseñas</h5>
-					<ReviewsBookDetails />
 				</div>
 			</Fragment>
 		);
