@@ -13,8 +13,6 @@ export const Home = () => {
 				<AboutUsHome />
 				{store.logged ? <WelcomeHome /> : <RegisterLoginWelcome />}
 			</div>
-			<div>{/* Más vendidos random */}</div>
-			<div>{/* Autores random */}</div>
 		</Fragment>
 	);
 };
