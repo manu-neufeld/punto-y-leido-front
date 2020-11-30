@@ -1,6 +1,14 @@
 .about-us-home {
     width: 50%;
     padding-right: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    .logo-header {
+        max-width: 80%;
+        align-self: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
 @media (max-width: 768px) {
     .about-us-home {
