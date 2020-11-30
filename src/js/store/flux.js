@@ -225,7 +225,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(bookShelfJson => {
 						setStore({ idReaderShelfFavoritosBook: bookShelfJson });
-						console.log("books data, ", getStore().idReaderShelfFavoritosBook);
+						console.log("books fav, ", getStore().idReaderShelfFavoritosBook);
 					})
 					.catch(error => {
 						console.error("Error", error);
@@ -238,7 +238,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(bookShelfJson => {
 						setStore({ idReaderShelfPendientesBook: bookShelfJson });
-						console.log("books data, ", getStore().idReaderShelfPendientesBook);
+						console.log("books pendiente, ", getStore().idReaderShelfPendientesBook);
 					})
 					.catch(error => {
 						console.error("Error", error);
@@ -251,7 +251,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(bookShelfJson => {
 						setStore({ idReaderShelfComentadosBook: bookShelfJson });
-						console.log("books data, ", getStore().idReaderShelfComentadosBook);
+						console.log("books comentados, ", getStore().idReaderShelfComentadosBook);
 					})
 					.catch(error => {
 						console.error("Error", error);
@@ -264,7 +264,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(bookShelfJson => {
 						setStore({ idReaderShelfCompradosBook: bookShelfJson });
-						console.log("books data, ", getStore().idReaderShelfCompradosBook);
+						console.log("books comprado, ", getStore().idReaderShelfCompradosBook);
 					})
 					.catch(error => {
 						console.error("Error", error);

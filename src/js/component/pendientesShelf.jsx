@@ -6,10 +6,7 @@ import { useParams } from "react-router-dom";
 export const PendientesShelf = () => {
 	const { store } = useContext(Context);
 
-	let params = useParams();
-
 	const cards = store.idReaderShelfPendientesBook.map((shelfIndex, index) => {
-		// if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Pendientes") {
 		return (
 			<LittleBookCover
 				key={index}
@@ -18,7 +15,6 @@ export const PendientesShelf = () => {
 				subName={shelfIndex.format_type}
 			/>
 		);
-		// }
 	});
 
 	return cards;

@@ -74,7 +74,7 @@ export const ProfileShelves = () => {
 				<div className="tab-pane fade show active" id="leidos" role="tabpanel" aria-labelledby="leidos-tab">
 					<LeidosShelf />
 				</div>
-				{/* <div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
+				<div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
 					<FavoritosShelf />
 				</div>
 				<div className="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">
@@ -85,7 +85,7 @@ export const ProfileShelves = () => {
 				</div>
 				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
 					<CompradosShelf />
-				</div> */}
+				</div>
 			</div>
 		</Fragment>
 	);
