@@ -1,3 +1,26 @@
 .logo-navbar {
     max-height: 4rem;
 }
+.navbar {
+    a{
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    } 
+    p {
+        margin: 0;
+    }
+}
+@media (max-width: 768px) {
+    .logo-navbar {
+    max-height: 3rem;
+    }
+    .navbar {
+        a{
+            margin-left: 1rem;
+            margin-right: 1rem;
+        } 
+        p {
+            margin: 0;
+        }
+    }
+}

@@ -4,7 +4,7 @@
     display: flex;
     flex-flow: column nowrap;
     .logo-header {
-        max-width: 80%;
+        max-width: 60%;
         align-self: center;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -14,5 +14,8 @@
     .about-us-home {
         width: 100%;
         padding-right: 0;
+        .logo-header {
+            max-width: 80%;
+        }
     }
 }

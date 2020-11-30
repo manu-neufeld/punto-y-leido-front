@@ -119,7 +119,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			readers: [],
 			logged: false,
-			reviews: []
+			reviews: [],
+			loggedUser: null
 		},
 		actions: {
 			// setLogged: () => {
