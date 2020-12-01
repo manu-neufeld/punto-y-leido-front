@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { Context } from "../store/appContext.js";
 import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
-import "../../styles/navbar.scss";
+// import "../../styles/navbar.scss";
 
 export const NavbarMobile = () => {
 	const { store, actions } = useContext(Context);
@@ -41,7 +41,7 @@ export const NavbarMobile = () => {
 			</nav>
 			<nav className="navbar navbar-expand bg-light">
 				<p>Searchbar</p>
-				<p>Icono carrito</p>
+				<Link to="/shopping-cart">Carrito</Link>
 			</nav>
 		</Fragment>
 	);

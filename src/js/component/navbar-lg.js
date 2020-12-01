@@ -1,32 +1,33 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
+import { Context } from "../store/appContext.js";
 import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-expand bg-light">
 			<Link to="/">
 				<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
 			</Link>
-			<div className="nav" id="navbarNavAltMarkup">
-				<div className="navbar-nav">
-					<Link to="/books">
-						<p className="nav-item">Libros</p>
-					</Link>
-					<Link to="/genres">
-						<p className="nav-item">Géneros</p>
-					</Link>
-					<Link to="/authors">
-						<p className="nav-item">Autores</p>
-					</Link>
-				</div>
-			</div>
-			{/* <div className="">
+
+			<div className="navbar-nav nav sites" id="navbarNavAltMarkup">
 				<Link to="/books">
-					<button className="btn btn-primary">Check the Context in action</button>
+					<p className="nav-item">Libros</p>
 				</Link>
-			</div> */}
+				<Link to="/genres">
+					<p className="nav-item">Géneros</p>
+				</Link>
+				<Link to="/authors">
+					<p className="nav-item">Autores</p>
+				</Link>
+			</div>
+			<div className="tools">
+				<span> Search-baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar </span>
+				<Link to={"/profile/" + store.loggedUser}>Perfil</Link>
+				<Link to="/shopping-cart">Carrito</Link>
+			</div>
 		</nav>
 	);
 };

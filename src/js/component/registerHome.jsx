@@ -8,8 +8,8 @@ export const RegisterHome = () => {
 
 	const addingReader = () => {
 		let usernameValue = document.querySelector("#username").value;
-		let emailValue = document.querySelector("#email").value;
-		let passwordValue = document.querySelector("#password").value;
+		let emailValue = document.querySelector("#emailRegister").value;
+		let passwordValue = document.querySelector("#passwordRegister").value;
 		let confirmPasswordValue = document.querySelector("#confirmPassword").value;
 		let finalPassword = null;
 		let newReader = {
@@ -55,7 +55,7 @@ export const RegisterHome = () => {
 							type="email"
 							className="form-control"
 							placeholder="Enter email"
-							id="email"
+							id="emailRegister"
 							value={null}
 						/>
 					</div>
@@ -65,7 +65,7 @@ export const RegisterHome = () => {
 							type="password"
 							className="form-control"
 							placeholder="Enter password"
-							id="password"
+							id="passwordRegister"
 							value={null}
 						/>
 					</div>

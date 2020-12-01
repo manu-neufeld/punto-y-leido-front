@@ -148,7 +148,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(response => {
-						localStorage.setItem("x-access-tokens", response[0].token);
+						localStorage.setItem("x-access-tokens", response.token);
 					})
 					.catch(error => {
 						console.log("Creating contact, error status: ", error);

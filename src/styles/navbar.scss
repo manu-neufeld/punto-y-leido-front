@@ -2,6 +2,8 @@
     max-height: 4rem;
 }
 .navbar {
+    display: flex;
+    justify-content: space-around;
     a{
         margin-left: 2.5rem;
         margin-right: 2.5rem;
