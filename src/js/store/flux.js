@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/";
 	return {
@@ -123,10 +125,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loggedUser: null
 		},
 		actions: {
-			setLogged: () => {
-				setStore((getStore().logged = !getStore().logged));
+			decodeToken: () => {
+				let token = localStorage.getItem("x-access-tokens");
+				const decoded = jwt_decode(token);
+				getActions().setLoggedUser(decoded.id);
 			},
-			getToken: reader => {
+			setLoggedUser: id => {
+				setStore((getStore().loggedUser = id));
+			},
+			getTokenLogin: reader => {
 				fetch(url + "login", {
 					method: "POST",
 					body: JSON.stringify(reader),
@@ -309,7 +316,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonApiResponse => {
 						setStore({ author: jsonApiResponse });
-						console.log("data ,", getStore().author);
 					})
 					.catch(error => {
 						console.error("Error", error);

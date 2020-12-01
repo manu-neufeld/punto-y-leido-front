@@ -11,7 +11,7 @@ export const Home = () => {
 		<Fragment>
 			<div className="home-header">
 				<AboutUsHome />
-				{store.logged ? <WelcomeHome /> : <RegisterLoginWelcome />}
+				{store.loggedUser !== null ? <WelcomeHome /> : <RegisterLoginWelcome />}
 			</div>
 		</Fragment>
 	);

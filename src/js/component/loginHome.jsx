@@ -23,8 +23,8 @@ export const LoginHome = () => {
 			<div className="login-form">
 				<form
 					onSubmit={() => {
-						actions.getToken(logingReader());
-						actions.setLogged();
+						actions.getTokenLogin(logingReader());
+						actions.decodeToken();
 					}}>
 					<div className="form-group">
 						<label>Email</label>

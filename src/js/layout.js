@@ -23,7 +23,6 @@ const Layout = () => {
 					{width > 768 ? <Navbar /> : <NavbarMobile />}
 					<Switch>
 						<Route exact path="/">
-							{console.log(width)}
 							<Home />
 						</Route>
 						<Route exact path="/books">
@@ -40,6 +39,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/book/:idBook">
 							<BookDetails />
+						</Route>
+						<Route exact path="/profile/:idUser">
+							Aquí enlazará al perfil del usuario
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
