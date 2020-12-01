@@ -31,15 +31,27 @@ export const CardBookDetails = props => {
 									className="dropdown-item"
 									type="button"
 									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 3, "favoritos");
-										console.log("store: ", params);
+										actions.postBookOnShelf(params.idBook, 5, "favoritos");
+										console.log("pamametros pasados ", params);
 									}}>
 									Favorito
 								</button>
-								<button className="dropdown-item" type="button">
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										actions.postBookOnShelf(params.idBook, 5, "leidos");
+										console.log("pamametros pasados ", params);
+									}}>
 									Leído
 								</button>
-								<button className="dropdown-item" type="button">
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										actions.postBookOnShelf(params.idBook, 5, "pendientes");
+										console.log("pamametros pasados ", params);
+									}}>
 									Pendiente
 								</button>
 							</div>

@@ -273,7 +273,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postBookOnShelf: (id_book, id_reader, shelf_name) => {
 				let url_shelf = url_2_manu.concat(id_reader, "/", shelf_name, "/", id_book);
-				console.log(url_shelf);
+				console.log("flux result ", url_shelf);
 				fetch(url_shelf, {
 					method: "POST",
 					mode: "no-cors",
@@ -283,6 +283,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
+						console.log("respuesta ", response);
+
 						if (!response.ok) {
 							throw new Error(response.status);
 						}
