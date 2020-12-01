@@ -3,60 +3,27 @@ import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../styles/card-book-details-component.scss";
 import { Context } from "../store/appContext";
+import { ButtonAddShelf } from "./buttonAddShelf.jsx";
 
 export const CardBookDetails = props => {
-	const { store, actions } = useContext(Context);
-	let params = useParams();
+	// const { store, actions } = useContext(Context);
+	// let params = useParams();
 
-	useEffect(() => {
-		actions.getAllShelfInfoTest(params.id_book, params.id_reader);
-	}, []);
+	// useEffect(() => {
+	// 	actions.postBookOnShelf(params.id_book, params.id_reader, params.shelf_name);
+	// }, []);
 
 	return (
 		<Fragment>
 			<div className="card">
 				<div className="row no-gutters">
 					<div className="col-md-4 book-image">
-						<div className="btn-group">
-							<button
-								type="button"
-								className="btn btn-secondary dropdown-toggle"
-								data-toggle="dropdown"
-								data-display="static"
-								aria-haspopup="true"
-								aria-expanded="false"
-							/>
-							<div className="dropdown-menu dropdown-menu-lg-right">
-								<button
-									className="dropdown-item"
-									type="button"
-									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 5, "favoritos");
-										console.log("pamametros pasados ", params);
-									}}>
-									Favorito
-								</button>
-								<button
-									className="dropdown-item"
-									type="button"
-									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 5, "leidos");
-										console.log("pamametros pasados ", params);
-									}}>
-									Leído
-								</button>
-								<button
-									className="dropdown-item"
-									type="button"
-									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 5, "pendientes");
-										console.log("pamametros pasados ", params);
-									}}>
-									Pendiente
-								</button>
-							</div>
-						</div>
 						<img src={props.image} className="card-img" alt="Portada del libro" />
+						<ButtonAddShelf
+							idBook={id_book}
+							idReader={1}
+							// shelfNameFav = {favoritos}
+						/>
 					</div>
 					<div className="col-md-8 book-info">
 						<div className="card-body">
