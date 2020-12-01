@@ -24,7 +24,7 @@ export const LoginHome = () => {
 				<form
 					onSubmit={event => {
 						actions.getTokenLogin(logingReader());
-						actions.decodeToken();
+						event.preventDefault();
 					}}>
 					<div className="form-group">
 						<label>Email</label>

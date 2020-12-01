@@ -149,6 +149,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => {
 						localStorage.setItem("x-access-tokens", response.token);
+						window.location.reload();
 					})
 					.catch(error => {
 						console.log("Creating contact, error status: ", error);
