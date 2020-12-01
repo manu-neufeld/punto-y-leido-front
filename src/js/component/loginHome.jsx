@@ -22,7 +22,7 @@ export const LoginHome = () => {
 		return (
 			<div className="login-form">
 				<form
-					onSubmit={() => {
+					onSubmit={event => {
 						actions.getTokenLogin(logingReader());
 						actions.decodeToken();
 					}}>
