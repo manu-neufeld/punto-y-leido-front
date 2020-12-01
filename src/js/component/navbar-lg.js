@@ -26,7 +26,7 @@ export const Navbar = () => {
 			<div className="tools">
 				<span> Search-baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar </span>
 				<Link to={"/profile/" + store.loggedUser}>Perfil</Link>
-				<Link to="/shopping-cart">Carrito</Link>
+				<Link to={"/" + store.loggedUser + "/shopping-cart"}>Carrito</Link>
 			</div>
 		</nav>
 	);

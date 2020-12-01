@@ -24,7 +24,7 @@ export const NavbarMobile = () => {
 						data-toggle="dropdown"
 						aria-haspopup="true"
 						aria-expanded="false">
-						Dropdown link
+						...
 					</a>
 					<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<Link to="/books">
@@ -41,7 +41,7 @@ export const NavbarMobile = () => {
 			</nav>
 			<nav className="navbar navbar-expand bg-light">
 				<p>Searchbar</p>
-				<Link to="/shopping-cart">Carrito</Link>
+				<Link to={"/" + store.loggedUser + "/shopping-cart"}>Carrito</Link>
 			</nav>
 		</Fragment>
 	);

@@ -34,7 +34,7 @@ const Layout = () => {
 						<Route exact path="/authors">
 							Aquí irá la lista de todos los autores
 						</Route>
-						<Route exact path="/shopping-cart">
+						<Route exact path="/:idUser/shopping-cart">
 							<ShoppingCart />
 						</Route>
 						<Route exact path="/author/:idAuthor">
