@@ -1,8 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
+import { DropdownShoppingCart } from "./dropdownShoppingCart.jsx";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -24,9 +25,9 @@ export const Navbar = () => {
 				</Link>
 			</div>
 			<div className="tools">
-				<span> Search-baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar </span>
+				<span> Search-baaaaaaaaar </span>
 				<Link to={"/profile/" + store.loggedUser}>Perfil</Link>
-				<Link to={"/" + store.loggedUser + "/shopping-cart"}>Carrito</Link>
+				<DropdownShoppingCart />
 			</div>
 		</nav>
 	);

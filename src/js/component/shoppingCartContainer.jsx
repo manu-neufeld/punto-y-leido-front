@@ -5,7 +5,7 @@ import { BookShoppingCart } from "./bookShoppingCart.jsx";
 
 export const ShoppingCartContainer = () => {
 	const { store, actions } = useContext(Context);
-	let librosCarrito = [12, 14];
+	let librosCarrito = [12, 1];
 	// let idAuthor = useParams();
 	let finalPrice = 0;
 

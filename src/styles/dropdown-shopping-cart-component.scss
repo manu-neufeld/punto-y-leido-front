@@ -1,0 +1,25 @@
+.dropdown {
+    width: fit-content;
+    .each-book a {
+        display: flex;
+        justify-content: space-between;
+    }
+    .total-price-navbar{
+        text-align: center;
+        font-weight: bold;
+    }   
+    .link-to-shopping-cart {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+    a{
+        margin: 0;
+    }
+    
+}
+@media (max-width: 450px) {
+    li {
+        font-size: 0.8rem;
+    }
+}

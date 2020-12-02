@@ -1,11 +1,13 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
-// import "../../styles/navbar.scss";
+import { DropdownShoppingCart } from "./dropdownShoppingCart.jsx";
+import "../../styles/navbar.scss";
 
 export const NavbarMobile = () => {
 	const { store, actions } = useContext(Context);
+
 	return (
 		<Fragment>
 			<nav className="navbar navbar-expand bg-light">
@@ -13,7 +15,7 @@ export const NavbarMobile = () => {
 					<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
 				</Link>
 				<Link to={"/profile/" + store.loggedUser}>
-					<p>Perfil</p>
+					<span>Perfil</span>
 				</Link>
 				<div className="nav" id="navbarNavAltMarkup">
 					<a
@@ -40,8 +42,8 @@ export const NavbarMobile = () => {
 				</div>
 			</nav>
 			<nav className="navbar navbar-expand bg-light">
-				<p>Searchbar</p>
-				<Link to={"/" + store.loggedUser + "/shopping-cart"}>Carrito</Link>
+				<span>Searchbaaaaar</span>
+				<DropdownShoppingCart />
 			</nav>
 		</Fragment>
 	);
