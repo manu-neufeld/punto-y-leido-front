@@ -1,0 +1,21 @@
+.card {
+    padding-top: 3rem;
+}
+.book-price {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+.cover-page {
+    max-width: 7rem;
+}
+.card-title {
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+@media (max-width: 768px) {
+    .book-price {
+        text-align: center;
+    }
+}
+

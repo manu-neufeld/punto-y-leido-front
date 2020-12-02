@@ -47,11 +47,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			readers: [],
 			reviews: [],
 			loggedUser: null,
-			shoppingCart: []
+			shoppingCart: [],
+			finalPrice: 0
 		},
 		actions: {
+			setFinalPrice: totalPrice => {
+				if (totalPrice !== getStore().finalPrice) {
+					setStore((getStore().finalPrice = totalPrice));
+				}
+			},
 			setShoppingCart: booksArray => {
-				setStore({ shoppingCart: [...getStore().shoppingCart, booksArray].flat() });
+				if (booksArray.length !== getStore().shoppingCart.length) {
+					setStore((getStore().shoppingCart = booksArray));
+				}
 			},
 			decodeToken: () => {
 				let token = localStorage.getItem("x-access-tokens");
