@@ -52,7 +52,9 @@ export const LittleBookCover = () => {
 					</button>
 				</div>
 			</div>
-			<img src="#" className="card-img-top" alt="..." />
+			<img src="#" className="card-img-top" alt="..." onClick={()=> {
+                <Link to = {"/book/:idBook"}/>
+            }} />
 			<div className="card-body">
 				<h5 className="card-title">Título</h5>
 			</div>
