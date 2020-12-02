@@ -82,8 +82,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			written_by: [],
 			shelves: [],
 			readers: [],
+			readers: [
+				{
+					id: 1,
+					is_active: true,
+					usernae: "crduque",
+					email: "cduque@gmail.com",
+					password: "123456",
+					name: "Cristina",
+					description: "Soy una lectora empedernida de fantasía",
+					address: "Madrid",
+					date_of_birth: [1994, 2, 17]
+				},
+				{
+					id: 2,
+					is_active: true,
+					username: "manuneufeld",
+					email: "manuneufeld@gmail.com",
+					password: "123456",
+					name: "Manuela",
+					description: "Me gusta leer novelas históricas",
+					address: "Madrid",
+					date_of_birth: [1993, 8, 19]
+				},
+				{
+					id: 3,
+					is_active: true,
+					username: "jancarlo",
+					email: "jancarlo@gmail.com",
+					password: "123456",
+					name: "Jan Carlo",
+					description: "Seguidor aférrimo de Stephen King",
+					address: "Burgos",
+					date_of_birth: [1992, 11, 18]
+				}
+			],
+			idReaderShelfLeidoBook: [],
+			idReaderShelfFavoritosBook: [],
+			idReaderShelfPendientesBook: [],
+			idReaderShelfComentadosBook: [],
+			idReaderShelfCompradosBook: [],
 			logged: false,
-			reviews: []
+			reviews: [],
+			currentShelf: ""
 		},
 		actions: {
 			getReaders: () => {
@@ -252,6 +293,71 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// console.error("Error", error);
 					});
 			},
+			getBooksReadedByShelfAndReader: readerId => {
+				fetch(url_2_manu + readerId + "/leidos/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfLeidoBook: bookShelfJson });
+						console.log("books leidos, ", getStore().idReaderShelfLeidoBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksFavoritesByShelfAndReader: readerId => {
+				fetch(url_2_manu + readerId + "/favoritos/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfFavoritosBook: bookShelfJson });
+						console.log("books fav, ", getStore().idReaderShelfFavoritosBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksPendingByShelfAndReader: readerId => {
+				fetch(url_2_manu + readerId + "/pendientes/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfPendientesBook: bookShelfJson });
+						console.log("books pendiente, ", getStore().idReaderShelfPendientesBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksComentedByShelfAndReader: readerId => {
+				fetch(url_2_manu + readerId + "/comentados/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfComentadosBook: bookShelfJson });
+						console.log("books comentados, ", getStore().idReaderShelfComentadosBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			getBooksBuyiedByShelfAndReader: readerId => {
+				fetch(url_2_manu + readerId + "/comprados/books")
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfCompradosBook: bookShelfJson });
+						console.log("books comprado, ", getStore().idReaderShelfCompradosBook);
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
 			getAllShelfInfoTest: () => {
 				fetch(url_2_manu + "test")
 					.then(response => {
@@ -259,7 +365,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonShelfInfo => {
 						setStore({ shelves: jsonShelfInfo });
-						console.log("Info Shelves ", getStore().shelves);
 					})
 					.catch(error => {
 						console.error("Error", error);
@@ -267,7 +372,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postBookOnShelf: (id_book, id_reader, shelf_name) => {
 				let url_shelf = url_2_manu.concat(id_reader, "/", shelf_name, "/", id_book);
-				console.log("flux result ", url_shelf);
 				fetch(url_shelf, {
 					method: "POST",
 					mode: "no-cors",
@@ -277,8 +381,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
-						console.log("respuesta ", response);
-
 						if (!response.ok) {
 							throw new Error(response.status);
 						}
@@ -291,6 +393,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.log("Added book error: ", error);
 					});
+			},
+			deleteBookOnShelf: (id_book, id_reader, shelf_name) => {
+				let url_shelf_delete = url_2_manu.concat(id_reader, "/", shelf_name, "/", id_book);
+				console.log("Url enviada, ", url_shelf_delete);
+				fetch(url_shelf_delete, {
+					method: "DELETE",
+					mode: "no-cors",
+					headers: {
+						"content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						console.log("Delete book from shelf");
+					})
+					.catch(error => {
+						console.log("Delete book from shelf error: ", error);
+					});
+			},
+			changeCurrentShelf: shelf_name => {
+				setStore({ currentShelf: shelf_name });
+				console.log(getStore().currentShelf);
 			}
 		}
 	};
