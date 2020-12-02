@@ -18,10 +18,15 @@ a {
     display: inline-block;
     background-color: transparent;
 }
+.boton-dropdown-flecha{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+}
 .arrow{
-    font-size: 2rem;
-    background-color: #cdcbcb;
-    color: #150a1a;
+    background-color: #150a1a;
+    color: #cdcbcb;
 }
 .btn-secondary.dropdown-toggle{
     color: #150a1a;
@@ -71,7 +76,7 @@ a {
         max-width: 10rem;
         .boton{
         position: relative;
-        top:2,3rem;
+        top:1,8rem;
         left: 7.2rem;
         }
     }
