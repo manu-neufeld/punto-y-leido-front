@@ -23,8 +23,6 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getReaders();
-			state.actions.getWrittenBy();
-			state.actions.getReviews();
 			state.actions.getAllAuthorInfo();
 		}, []);
 
