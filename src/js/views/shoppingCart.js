@@ -6,5 +6,8 @@ import "../../styles/authorDetail.scss";
 export const ShoppingCart = () => {
 	const { store, actions } = useContext(Context);
 	let idAuthor = useParams();
+
+	let librosCarrito = [];
+
 	return "Este es mi carrito de compra";
 };

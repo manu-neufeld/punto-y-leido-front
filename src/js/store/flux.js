@@ -120,11 +120,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			readers: [],
-			logged: false,
 			reviews: [],
-			loggedUser: null
+			loggedUser: null,
+			shoppingCart: []
 		},
 		actions: {
+			setShoppingCart: booksArray => {
+				setStore({ shoppingCart: [...getStore().shoppingCart, booksArray].flat() });
+			},
 			decodeToken: () => {
 				let token = localStorage.getItem("x-access-tokens");
 				const decoded = jwt_decode(token);
