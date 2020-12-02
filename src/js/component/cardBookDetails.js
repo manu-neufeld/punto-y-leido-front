@@ -17,16 +17,17 @@ export const CardBookDetails = props => {
 			<div className="card">
 				<div className="row no-gutters">
 					<div className="col-md-4 book-image">
-						<div className="btn-group boton">
+						<div className="btn-group boton dropleft">
 							<button
 								type="button"
-								className="btn btn-secondary dropdown-toggle"
+								className="btn"
 								data-toggle="dropdown"
 								data-display="static"
 								aria-haspopup="true"
-								aria-expanded="false"
-							/>
-							<div className="dropdown-menu dropdown-menu-lg-right">
+								aria-expanded="false">
+								<i className="fas fa-chevron-circle-down arrow" />
+							</button>
+							<div className="dropdown-menu dropdown-menu-lg-left">
 								<button
 									className="dropdown-item"
 									type="button"
