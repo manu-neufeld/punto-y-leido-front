@@ -117,14 +117,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date_of_birth: [1992, 11, 18]
 				}
 			],
-			idReaderShelfLeidoBook: [],
-			idReaderShelfFavoritosBook: [],
-			idReaderShelfPendientesBook: [],
-			idReaderShelfComentadosBook: [],
-			idReaderShelfCompradosBook: [],
+			idReaderShelfBook: [],
 			logged: false,
 			reviews: [],
-			currentShelf: ""
+			currentShelf: "leidos"
 		},
 		actions: {
 			getReaders: () => {
@@ -293,66 +289,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// console.error("Error", error);
 					});
 			},
-			getBooksReadedByShelfAndReader: readerId => {
-				fetch(url_2_manu + readerId + "/leidos/books")
+			getBooksByShelfAndReader: (id_reader, shelf_name) => {
+				let url_shelf = url_2_manu.concat(id_reader, "/", getStore().currentShelf, "/books");
+				fetch(url_shelf)
 					.then(response => {
 						return response.json();
 					})
 					.then(bookShelfJson => {
-						setStore({ idReaderShelfLeidoBook: bookShelfJson });
-						console.log("books leidos, ", getStore().idReaderShelfLeidoBook);
-					})
-					.catch(error => {
-						console.error("Error", error);
-					});
-			},
-			getBooksFavoritesByShelfAndReader: readerId => {
-				fetch(url_2_manu + readerId + "/favoritos/books")
-					.then(response => {
-						return response.json();
-					})
-					.then(bookShelfJson => {
-						setStore({ idReaderShelfFavoritosBook: bookShelfJson });
-						console.log("books fav, ", getStore().idReaderShelfFavoritosBook);
-					})
-					.catch(error => {
-						console.error("Error", error);
-					});
-			},
-			getBooksPendingByShelfAndReader: readerId => {
-				fetch(url_2_manu + readerId + "/pendientes/books")
-					.then(response => {
-						return response.json();
-					})
-					.then(bookShelfJson => {
-						setStore({ idReaderShelfPendientesBook: bookShelfJson });
-						console.log("books pendiente, ", getStore().idReaderShelfPendientesBook);
-					})
-					.catch(error => {
-						console.error("Error", error);
-					});
-			},
-			getBooksComentedByShelfAndReader: readerId => {
-				fetch(url_2_manu + readerId + "/comentados/books")
-					.then(response => {
-						return response.json();
-					})
-					.then(bookShelfJson => {
-						setStore({ idReaderShelfComentadosBook: bookShelfJson });
-						console.log("books comentados, ", getStore().idReaderShelfComentadosBook);
-					})
-					.catch(error => {
-						console.error("Error", error);
-					});
-			},
-			getBooksBuyiedByShelfAndReader: readerId => {
-				fetch(url_2_manu + readerId + "/comprados/books")
-					.then(response => {
-						return response.json();
-					})
-					.then(bookShelfJson => {
-						setStore({ idReaderShelfCompradosBook: bookShelfJson });
-						console.log("books comprado, ", getStore().idReaderShelfCompradosBook);
+						setStore({ idReaderShelfBook: bookShelfJson });
 					})
 					.catch(error => {
 						console.error("Error", error);
@@ -375,7 +319,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url_shelf, {
 					method: "POST",
 					mode: "no-cors",
-					// body: JSON.stringify(id_book, id_reader, shelf_name),
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -388,15 +331,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(() => {
 						getActions().getShelf();
-						console.log("Success: Book added new shelf");
 					})
 					.catch(error => {
-						console.log("Added book error: ", error);
+						console.error("Added book error: ", error);
 					});
 			},
 			deleteBookOnShelf: (id_book, id_reader, shelf_name) => {
 				let url_shelf_delete = url_2_manu.concat(id_reader, "/", shelf_name, "/", id_book);
-				console.log("Url enviada, ", url_shelf_delete);
+				console.log("url enviada, ", url_shelf_delete);
 				fetch(url_shelf_delete, {
 					method: "DELETE",
 					headers: {
@@ -405,17 +347,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => {
 						if (!response.ok) {
+							console.log("resupuesta, ", respons.target);
+
 							throw new Error(response.status);
 						}
-						console.log("Delete book from shelf");
 					})
+					// .then(() => {
+					// 	getActions.getBooksByShelfAndReader(id_reader, shelf_name);
+					// })
 					.catch(error => {
-						console.log("Delete book from shelf error: ", error);
+						console.error("Delete book from shelf error: ", error);
 					});
 			},
 			changeCurrentShelf: shelf_name => {
 				setStore({ currentShelf: shelf_name });
-				console.log(getStore().currentShelf);
 			}
 		}
 	};

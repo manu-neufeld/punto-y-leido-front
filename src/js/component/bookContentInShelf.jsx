@@ -3,24 +3,19 @@ import { Context } from "../store/appContext";
 import { LittleBookCover } from "./littleBookCover.jsx";
 import { useParams } from "react-router-dom";
 
-export const FavoritosShelf = () => {
+export const BookContentInShelf = () => {
 	const { store } = useContext(Context);
 
-	let params = useParams();
-
-	const cards = store.idReaderShelfFavoritosBook.map((shelfIndex, index) => {
-		// if (readerId.readerId == shelfIndex.id_reader && shelfIndex.name == "Favoritos") {
+	const cards = store.idReaderShelfBook.map((shelfIndex, index) => {
 		return (
 			<LittleBookCover
-				key={index}
 				idBook={shelfIndex.id}
+				key={index}
 				img={shelfIndex.image}
 				name={shelfIndex.title}
 				subName={shelfIndex.format_type}
 			/>
 		);
-		// }
 	});
-
 	return cards;
 };

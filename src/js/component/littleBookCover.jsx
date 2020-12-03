@@ -8,18 +8,52 @@ export const LittleBookCover = props => {
 	const { store, actions } = useContext(Context);
 	let params = useParams();
 
-	useEffect(() => {
-		actions.deleteBookOnShelf(params.id_book, params.id_reader, params.shelf_name);
-	}, []);
-
 	return (
 		<div className="card little-book-cover">
-			<i
-				className="fas fa-trash-alt delete"
+			<div className="btn-group boton dropleft">
+				<button
+					type="button"
+					className="boton-dropdown-flecha"
+					data-toggle="dropdown"
+					data-display="static"
+					aria-haspopup="true"
+					aria-expanded="false">
+					<i className="fas fa-caret-square-down arrow" />
+				</button>
+				<div className="dropdown-menu dropdown-menu-lg-left">
+					<button
+						className="dropdown-item"
+						type="button"
+						onClick={() => {
+							actions.postBookOnShelf(params.idBook, 5, store.currentShelf);
+						}}>
+						Favorito
+					</button>
+					<button
+						className="dropdown-item"
+						type="button"
+						onClick={() => {
+							actions.postBookOnShelf(params.idBook, 6, store.currentShelf);
+						}}>
+						Leído
+					</button>
+					<button
+						className="dropdown-item"
+						type="button"
+						onClick={() => {
+							actions.postBookOnShelf(params.idBook, 5, store.currentShelf);
+						}}>
+						Pendiente
+					</button>
+				</div>
+			</div>
+			<div
 				onClick={() => {
-					actions.deleteBookOnShelf(props.idBook, 4, store.currentShelf);
-				}}
-			/>
+					actions.deleteBookOnShelf(props.idBook, 3, store.currentShelf);
+					console.log("Parámetros, ", params);
+				}}>
+				<i className="fas fa-trash-alt delete" />
+			</div>
 			<img
 				src={props.img}
 				className="card-img-top image"
@@ -39,8 +73,8 @@ export const LittleBookCover = props => {
 };
 
 LittleBookCover.propTypes = {
-	idBook: PropTypes,
-	img: PropTypes,
-	name: PropTypes,
-	subName: PropTypes
+	idBook: PropTypes.number,
+	img: PropTypes.string,
+	name: PropTypes.string,
+	subName: PropTypes.string
 };
