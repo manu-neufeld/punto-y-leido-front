@@ -9,6 +9,7 @@ export const LeidosShelf = () => {
 	const cards = store.idReaderShelfLeidoBook.map((shelfIndex, index) => {
 		return (
 			<LittleBookCover
+				idBook={shelfIndex.id}
 				key={index}
 				img={shelfIndex.image}
 				name={shelfIndex.title}

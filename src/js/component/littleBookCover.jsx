@@ -16,8 +16,8 @@ export const LittleBookCover = props => {
 		<div className="card little-book-cover">
 			<div
 				onClick={() => {
-					actions.deleteBookOnShelf(params.id_book, 4, store.currentShelf);
-					console.log("parametros que paso ", params.id_reader, 4, store.currentShelf);
+					actions.deleteBookOnShelf(props.idBook, 4, store.currentShelf);
+					console.log("parametros que paso ", props.idBook, 4, store.currentShelf);
 				}}>
 				X
 			</div>
@@ -40,6 +40,7 @@ export const LittleBookCover = props => {
 };
 
 LittleBookCover.propTypes = {
+	idBook: PropTypes,
 	img: PropTypes,
 	name: PropTypes,
 	subName: PropTypes

@@ -4,7 +4,7 @@ import { ProfileShelves } from "../component/profileShelves.jsx";
 import { useParams } from "react-router-dom";
 
 export const Profile = () => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 	let params = useParams();
 
 	useEffect(() => {

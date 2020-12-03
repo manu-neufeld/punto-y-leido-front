@@ -9,6 +9,7 @@ export const PendientesShelf = () => {
 	const cards = store.idReaderShelfPendientesBook.map((shelfIndex, index) => {
 		return (
 			<LittleBookCover
+				idBook={shelfIndex.id}
 				key={index}
 				img={shelfIndex.image}
 				name={shelfIndex.title}

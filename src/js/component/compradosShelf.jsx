@@ -13,6 +13,7 @@ export const CompradosShelf = () => {
 		return (
 			<LittleBookCover
 				key={index}
+				idBook={shelfIndex.id}
 				img={shelfIndex.image}
 				name={shelfIndex.title}
 				subName={shelfIndex.format_type}
