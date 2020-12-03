@@ -12,23 +12,19 @@ export const BookDetails = () => {
 	if (store.books.length == 0 && store.reviews.length == 0) {
 		return <h2>Estamos buscando tu libro...</h2>;
 	} else {
-		for (let index = 0; index < store.books.length; index++) {
-			if (idBook.idBook == store.books[index].id) {
-				bookIndex = index;
-			}
-		}
+		const bookToFind = store.books.find(book => book.id == idBook.idBook);
 		return (
 			<Fragment>
 				<div className="book-details">
 					<CardBookDetails
-						title={store.books[bookIndex].title}
-						genre={store.books[bookIndex].genre}
-						synopsis={store.books[bookIndex].synopsis}
-						image={store.books[bookIndex].image}
-						format_type={store.books[bookIndex].format_type}
-						price={store.books[bookIndex].price}
-						author={store.books[bookIndex].name_author}
-						id_author={store.books[bookIndex].id_author}
+						title={bookToFind.title}
+						genre={bookToFind.genre}
+						synopsis={bookToFind.synopsis}
+						image={bookToFind.image}
+						format_type={bookToFind.format_type}
+						price={bookToFind.price}
+						author={bookToFind.name_author}
+						id_author={bookToFind.id_author}
 					/>
 				</div>
 				<div className="book-reviews">
