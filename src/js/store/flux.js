@@ -399,7 +399,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("Url enviada, ", url_shelf_delete);
 				fetch(url_shelf_delete, {
 					method: "DELETE",
-					// mode: "no-cors",
 					headers: {
 						"content-Type": "application/json"
 					}

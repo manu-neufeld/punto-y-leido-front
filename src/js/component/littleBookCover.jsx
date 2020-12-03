@@ -14,13 +14,12 @@ export const LittleBookCover = props => {
 
 	return (
 		<div className="card little-book-cover">
-			<div
+			<i
+				className="fas fa-trash-alt delete"
 				onClick={() => {
 					actions.deleteBookOnShelf(props.idBook, 4, store.currentShelf);
-					console.log("parametros que paso ", props.idBook, 4, store.currentShelf);
-				}}>
-				X
-			</div>
+				}}
+			/>
 			<img
 				src={props.img}
 				className="card-img-top image"
