@@ -27,8 +27,8 @@ export const CardBookDetails = props => {
 							<div className="input-group">
 								<select
 									className="custom-select"
-									id="inputGroupSelect04"
-									aria-label="Example select with button addon">
+									id="quantity"
+									aria-label="Select quantity with button for adding to shopping cart">
 									<option selected value="1">
 										1
 									</option>
