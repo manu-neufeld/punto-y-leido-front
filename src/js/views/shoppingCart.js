@@ -13,7 +13,7 @@ export const ShoppingCart = () => {
 	return (
 		<div className="book-shopping-cart">
 			<ShoppingCartContainer />
-			<p className="final-price">Total: {total}</p>
+			<p className="final-price">Total: {total} €</p>
 		</div>
 	);
 };
