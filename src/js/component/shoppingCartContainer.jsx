@@ -5,11 +5,12 @@ import { BookShoppingCart } from "./bookShoppingCart.jsx";
 
 export const ShoppingCartContainer = () => {
 	const { store, actions } = useContext(Context);
-	let librosCarrito = [12, 1, 14];
+	// let librosCarrito = [12, 1, 14];
 	// let idAuthor = useParams();
 	let finalPrice = 0;
 
-	actions.setShoppingCart(librosCarrito);
+	// actions.setShoppingCart(librosCarrito);
+	actions.getShoppingCart();
 
 	let drawBooks = store.shoppingCart.map(book => {
 		for (let i = 0; i < store.books.length; i++) {

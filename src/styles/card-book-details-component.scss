@@ -21,7 +21,9 @@ a {
             font-size: 1.25rem;
         }
 }
-
+.input-group {
+    max-width: 10rem;
+}
 @media (max-width: 768px) {
     .row {
         display: flex;
@@ -46,6 +48,9 @@ a {
         h6:last-child {
             font-size: 1rem;
         }
+    }
+    .input-group {
+        max-width: none;
     }
     h5 {
         font-size: 1rem;

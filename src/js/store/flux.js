@@ -51,10 +51,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			finalPrice: 0
 		},
 		actions: {
+			getShoppingCart: () => {
+				return getStore().shoppingCart;
+			},
 			setFinalPrice: totalPrice => {
 				if (totalPrice !== getStore().finalPrice) {
 					setStore((getStore().finalPrice = totalPrice));
 				}
+			},
+			addBookToShoppingCart: idBook => {
+				setStore({ shoppingCart: [...getStore().shoppingCart, idBook] });
 			},
 			setShoppingCart: booksArray => {
 				if (booksArray.length !== getStore().shoppingCart.length) {
