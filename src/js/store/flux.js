@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ books: jsonBooks });
 					})
 					.catch(error => {
-						console.log("Can't get books information", error);
+						console.error("Can't get books information", error);
 					});
 			},
 			decodeToken: () => {
@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						window.location.reload();
 					})
 					.catch(error => {
-						console.log("Creating contact, error status: ", error);
+						console.error("Creating contact, error status: ", error);
 					});
 			},
 			getReaders: () => {
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ readers: jsonReaders });
 					})
 					.catch(error => {
-						console.log("Error status: ", error);
+						console.error("Can't get readers info, error status: ", error);
 					});
 			},
 			getReviews: () => {
@@ -94,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ reviews: jsonReaders });
 					})
 					.catch(error => {
-						console.log("Error status: ", error);
+						console.error("Can't get reviews, error status: ", error);
 					});
 			},
 			addReader: reader => {
@@ -113,10 +113,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(() => {
 						getActions().getReaders();
-						console.log("Success: Contact created");
 					})
 					.catch(error => {
-						console.log("Creating contact, error status: ", error);
+						console.error("Can't create contact, error status: ", error);
 					});
 			},
 			getAllAuthorInfo: () => {
@@ -128,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ author: jsonApiResponse });
 					})
 					.catch(error => {
-						console.error("Error", error);
+						console.error("Can't get author info, error status: ", error);
 					});
 			}
 		}
