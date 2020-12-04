@@ -7,7 +7,7 @@ import { ShoppingCartContainer } from "../component/shoppingCartContainer.jsx";
 export const ShoppingCart = () => {
 	const { store, actions } = useContext(Context);
 	let total = 0;
-	if (store.finalPrice !== 0) {
+	if (store.finalPrice > 0) {
 		total = store.finalPrice.toFixed(2);
 	}
 	return (

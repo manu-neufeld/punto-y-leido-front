@@ -22,8 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setShoppingCart: booksArray => {
 				if (booksArray.length !== getStore().shoppingCart.length) {
 					setStore((getStore().shoppingCart = booksArray));
-                }
-            },
+				}
+			},
 			getBookInfo: () => {
 				fetch(url + "books")
 					.then(response => {

@@ -32,5 +32,5 @@ BookShoppingCart.propTypes = {
 	author: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.string
+	price: PropTypes.integer
 };

@@ -8,7 +8,6 @@ import "../../styles/book-details-view.scss";
 export const BookDetails = () => {
 	const { store, actions } = useContext(Context);
 	let idBook = useParams();
-	let bookIndex = -1;
 	if (store.books.length == 0 && store.reviews.length == 0) {
 		return <h2>Estamos buscando tu libro...</h2>;
 	} else {
