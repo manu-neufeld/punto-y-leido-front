@@ -1,6 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu01.gitpod.io/";
-	let url_2_manu = "https://3000-b0101060-a89b-4be7-9cb3-3274cc16ab32.ws-eu01.gitpod.io/";
+	let url_2_manu = "https://3000-b084d029-ce69-415e-8f17-5765b3064b89.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [
