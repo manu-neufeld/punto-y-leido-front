@@ -26,6 +26,12 @@ const injectContext = PassedComponent => {
 			state.actions.getAllAuthorInfo();
 			state.actions.getAllShelfInfoTest();
 			state.actions.changeCurrentShelf();
+			state.actions.getBookInfo();
+			state.actions.getReviews();
+			state.actions.getAllAuthorInfo();
+			if (localStorage.length !== 0) {
+				state.actions.decodeToken();
+			}
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

@@ -65,21 +65,21 @@ export const CardBookDetails = props => {
 					</div>
 					<div className="col-md-8 book-info">
 						<div className="card-body">
-							<h5 className="card-title">{props.title}</h5>
+							<p className="card-title">{props.title}</p>
 							<Link to={"/author/" + props.id_author}>
-								<h6>{props.author}</h6>
+								<p className="author-name">{props.author}</p>
 							</Link>
-							<h6>Género: {props.genre}</h6>
+							<p>Género: {props.genre}</p>
 							<div className="format-price">
-								<h6>Formato: {props.format_type}</h6>
-								<h6>{props.price} €</h6>
+								<p>Formato: {props.format_type}</p>
+								<p>{props.price} €</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="synopsis">
-				<h6>Sinopsis:</h6>
+				<p>Sinopsis:</p>
 				<p className="card-text">{props.synopsis}</p>
 			</div>
 		</Fragment>

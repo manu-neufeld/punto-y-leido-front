@@ -1,0 +1,38 @@
+.book-shopping-cart{
+    margin-left: 24rem;
+    margin-right: 24rem;
+    p {
+        margin: 0;
+    }
+    .final-price {
+        padding-top: 3rem;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 992px) {
+  .book-shopping-cart {
+      margin-left: 5rem;
+      margin-right: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+    .book-shopping-cart{
+        p {
+            font-size: 1rem;
+        }
+        .final-price {
+            font-size: 1rem;
+        }
+    }
+}
+ 
+@media (max-width: 450px) {
+  .book-shopping-cart {
+      margin-left: 2rem;
+      margin-right: 2rem;
+  }
+}
