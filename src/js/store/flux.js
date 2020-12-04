@@ -5,150 +5,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			books: [],
 			author: [],
 			shelves: [],
-			written_by: [
-				{
-					id_author: 13,
-					id_book: 1
-				},
-				{
-					id_author: 13,
-					id_book: 21
-				},
-				{
-					id_author: 1,
-					id_book: 12
-				},
-				{
-					id_author: 8,
-					id_book: 14
-				},
-				{
-					id_author: 15,
-					id_book: 18
-				},
-				{
-					id_author: 15,
-					id_book: 19
-				},
-				{
-					id_author: 15,
-					id_book: 20
-				}
-			],
-			readers: [
-				{
-					id: 1,
-					is_active: true,
-					usernae: "crduque",
-					email: "cduque@gmail.com",
-					password: "123456",
-					name: "Cristina",
-					description: "Soy una lectora empedernida de fantasía",
-					address: "Madrid",
-					date_of_birth: [1994, 2, 17]
-				},
-				{
-					id: 2,
-					is_active: true,
-					username: "manuneufeld",
-					email: "manuneufeld@gmail.com",
-					password: "123456",
-					name: "Manuela",
-					description: "Me gusta leer novelas históricas",
-					address: "Madrid",
-					date_of_birth: [1993, 8, 19]
-				},
-				{
-					id: 3,
-					is_active: true,
-					username: "jancarlo",
-					email: "jancarlo@gmail.com",
-					password: "123456",
-					name: "Jan Carlo",
-					description: "Seguidor aférrimo de Stephen King",
-					address: "Burgos",
-					date_of_birth: [1992, 11, 18]
-				}
-			],
-			queryShelfBook: [
-				{
-					id_reader: 1,
-					id_book: 12,
-					name: "Leídos",
-					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
-					title: "Orgullo y prejuicio",
-					format_type: "Ilustrado"
-				},
-				{
-					id_reader: 1,
-					id_book: 18,
-					name: "Leídos",
-					image:
-						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
-					title: "El imperio final (Nacidos de la bruma I)",
-					format_type: "Tapa dura"
-				},
-				{
-					id_reader: 2,
-					id_book: 12,
-					name: "Leídos",
-					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
-					title: "Orgullo y prejuicio",
-					format_type: "Ilustrado"
-				},
-				{
-					id_reader: 1,
-					id_book: 18,
-					name: "Leídos",
-					image:
-						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
-					title: "El imperio final (Nacidos de la bruma I)",
-					format_type: "Tapa dura"
-				},
-				{
-					id_reader: 2,
-					id_book: 12,
-					name: "Favoritos",
-					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
-					title: "Orgullo y prejuicio",
-					format_type: "Ilustrado"
-				},
-				{
-					id_reader: 2,
-					id_book: 18,
-					name: "Favoritos",
-					image:
-						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
-					title: "El imperio final (Nacidos de la bruma I)",
-					format_type: "Tapa dura"
-				},
-				{
-					id_reader: 1,
-					id_book: 12,
-					name: "Pendientes",
-					image: "https://images-na.ssl-images-amazon.com/images/I/717awSisirL.jpg",
-					title: "Orgullo y prejuicio",
-					format_type: "Ilustrado"
-				},
-				{
-					id_reader: 1,
-					id_book: 18,
-					name: "Pendientes",
-					image:
-						"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201807/05/00106520608552____7__640x640.jpg",
-					title: "El imperio final (Nacidos de la bruma I)",
-					format_type: "Tapa dura"
-				}
-			],
 			readers: [],
-			logged: false,
-			reviews: []
+			reviews: [],
+			logged: false
 		},
 		actions: {
-			// setLogged: () => {
-			// 	let isLogged = getStore().logged ? false : true;
-			// 	setStore({ logged: isLogged });
-			// },
 			getBookInfo: () => {
 				fetch(url + "books")
 					.then(response => {
@@ -160,6 +21,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.log("Can't get books information", error);
+					});
+			},
+			setLogged: () => {
+				setStore((getStore().logged = !getStore().logged));
+			},
+			getToken: reader => {
+				fetch(url + "login", {
+					method: "POST",
+					body: JSON.stringify(reader),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(response => {
+						localStorage.setItem("x-access-tokens", response[0].token);
+					})
+					.catch(error => {
+						console.log("Creating contact, error status: ", error);
 					});
 			},
 			getReaders: () => {
