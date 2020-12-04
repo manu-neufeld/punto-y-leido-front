@@ -29,9 +29,7 @@ export const ShoppingCartContainer = () => {
 			}
 		}
 	});
-	console.log(finalPrice);
 	actions.setFinalPrice(finalPrice);
 
-	// console.log(store.finalPrice);
 	return drawBooks;
 };
