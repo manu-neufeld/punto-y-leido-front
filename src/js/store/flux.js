@@ -215,7 +215,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getAllAuthorInfo: () => {
-				fetch("https://3000-b0101060-a89b-4be7-9cb3-3274cc16ab32.ws-eu01.gitpod.io/authors/")
+				fetch(url + "authors")
 					.then(response => {
 						return response.json();
 					})
