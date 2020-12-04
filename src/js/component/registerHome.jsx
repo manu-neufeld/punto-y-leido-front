@@ -32,7 +32,6 @@ export const RegisterHome = () => {
 				<form
 					onSubmit={event => {
 						if (addingReader() !== undefined) {
-							event.preventDefault();
 							actions.addReader(addingReader());
 							actions.setLogged();
 						} else {

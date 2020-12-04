@@ -51,10 +51,19 @@ a {
 }
 .card-body {
     height: fit-content;
+    .card-title{
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+    .author-name {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
 }
 .format-price{
-    h6:last-child {
+    p:last-child {
             font-size: 1.25rem;
+            font-weight: 500;
         }
 }
 
@@ -84,15 +93,12 @@ a {
         display: flex;
         justify-content: space-between;
         padding-right: 1rem;
-        h6:last-child {
+        p:last-child {
             font-size: 1rem;
         }
     }
-    h5 {
+    .card-title {
         font-size: 1rem;
-    }
-    h6 {
-        font-size: 0.80rem;
     }
     p {
         font-size: 0.80rem;
