@@ -26,6 +26,7 @@ const injectContext = PassedComponent => {
 			state.actions.getBookInfo();
 			state.actions.getReviews();
 			state.actions.getAllAuthorInfo();
+			state.actions.getAllShelfInfoTest();
 			if (localStorage.length !== 0) {
 				state.actions.decodeToken();
 			}

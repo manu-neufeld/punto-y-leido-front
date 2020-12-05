@@ -1,14 +1,67 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../styles/card-book-details-component.scss";
+import { Context } from "../store/appContext";
 
 export const CardBookDetails = props => {
+	const { store, actions } = useContext(Context);
+	let params = useParams();
+
+	useEffect(() => {
+		actions.postBookOnShelf(params.id_book, params.id_reader);
+	}, []);
+
 	return (
 		<Fragment>
 			<div className="card">
 				<div className="row no-gutters">
 					<div className="col-md-4 book-image">
+						<div className="btn-group boton dropleft">
+							<button
+								type="button"
+								className="boton-dropdown-flecha"
+								data-toggle="dropdown"
+								data-display="static"
+								aria-haspopup="true"
+								aria-expanded="false">
+								<i className="fas fa-caret-square-down fa-2x arrow" />
+							</button>
+							<div className="dropdown-menu dropdown-menu-lg-left">
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										actions.postBookOnShelf(params.idBook, 6, "favoritos");
+										console.log(
+											"pamametros pasados ",
+											params.id_book,
+											params.id_reader,
+											"favoritos"
+										);
+									}}>
+									Favorito
+								</button>
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										actions.postBookOnShelf(params.idBook, 6, "leidos");
+										console.log("pamametros pasados ", params);
+									}}>
+									Leído
+								</button>
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										actions.postBookOnShelf(params.idBook, 5, "pendientes");
+										console.log("pamametros pasados ", params);
+									}}>
+									Pendiente
+								</button>
+							</div>
+						</div>
 						<img src={props.image} className="card-img" alt="Portada del libro" />
 					</div>
 					<div className="col-md-8 book-info">
