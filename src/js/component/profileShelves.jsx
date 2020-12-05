@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
-import { LeidosShelf } from "./leidosShelf.jsx";
-import { FavoritosShelf } from "./favoritosShelf.jsx";
-import { PendientesShelf } from "./pendientesShelf.jsx";
-import { ComentadosShelf } from "./comentadosShelf.jsx";
-import { CompradosShelf } from "./compradosShelf.jsx";
+import React, { Fragment, useContext } from "react";
+import { BookContentInShelf } from "./bookContentInShelf.jsx";
+import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
 export const ProfileShelves = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
 			<ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -17,7 +16,10 @@ export const ProfileShelves = () => {
 						href="#leidos"
 						role="tab"
 						aria-controls="leidos"
-						aria-selected="true">
+						aria-selected="true"
+						onClick={() => {
+							actions.changeCurrentShelf("leidos");
+						}}>
 						Leídos
 					</a>
 				</li>
@@ -29,7 +31,10 @@ export const ProfileShelves = () => {
 						href="#favoritos"
 						role="tab"
 						aria-controls="favoritos"
-						aria-selected="false">
+						aria-selected="false"
+						onClick={() => {
+							actions.changeCurrentShelf("favoritos");
+						}}>
 						Favoritos
 					</a>
 				</li>
@@ -41,7 +46,10 @@ export const ProfileShelves = () => {
 						href="#pendientes"
 						role="tab"
 						aria-controls="pendientes"
-						aria-selected="false">
+						aria-selected="false"
+						onClick={() => {
+							actions.changeCurrentShelf("pendientes");
+						}}>
 						Pendientes
 					</a>
 				</li>
@@ -53,7 +61,10 @@ export const ProfileShelves = () => {
 						href="#comentados"
 						role="tab"
 						aria-controls="comentados"
-						aria-selected="true">
+						aria-selected="true"
+						onClick={() => {
+							actions.changeCurrentShelf("comentados");
+						}}>
 						Comentados
 					</a>
 				</li>
@@ -65,26 +76,29 @@ export const ProfileShelves = () => {
 						href="#comprados"
 						role="tab"
 						aria-controls="comprados"
-						aria-selected="false">
+						aria-selected="false"
+						onClick={() => {
+							actions.changeCurrentShelf("comprados");
+						}}>
 						Comprados
 					</a>
 				</li>
 			</ul>
 			<div className="tab-content" id="myTabContent">
 				<div className="tab-pane fade show active" id="leidos" role="tabpanel" aria-labelledby="leidos-tab">
-					<LeidosShelf />
+					<BookContentInShelf />
 				</div>
 				<div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
-					<FavoritosShelf />
+					<BookContentInShelf />
 				</div>
 				<div className="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">
-					<PendientesShelf />
+					<BookContentInShelf />
 				</div>
 				<div className="tab-pane fade" id="comentados" role="tabpanel" aria-labelledby="comentados-tab">
-					<ComentadosShelf />
+					<BookContentInShelf />
 				</div>
 				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
-					<CompradosShelf />
+					<BookContentInShelf />
 				</div>
 			</div>
 		</Fragment>

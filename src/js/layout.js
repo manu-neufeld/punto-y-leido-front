@@ -44,8 +44,8 @@ const Layout = () => {
 						<Route exact path="/book/:idBook">
 							<BookDetails />
 						</Route>
-						<Route exact path="/profile/:idUser">
-							Aquí enlazará al perfil del usuario
+						<Route exact path="/profile/:readerId">
+							<Profile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

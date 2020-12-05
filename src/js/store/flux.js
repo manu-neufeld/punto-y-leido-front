@@ -12,7 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			reviews: [],
 			loggedUser: null,
 			shoppingCart: [],
-			finalPrice: 0
+			finalPrice: 0,
+			currentShelf: "leidos",
+			idReaderShelfBook: []
 		},
 		actions: {
 			setFinalPrice: totalPrice => {
@@ -130,6 +132,56 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't get author info, error status: ", error);
 					});
+			},
+			getBooksByShelfAndReader: (id_reader, shelf_name) => {
+				let url_shelf = url_2_manu.concat(id_reader, "/", getStore().currentShelf, "/books");
+				fetch(url_shelf)
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfBook: bookShelfJson });
+					})
+					.catch(error => {
+						console.error("Can't get author info, error status: ", error);
+					});
+			},
+			getAllShelfInfoTest: () => {
+				fetch(url_2_manu + "test")
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonShelfInfo => {
+						setStore({ shelves: jsonShelfInfo });
+					})
+					.catch(error => {
+						console.error("Error", error);
+					});
+			},
+			postBookOnShelf: (id_book, id_reader, shelf_name) => {
+				let url_shelf = url_2_manu.concat(id_reader, "/", shelf_name, "/", id_book);
+				fetch(url_shelf, {
+					method: "POST",
+					mode: "no-cors",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getShelf();
+					})
+					.catch(error => {
+						console.error("Added book error: ", error);
+					});
+			},
+			changeCurrentShelf: shelf_name => {
+				setStore({ currentShelf: shelf_name });
 			}
 		}
 	};
