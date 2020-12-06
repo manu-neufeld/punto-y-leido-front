@@ -24,30 +24,14 @@ export const CardBookDetails = props => {
 								<p>Formato: {props.format_type}</p>
 								<p>{props.price} €</p>
 							</div>
-							<div className="input-group">
-								<select
-									className="custom-select"
-									id="quantity"
-									aria-label="Select quantity with button for adding to shopping cart">
-									<option selected value="1">
-										1
-									</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-								<div className="input-group-append">
-									<button
-										className="btn btn-outline-primary"
-										type="button"
-										onClick={() => {
-											actions.addBookToShoppingCart(props.id_book, props.price);
-										}}>
-										Añadir al carrito
-									</button>
-								</div>
-							</div>
+							<button
+								className="btn btn-outline-primary"
+								type="button"
+								onClick={() => {
+									actions.addBookToShoppingCart(props.id_book);
+								}}>
+								Añadir al carrito
+							</button>
 						</div>
 					</div>
 				</div>
