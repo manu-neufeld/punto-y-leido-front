@@ -19,13 +19,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return JSON.parse(localStorage.getItem("books-in-shopping-cart"));
 			},
 			setBooksQuantity: (idBook, quantity) => {
-				console.log("ANTES DE CAMBIAR STORE.BOOKQUANTITY: ", getStore().bookQuantity);
-
 				let eachBook = {
 					id_book: idBook,
 					quantity: quantity
 				};
 				for (let index = 0; index < getStore().bookQuantity.length; index++) {
+					console.log("akghoiasngoawñngalwng");
 					if (getStore().bookQuantity[index].id_book == idBook) {
 						setStore((getStore().bookQuantity[index] = eachBook));
 					}
@@ -38,7 +37,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addBookToShoppingCart: idBook => {
 				setStore({ shoppingCart: [...getStore().shoppingCart, idBook] });
-				getActions().setBooksQuantity(idBook, 1);
+
+				let eachBook = {
+					id_book: idBook,
+					quantity: quantity
+				};
+				setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
 
 				if (localStorage.getItem("books-in-shopping-cart") != null) {
 					let storageBooksInShoppingCart = JSON.parse(localStorage.getItem("books-in-shopping-cart"));

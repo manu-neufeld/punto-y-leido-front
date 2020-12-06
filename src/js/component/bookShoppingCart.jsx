@@ -30,7 +30,10 @@ export const BookShoppingCart = props => {
 							aria-label="Select quantity with button for adding to shopping cart"
 							onChange={() => {
 								let selectedQuantity = document.querySelector("#quantity" + props.book_id).value;
-								actions.setBooksQuantity(props.book_id, selectedQuantity);
+								if (store.bookQuantity != 0) {
+									actions.setBooksQuantity(props.book_id, selectedQuantity);
+								}
+								console.log("DESPUES DE CAMBIAR STORE", store.bookQuantity);
 							}}>
 							<option selected value="1">
 								1
