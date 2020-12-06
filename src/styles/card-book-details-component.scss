@@ -15,14 +15,23 @@ a {
 }
 .card-body {
     height: fit-content;
+    .card-title{
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+    .author-name {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
 }
 .format-price{
-    h6:last-child {
+    p:last-child {
             font-size: 1.25rem;
+            font-weight: 500;
         }
 }
 .input-group {
-    max-width: 10rem;
+    max-width: 12rem;
 }
 @media (max-width: 768px) {
     .row {
@@ -45,18 +54,15 @@ a {
         display: flex;
         justify-content: space-between;
         padding-right: 1rem;
-        h6:last-child {
+        p:last-child {
             font-size: 1rem;
         }
     }
     .input-group {
         max-width: none;
     }
-    h5 {
+    .card-title {
         font-size: 1rem;
-    }
-    h6 {
-        font-size: 0.80rem;
     }
     p {
         font-size: 0.80rem;

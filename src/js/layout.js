@@ -9,6 +9,7 @@ import { ShoppingCart } from "./views/shoppingCart.js";
 import { Navbar } from "./component/navbar-lg.js";
 import { NavbarMobile } from "./component/navbar-sm.js";
 import { Footer } from "./component/footer";
+import { Profile } from "./views/profile";
 import { BookDetails } from "./views/bookDetails";
 
 //create your first component
@@ -50,6 +51,7 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
+
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

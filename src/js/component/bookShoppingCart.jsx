@@ -8,9 +8,11 @@ export const BookShoppingCart = props => {
 		<Fragment>
 			<div className="card mb-0">
 				<div className="row no-gutters">
-					<div className="col-md-4 cover-page">
-						<img src={props.image} className="card-img" alt="Portada del libro" />
-					</div>
+					<Link to={"/book/" + props.book_id}>
+						<div className="col-md-4 cover-page">
+							<img src={props.image} className="card-img" alt="Portada del libro" />
+						</div>
+					</Link>
 					<div className="col-md-6">
 						<div className="card-body">
 							<p className="card-title">{props.title}</p>
@@ -32,5 +34,6 @@ BookShoppingCart.propTypes = {
 	author: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.string
+	price: PropTypes.float,
+	book_id: PropTypes.integer
 };
