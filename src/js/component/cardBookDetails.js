@@ -34,15 +34,15 @@ export const CardBookDetails = props => {
 									</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
-									<option value="3">4</option>
-									<option value="3">5</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
 								</select>
 								<div className="input-group-append">
 									<button
 										className="btn btn-outline-primary"
 										type="button"
 										onClick={() => {
-											actions.addBookToShoppingCart(props.id_book);
+											actions.addBookToShoppingCart(props.id_book, props.price);
 										}}>
 										Añadir al carrito
 									</button>

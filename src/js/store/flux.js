@@ -11,32 +11,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 			reviews: [],
 			loggedUser: null,
 			shoppingCart: [],
-			finalPrice: 0
+			finalPrice: 0,
+			bookQuantity: [],
+			bookPrice: []
 		},
 		actions: {
 			getShoppingCart: () => {
 				return JSON.parse(localStorage.getItem("books-in-shopping-cart"));
+			},
+			getBooksQuantity: () => {
+				return JSON.parse(localStorage.getItem("quantity-of-each-book"));
+			},
+			getBooksTotalPrices: () => {
+				return JSON.parse(localStorage.getItem("price-of-each-book"));
 			},
 			setFinalPrice: totalPrice => {
 				if (totalPrice !== getStore().finalPrice) {
 					setStore((getStore().finalPrice = totalPrice));
 				}
 			},
-			addBookToShoppingCart: idBook => {
+			addBookToShoppingCart: (idBook, priceBook) => {
+				let selectedQuantity = document.querySelector("#quantity").value;
+
 				setStore({ shoppingCart: [...getStore().shoppingCart, idBook] });
+				setStore({ bookQuantity: [...getStore().bookQuantity, selectedQuantity] });
+				setStore({ bookPrice: [...getStore().bookPrice, priceBook * selectedQuantity] });
 
 				if (localStorage.getItem("books-in-shopping-cart") != null) {
-					let varStorage = JSON.parse(localStorage.getItem("books-in-shopping-cart"));
+					let storageBooksInShoppingCart = JSON.parse(localStorage.getItem("books-in-shopping-cart"));
+					let storageQuantityOfBooks = JSON.parse(localStorage.getItem("quantity-of-each-book"));
+					let storagePrice = JSON.parse(localStorage.getItem("price-of-each-book"));
+
 					let newBooks = getStore().shoppingCart;
-					let booksInShoppingCart = [...varStorage, newBooks].flat();
+					let eachBookQuantity = getStore().bookQuantity;
+					let eachBookPrice = getStore().bookPrice;
+
+					let booksInShoppingCart = [...storageBooksInShoppingCart, newBooks].flat();
+					let bookQuantityInShoppingCart = [...storageQuantityOfBooks, eachBookQuantity].flat();
+					let bookPriceInShoppingCart = [...storagePrice, eachBookPrice].flat();
+
 					localStorage.setItem("books-in-shopping-cart", JSON.stringify(booksInShoppingCart));
+					localStorage.setItem("quantity-of-each-book", JSON.stringify(bookQuantityInShoppingCart));
+					localStorage.setItem("price-of-each-book", JSON.stringify(bookPriceInShoppingCart));
+
+					console.log(getStore().bookQuantity);
 				} else {
 					localStorage.setItem("books-in-shopping-cart", JSON.stringify(getStore().shoppingCart));
-				}
-			},
-			setShoppingCart: booksArray => {
-				if (booksArray.length !== getStore().shoppingCart.length) {
-					setStore((getStore().shoppingCart = booksArray));
+					localStorage.setItem("quantity-of-each-book", JSON.stringify(getStore().bookQuantity));
+					localStorage.setItem("price-of-each-book", JSON.stringify(getStore().bookPrice));
 				}
 			},
 			getBookInfo: () => {
