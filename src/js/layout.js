@@ -11,6 +11,7 @@ import { NavbarMobile } from "./component/navbar-sm.js";
 import { Footer } from "./component/footer";
 import { Profile } from "./views/profile";
 import { BookDetails } from "./views/bookDetails";
+import { AllAuthors } from "./views/allAuthors";
 
 //create your first component
 const Layout = () => {
@@ -33,7 +34,7 @@ const Layout = () => {
 							Aquí irá la lista de los libros por género
 						</Route>
 						<Route exact path="/authors">
-							Aquí irá la lista de todos los autores
+							<AllAuthors />
 						</Route>
 						<Route exact path="/:idUser/shopping-cart">
 							<ShoppingCart />

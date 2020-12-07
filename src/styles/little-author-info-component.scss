@@ -1,0 +1,27 @@
+.author-image {
+    text-align: center;
+    .card-img {
+        max-width: 8rem;
+    }
+}
+.author-name {
+    display: flex;
+    align-items: center;
+    .card-body {
+        display: flex;
+        align-items: center;
+        p {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .author-name {
+        .card-body {
+            text-align: left;
+            margin-left: 1rem;
+        }
+    }
+}
