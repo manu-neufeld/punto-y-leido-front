@@ -8,13 +8,13 @@ export const ShoppingCartContainer = () => {
 	// let idAuthor = useParams();
 	let finalPrice = 0;
 
-	let booksInShoppingCart = actions.getShoppingCart();
+	let booksQuantity = actions.getQuantityOfBooks();
 
-	if (booksInShoppingCart != null) {
-		let drawBooks = booksInShoppingCart.map((book, index) => {
+	if (booksQuantity != null) {
+		let drawBooks = booksQuantity.map((book, index) => {
 			for (let i = 0; i < store.books.length; i++) {
-				if (book == store.books[i].id) {
-					let each_price = store.books[i].price * store.bookQuantity[index].quantity;
+				if (book.id_book == store.books[i].id) {
+					let each_price = store.books[i].price * book.quantity;
 					finalPrice += each_price;
 					return (
 						<Fragment>
@@ -25,6 +25,7 @@ export const ShoppingCartContainer = () => {
 								format_type={store.books[i].format_type}
 								price={each_price.toFixed(2)}
 								book_id={store.books[i].id}
+								quantityValue={book.quantity}
 							/>
 						</Fragment>
 					);

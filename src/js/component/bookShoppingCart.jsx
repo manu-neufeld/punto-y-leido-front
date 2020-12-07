@@ -7,6 +7,8 @@ import "../../styles/book-shopping-cart-component.scss";
 export const BookShoppingCart = props => {
 	const { store, actions } = useContext(Context);
 
+	for (let i = 0; i < localStorage.getItem("book-quantity").length; i++) {}
+
 	return (
 		<Fragment>
 			<div className="card mb-0">
@@ -30,13 +32,10 @@ export const BookShoppingCart = props => {
 							aria-label="Select quantity with button for adding to shopping cart"
 							onChange={() => {
 								let selectedQuantity = document.querySelector("#quantity" + props.book_id).value;
-								if (store.bookQuantity != 0) {
-									actions.editBooksQuantity(props.book_id, selectedQuantity);
-								}
-							}}>
-							<option selected value="1">
-								1
-							</option>
+								actions.editBooksQuantity(props.book_id, selectedQuantity);
+							}}
+							defaultValue={props.quantityValue}>
+							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">4</option>
@@ -56,5 +55,6 @@ BookShoppingCart.propTypes = {
 	image: PropTypes.string,
 	format_type: PropTypes.string,
 	price: PropTypes.float,
-	book_id: PropTypes.integer
+	book_id: PropTypes.integer,
+	quantityValue: PropTypes.integer
 };

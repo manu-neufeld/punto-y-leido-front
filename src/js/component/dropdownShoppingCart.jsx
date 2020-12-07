@@ -7,7 +7,7 @@ export const DropdownShoppingCart = () => {
 	const { store, actions } = useContext(Context);
 	const [listElement, setListElement] = useState(null);
 
-	let booksInShoppingCart = actions.getShoppingCart();
+	let booksInShoppingCart = actions.getQuantityOfBooks();
 
 	useEffect(() => {
 		if (booksInShoppingCart == null) {
@@ -16,7 +16,7 @@ export const DropdownShoppingCart = () => {
 			setListElement(
 				booksInShoppingCart.map((eachBook, index) => {
 					for (let i = 0; i < store.books.length; i++) {
-						if (eachBook == store.books[i].id) {
+						if (eachBook.id_book == store.books[i].id) {
 							return (
 								<li key={index} className="dropdown-item each-book">
 									<Link to={"/book/" + store.books[i].id}>
