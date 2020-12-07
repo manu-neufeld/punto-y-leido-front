@@ -21,14 +21,15 @@ export const AddToBagButton = props => {
 	);
 	if (localStorage.getItem("book-quantity") != null) {
 		let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+		let returning = null;
 		for (let i = 0; i < storageBookQuantity.length; i++) {
-			console.log(storageBookQuantity[i]);
 			if (storageBookQuantity[i].id_book == props.id_book) {
-				return bookAdded;
+				returning = bookAdded;
 			} else {
-				return buttonToAdd;
+				returning = buttonToAdd;
 			}
 		}
+		return returning;
 	} else {
 		return buttonToAdd;
 	}
