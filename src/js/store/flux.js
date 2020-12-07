@@ -2,6 +2,7 @@ import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu03.gitpod.io/";
+	let url_manu_2 = "https://3000-de54bcca-0d68-4ecd-b77b-a8a2ae17c7ce.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [],
@@ -25,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getBookInfo: () => {
-				fetch(url + "books")
+				fetch(url_manu_2 + "books")
 					.then(response => {
 						if (!response.ok) throw new Error(response.status);
 						return response.json();
@@ -46,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore((getStore().loggedUser = id));
 			},
 			getTokenLogin: reader => {
-				fetch(url + "login", {
+				fetch(url_manu_2 + "login", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -68,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReaders: () => {
-				fetch(url + "readers")
+				fetch(url_manu_2 + "readers")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -83,7 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReviews: () => {
-				fetch(url + "reviews")
+				fetch(url_manu_2 + "reviews")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -98,7 +99,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			addReader: reader => {
-				fetch(url + "register", {
+				fetch(url_manu_2 + "register", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -119,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getAllAuthorInfo: () => {
-				fetch(url + "authors")
+				fetch(url_manu_2 + "authors")
 					.then(response => {
 						return response.json();
 					})
