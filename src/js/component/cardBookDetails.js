@@ -28,7 +28,10 @@ export const CardBookDetails = props => {
 								className="btn btn-outline-primary"
 								type="button"
 								onClick={() => {
-									actions.addBookToShoppingCart(props.id_book, 1);
+									actions.addBookToShoppingCart(props.id_book);
+									console.log(store.bookQuantity, "ANTES DE EDITAR");
+									actions.setBooksQuantity(props.id_book);
+									console.log(store.bookQuantity, "DESPUÉS DE EDITAR");
 								}}>
 								Añadir al carrito
 							</button>

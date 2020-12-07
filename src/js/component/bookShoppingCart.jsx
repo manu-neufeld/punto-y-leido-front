@@ -31,9 +31,8 @@ export const BookShoppingCart = props => {
 							onChange={() => {
 								let selectedQuantity = document.querySelector("#quantity" + props.book_id).value;
 								if (store.bookQuantity != 0) {
-									actions.setBooksQuantity(props.book_id, selectedQuantity);
+									actions.editBooksQuantity(props.book_id, selectedQuantity);
 								}
-								console.log("DESPUES DE CAMBIAR STORE", store.bookQuantity);
 							}}>
 							<option selected value="1">
 								1
@@ -57,6 +56,5 @@ BookShoppingCart.propTypes = {
 	image: PropTypes.string,
 	format_type: PropTypes.string,
 	price: PropTypes.float,
-	book_id: PropTypes.integer,
-	bookQuantity: PropTypes.integer
+	book_id: PropTypes.integer
 };

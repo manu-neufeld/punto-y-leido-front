@@ -18,15 +18,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getShoppingCart: () => {
 				return JSON.parse(localStorage.getItem("books-in-shopping-cart"));
 			},
-			setBooksQuantity: (idBook, quantity) => {
+			setBooksQuantity: idBook => {
+				let eachBook = {
+					id_book: idBook,
+					quantity: 1
+				};
+				setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
+				// localStorage.setItem("book-quantity-"+idBook, JSON.stringify(eachBook));
+			},
+			editBooksQuantity: (idBook, quantity) => {
 				let eachBook = {
 					id_book: idBook,
 					quantity: quantity
 				};
-				for (let index = 0; index < getStore().bookQuantity.length; index++) {
-					console.log("akghoiasngoawñngalwng");
-					if (getStore().bookQuantity[index].id_book == idBook) {
-						setStore((getStore().bookQuantity[index] = eachBook));
+				// let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity-"+idBook));
+				for (let i = 0; i < getStore().bookQuantity.length; i++) {
+					if (getStore().bookQuantity[i].id_book == idBook) {
+						setStore((getStore().bookQuantity[i] = eachBook));
 					}
 				}
 			},
@@ -37,12 +45,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addBookToShoppingCart: idBook => {
 				setStore({ shoppingCart: [...getStore().shoppingCart, idBook] });
-
-				let eachBook = {
-					id_book: idBook,
-					quantity: quantity
-				};
-				setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
 
 				if (localStorage.getItem("books-in-shopping-cart") != null) {
 					let storageBooksInShoppingCart = JSON.parse(localStorage.getItem("books-in-shopping-cart"));

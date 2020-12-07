@@ -14,7 +14,7 @@ export const ShoppingCartContainer = () => {
 		let drawBooks = booksInShoppingCart.map((book, index) => {
 			for (let i = 0; i < store.books.length; i++) {
 				if (book == store.books[i].id) {
-					let each_price = store.books[i].price.toFixed(2) * store.bookQuantity[i];
+					let each_price = store.books[i].price * store.bookQuantity[index].quantity;
 					finalPrice += each_price;
 					return (
 						<Fragment>
@@ -23,7 +23,7 @@ export const ShoppingCartContainer = () => {
 								title={store.books[i].title}
 								author={store.books[i].name_author}
 								format_type={store.books[i].format_type}
-								price={each_price}
+								price={each_price.toFixed(2)}
 								book_id={store.books[i].id}
 							/>
 						</Fragment>
