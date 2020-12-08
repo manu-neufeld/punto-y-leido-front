@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loggedUser: null,
 			shoppingCart: [],
 			finalPrice: 0,
-			searchingBarContent: ""
+			searchingBarContent: "",
+			booksByTitle: []
 		},
 		actions: {
 			setFinalPrice: totalPrice => {
@@ -132,8 +133,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Can't get author info, error status: ", error);
 					});
 			},
-			changeSearchingBarContent: searchContent => {
-				setStore({ searchingBarContent: searchContent });
+			changeSearchingBarContent: search => {
+				setStore({ searchingBarContent: search });
+			},
+			getSearchingBookTitle: () => {
+				let url_book_title = url_manu_2 + "/books?title=" + setStore().searchingBarContent;
+				console.log("url enviada, ", url_book_title);
+				fetch(url_book_title)
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonApiResponseTitle => {
+						setStore({ booksByTitle: jsonApiResponseTitle });
+						console.log(getStore(booksByTitle));
+					})
+					.catch(error => {
+						console.error("Can't get book info, error status: ", error);
+					});
 			}
 		}
 	};

@@ -10,12 +10,13 @@ export const SearchingBar = () => {
 		let search = event.target.value;
 		if (event.keyCode == 13) {
 			event.preventDefault();
-			console.log(seacrh);
+			console.log(search);
 
 			if (search) {
-				store.actions.changeSearchingBarContent(search);
+				actions.changeSearchingBarContent(search);
 				myInput.value = "";
-				console.log(task);
+				<Link to={"/books?title=:searchContent"} />;
+				console.log("state, ", store.searchingBarContent);
 			}
 		}
 	};
