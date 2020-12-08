@@ -129,6 +129,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't get author info, error status: ", error);
 					});
+			},
+			editingReaderInfo: () => {
+				let nameValue = document.querySelector("#name").value;
+				let descriptionValue = document.querySelector("#description").value;
+				return {
+					name: nameValue,
+					description: descriptionValue
+				};
+			},
+			uploadingEditedReader: reader => {
+				fetch(url + "profile/" + getStore().loggedUser, {
+					method: "PUT",
+					body: JSON.stringify(reader),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getReaders();
+					})
+					.catch(error => {
+						console.error("Can't update reader information, error status: ", error);
+					});
 			}
 		}
 	};
