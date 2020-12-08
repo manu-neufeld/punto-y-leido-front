@@ -30,6 +30,9 @@ const injectContext = PassedComponent => {
 			if (localStorage.length !== 0) {
 				state.actions.decodeToken();
 			}
+			if (state.store.booksByTitle.length !== 0) {
+				state.actions.getSearchingBookTitle();
+			}
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

@@ -137,7 +137,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ searchingBarContent: search });
 			},
 			getSearchingBookTitle: () => {
-				let url_book_title = url_manu_2 + "/books?title=" + setStore().searchingBarContent;
+				let url_book_title = url_manu_2.concat("/books?title=", getStore().searchingBarContent);
 				console.log("url enviada, ", url_book_title);
 				fetch(url_book_title)
 					.then(response => {

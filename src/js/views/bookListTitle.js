@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
 import { LittleBookCover } from "../component/littleBookCover.jsx";
@@ -7,7 +7,6 @@ export const BookListTitle = () => {
 	const { store, actions } = useContext(Context);
 
 	if (store.booksByTitle != "") {
-		state.actions.getSearchingBookTitle();
 		const book = store.booksByTitle.map((bookInfo, index) => (
 			<LittleBookCover key={index} img={bookInfo.img} name={bookInfo.title} subName={bookInfo.format_type} />
 		));
