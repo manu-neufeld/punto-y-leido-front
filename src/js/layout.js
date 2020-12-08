@@ -11,6 +11,7 @@ import { NavbarMobile } from "./component/navbar-sm.js";
 import { Footer } from "./component/footer";
 import { Profile } from "./views/profile";
 import { BookDetails } from "./views/bookDetails";
+import { BookListTitle } from "./views/bookListTitle.js";
 
 //create your first component
 const Layout = () => {
@@ -46,6 +47,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/profile/:idUser">
 							Aquí enlazará al perfil del usuario
+						</Route>
+						<Route path="/BookListTitle/:searchContent">
+							<BookListTitle />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			reviews: [],
 			loggedUser: null,
 			shoppingCart: [],
-			finalPrice: 0
+			finalPrice: 0,
+			searchingBarContent: ""
 		},
 		actions: {
 			setFinalPrice: totalPrice => {
@@ -130,6 +131,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't get author info, error status: ", error);
 					});
+			},
+			changeSearchingBarContent: searchContent => {
+				setStore({ searchingBarContent: searchContent });
 			}
 		}
 	};
