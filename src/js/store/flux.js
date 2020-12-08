@@ -1,8 +1,8 @@
 import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
-    let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu03.gitpod.io/";
-    let url_manu = "https://3000-de54bcca-0d68-4ecd-b77b-a8a2ae17c7ce.ws-eu03.gitpod.io/"
+	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu03.gitpod.io/";
+	let url_manu = "https://3000-de54bcca-0d68-4ecd-b77b-a8a2ae17c7ce.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [],
