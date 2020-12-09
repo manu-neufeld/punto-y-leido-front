@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import logo from "/workspace/punto-y-leido-front/src/img/logo-punto-y-leido.png";
+import logo from "../../img/logo-punto-y-leido.png";
 import "../../styles/about-us-component.scss";
 
 export const AboutUsHome = () => {

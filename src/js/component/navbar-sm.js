@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext.js";
-import logo from "/workspace/punto-y-leido-front/src/img/logo-punto-y-leido.png";
+import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
 import { DropdownShoppingCart } from "./dropdownShoppingCart.jsx";
 import "../../styles/navbar.scss";
