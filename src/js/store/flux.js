@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getBookInfo: () => {
-				fetch(url_manu_2 + "books")
+				fetch(url + "books")
 					.then(response => {
 						if (!response.ok) throw new Error(response.status);
 						return response.json();
@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore((getStore().loggedUser = id));
 			},
 			getTokenLogin: reader => {
-				fetch(url_manu_2 + "login", {
+				fetch(url + "login", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -71,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReaders: () => {
-				fetch(url_manu_2 + "readers")
+				fetch(url + "readers")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -86,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReviews: () => {
-				fetch(url_manu_2 + "reviews")
+				fetch(url + "reviews")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -101,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			addReader: reader => {
-				fetch(url_manu_2 + "register", {
+				fetch(url + "register", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -122,7 +122,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getAllAuthorInfo: () => {
-				fetch(url_manu_2 + "authors")
+				fetch(url + "authors")
 					.then(response => {
 						return response.json();
 					})
@@ -137,8 +137,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ searchingBarContent: search });
 			},
 			getSearchingBookTitle: () => {
-				let url_book_title = url_manu_2.concat("books?title=", getStore().searchingBarContent);
-				console.log("url enviada, ", url_book_title);
+				let url_book_title = url.concat("books?title=", getStore().searchingBarContent);
 				fetch(url_book_title)
 					.then(response => {
 						console.log("hola, ", response);

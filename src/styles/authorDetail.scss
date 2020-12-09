@@ -1,12 +1,28 @@
 .container-card{
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 14rem;
+    margin-right: 14rem;
     border: none;
     img{
         max-width: 13rem;
         margin: 2rem;
     }
 }
+.sus-libros-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-left: 4rem;
+}
+.little-book-cover {
+    padding-top: 0;
+}
+.author-image {
+    text-align: center;
+    img{
+        margin: none;
+    }
+}
+
 @media (max-width: 992px) {
   .container-card {
       margin-left: 5rem;
@@ -19,6 +35,10 @@
     }
     p {
         font-size: 0.80rem;
+    }
+    .sus-libros-title {
+        text-align: center;
+        margin-left: 0;
     }
 }
  
