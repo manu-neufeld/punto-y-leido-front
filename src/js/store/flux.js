@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonBooks => {
-						setStore({ books: jsonBooks });
+						setStore({ books: jsonBooks.flat() });
 					})
 					.catch(error => {
 						console.error("Can't get books information", error);
