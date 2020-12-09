@@ -3,11 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { LittleBookCover } from "../component/littleBookCover.jsx";
 
-export const AllBooksTitle = () => {
+export const AllBooks = () => {
 	const { store } = useContext(Context);
-	let params = useParams();
-	// 	for (let index = 0; index < store.books.length; index++) {
-	// 		if (params.idBook == store.books[index].id)
 
 	if (store.author.length != 0) {
 		const books = store.books.map((bookInfo, index) => (
