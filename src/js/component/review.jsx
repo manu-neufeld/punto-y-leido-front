@@ -8,9 +8,9 @@ export const Review = props => {
 	return (
 		<Fragment>
 			<div className="review-header">
-				{/* <Link to={"profile/" + props.username}> */}
-				<h6>{props.username}</h6>
-				{/* </Link> */}
+				<Link to={"profile/" + props.readerId}>
+					<h6>{props.username}</h6>
+				</Link>
 				<h6>
 					Puntuación: {props.stars}
 					/5
@@ -24,7 +24,8 @@ export const Review = props => {
 };
 
 Review.propTypes = {
-	username: PropTypes.string,
+	readerId: PropTypes.integer,
 	stars: PropTypes.integer,
-	review: PropTypes.string
+	review: PropTypes.string,
+	username: PropTypes.string
 };

@@ -10,12 +10,16 @@ export const ReviewsBookDetails = () => {
 	if (store.reviews.lenght == 0) {
 		return "Cargando las reseñas...";
 	} else {
-		console.log(store.reviews);
 		const reviews = store.reviews.map((eachReview, index) => {
 			if (idBook.idBook == eachReview.id_book) {
 				return (
 					<div key={index} className="review">
-						<Review username={eachReview.username} stars={eachReview.stars} review={eachReview.review} />
+						<Review
+							readerId={eachReview.id_reader}
+							stars={eachReview.stars}
+							review={eachReview.review}
+							username={eachReview.username}
+						/>
 					</div>
 				);
 			}
