@@ -4,11 +4,11 @@ import "../../styles/littleBookCover.scss";
 
 export const LittleBookCover = props => {
 	return (
-		<div className="card little-book-cover">
+		<div className="card little-book-cover col-lg-3 col-sm-4">
 			<img src={props.img} className="card-img-top image" alt="..." />
 			<div className="card-body">
-				<h5 className="card-title name">{props.name}</h5>
-				<h6 className="sub-name">{props.subName}</h6>
+				<p className="name">{props.name}</p>
+				<p className="sub-name">{props.subName}</p>
 			</div>
 		</div>
 	);

@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { LittleBookCover } from "../component/littleBookCover.jsx";
+import "../../styles/allBooksStyles.scss";
 
 export const AllBooks = () => {
 	const { store } = useContext(Context);
@@ -11,9 +12,9 @@ export const AllBooks = () => {
 			<LittleBookCover key={index} name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
 		));
 		return (
-			<div className="authors-view">
+			<div className="books-view">
 				<h1>Libros</h1>
-				{books}
+				<div className="row">{books}</div>
 			</div>
 		);
 	} else return "Buscando a los autores...";
