@@ -13,9 +13,13 @@ export const SearchingBar = () => {
 			console.log(search);
 
 			if (search) {
-				actions.changeSearchingBarContent(search);
+				let string = search.replaceAll(" ", "+");
+				console.log("replace ", string);
+
+				actions.changeSearchingBarContent(string);
 				myInput.value = "";
-				<Link to={"/books?title=:searchContent"} />;
+				// <Link to={"/books?title=:searchContent"} />;
+				actions.getSearchingBookTitle();
 				console.log("state, ", store.searchingBarContent);
 			}
 		}

@@ -137,9 +137,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ searchingBarContent: search });
 			},
 			getSearchingBookTitle: () => {
-				let url_book_title = url_manu_2.concat("/books?title=", getStore().searchingBarContent);
+				let url_book_title = url_manu_2.concat("books?title=", getStore().searchingBarContent);
 				console.log("url enviada, ", url_book_title);
-				fetch(url_book_title)
+				fetch(url_book_title, {
+					mode: "no-cors"
+				})
 					.then(response => {
 						return response.json();
 					})
