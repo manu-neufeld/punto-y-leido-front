@@ -139,15 +139,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getSearchingBookTitle: () => {
 				let url_book_title = url_manu_2.concat("books?title=", getStore().searchingBarContent);
 				console.log("url enviada, ", url_book_title);
-				fetch(url_book_title, {
-					mode: "no-cors"
-				})
+				fetch(url_book_title, { mode: "cors" })
 					.then(response => {
+						console.log("hola, ", response);
+
 						return response.json();
 					})
 					.then(jsonApiResponseTitle => {
-						setStore({ booksByTitle: jsonApiResponseTitle });
-						console.log(getStore(booksByTitle));
+						setStore({ booksByTitle: jsonApiResponseTitle.flat() });
+						console.log(getStore().booksByTitle);
 					})
 					.catch(error => {
 						console.error("Can't get book info, error status: ", error);
