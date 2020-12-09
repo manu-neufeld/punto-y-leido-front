@@ -13,21 +13,19 @@
 .card-body {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     .name{
         display: flex;
         align-items: center;
-        p {
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0;
     }
-    .subName  {
+    .sub-name  {
         display: flex;
         align-self: center;
-        p{
-            font-size: 1.5rem;
-            font-weight: 500;  
-        }
+        font-size: 0.8rem;
+        
     }
 }
 
