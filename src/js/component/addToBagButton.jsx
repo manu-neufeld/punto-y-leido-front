@@ -7,6 +7,7 @@ import "../../styles/card-book-details-component.scss";
 
 export const AddToBagButton = props => {
 	const { store, actions } = useContext(Context);
+
 	const bookAdded = <p>¡Añadido!</p>;
 
 	const buttonToAdd = (

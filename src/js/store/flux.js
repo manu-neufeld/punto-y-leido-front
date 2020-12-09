@@ -38,15 +38,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id_book: idBook,
 					quantity: 1
 				};
-				setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
-
-				if (localStorage.getItem("book-quantity") != null) {
-					let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
-					let bookQuantityStore = getStore().bookQuantity;
-					let addingBookStorage = [...storageBookQuantity, bookQuantityStore].flat();
-					localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+				if (getStore().loggedUser == null) {
+					alert("¡Necesitas hacer login!");
+					window.location.replace("/");
 				} else {
-					localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+					setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
+
+					if (localStorage.getItem("book-quantity") != null) {
+						let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+						let bookQuantityStore = getStore().bookQuantity;
+						let addingBookStorage = [...storageBookQuantity, bookQuantityStore].flat();
+						localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+					} else {
+						localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+					}
 				}
 			},
 			editBooksQuantity: (idBook, quantity) => {
