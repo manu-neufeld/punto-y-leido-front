@@ -9,12 +9,18 @@ export const AllBooks = () => {
 
 	if (store.author.length != 0) {
 		const books = store.books.map((bookInfo, index) => (
-			<LittleBookCover key={index} name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+			<Link to={"/book/" + bookInfo.id} key={index}>
+				<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+			</Link>
 		));
 		return (
-			<div className="books-view">
+			<div className="all-books-view">
 				<h1>Libros</h1>
-				<div className="row">{books}</div>
+				<div className="row">
+					{/* <Link to={"/books/" + book.id} key={index}></Link> */}
+					{books}
+				</div>
+				{/* </Link> */}
 			</div>
 		);
 	} else return "Buscando a los autores...";

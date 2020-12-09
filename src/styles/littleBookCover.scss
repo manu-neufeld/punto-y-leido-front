@@ -4,24 +4,24 @@
     margin: 2rem;
     display: flex;
     float:left;
-    .image{
+    .image-little-book{
     margin: 0.25rem;
     }
     
 }
 
-.card-body {
+.card-body-little-book {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    .name{
+    .name-little-book{
         display: flex;
         align-items: center;
         font-size: 0.8rem;
         font-weight: 500;
         margin-bottom: 0;
     }
-    .sub-name  {
+    .sub-name-little-book {
         display: flex;
         align-self: center;
         font-size: 0.8rem;
@@ -30,11 +30,11 @@
 }
 
 @media (max-width: 992px) {
-    .image{
+    .image-little-book{
     margin: 0.25rem;
     }
-    .name {
-        .card-body {
+    .card-body-little-book {
+        .name-little-book {
             text-align: left;
             margin-left: 1rem;
         }
