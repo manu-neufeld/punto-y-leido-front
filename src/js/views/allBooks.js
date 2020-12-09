@@ -7,7 +7,7 @@ import "../../styles/allBooksStyles.scss";
 export const AllBooks = () => {
 	const { store } = useContext(Context);
 
-	if (store.author.length != 0) {
+	if (store.books.length != 0) {
 		const books = store.books.map((bookInfo, index) => (
 			<Link to={"/book/" + bookInfo.id} key={index}>
 				<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
@@ -17,11 +17,9 @@ export const AllBooks = () => {
 			<div className="all-books-view">
 				<h1>Libros</h1>
 				<div className="row">
-					{/* <Link to={"/books/" + book.id} key={index}></Link> */}
 					{books}
 				</div>
-				{/* </Link> */}
 			</div>
 		);
-	} else return "Buscando a los autores...";
+	} else return "Buscando los libros...";
 };
