@@ -28,7 +28,7 @@ const Layout = () => {
 							<Home />
 						</Route>
 						<Route exact path="/books">
-							Aquí irá la lista con todos los libros
+							<BookListTitle />
 						</Route>
 						<Route exact path="/genres">
 							Aquí irá la lista de los libros por género
@@ -47,9 +47,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/profile/:idUser">
 							Aquí enlazará al perfil del usuario
-						</Route>
-						<Route path="/books?title=:searchContent">
-							<BookListTitle />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

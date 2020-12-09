@@ -18,23 +18,23 @@ export const SearchingBar = () => {
 
 				actions.changeSearchingBarContent(string);
 				myInput.value = "";
-				// <Link to={"/books?title=:searchContent"} />;
 				actions.getSearchingBookTitle();
-				console.log("state, ", store.searchingBarContent);
 			}
 		}
 	};
 
 	return (
 		<form>
-			<input
-				id="name"
-				type="text"
-				placeholder="Buscar..."
-				onKeyPress={() => {
-					newSearch(event);
-				}}
-			/>
+			<Link to="/books">
+				<input
+					id="name"
+					type="text"
+					placeholder="Buscar..."
+					onKeyPress={() => {
+						newSearch(event);
+					}}
+				/>
+			</Link>
 		</form>
 	);
 };

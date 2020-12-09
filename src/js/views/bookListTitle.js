@@ -6,9 +6,11 @@ import { LittleBookCover } from "../component/littleBookCover.jsx";
 export const BookListTitle = () => {
 	const { store, actions } = useContext(Context);
 
-	if (store.booksByTitle != "") {
+	if (store.booksByTitle.lenght != 0) {
 		const book = store.booksByTitle.map((bookInfo, index) => (
-			<LittleBookCover key={index} img={bookInfo.img} name={bookInfo.title} subName={bookInfo.format_type} />
+			<Link to={"/book/" + bookInfo.id} key={index}>
+				<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.format_type} />
+			</Link>
 		));
 		return book;
 	} else return "Estamos buscando los libros";
