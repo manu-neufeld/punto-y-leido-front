@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import PropTypes from "prop-types";
 import "../../styles/book-shopping-cart-component.scss";
+import { DeleteFromBagButton } from "./deleteFromBagButton.jsx";
 
 export const BookShoppingCart = props => {
 	const { store, actions } = useContext(Context);
@@ -42,6 +43,7 @@ export const BookShoppingCart = props => {
 							<option value="5">5</option>
 						</select>
 						<p>{props.price} €</p>
+						<DeleteFromBagButton id_book={props.book_id} />
 					</div>
 				</div>
 			</div>

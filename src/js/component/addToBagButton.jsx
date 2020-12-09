@@ -19,9 +19,11 @@ export const AddToBagButton = props => {
 			Añadir al carrito
 		</button>
 	);
-	if (localStorage.getItem("book-quantity") != null) {
+	if (localStorage.getItem("book-quantity") == null || localStorage.getItem("book-quantity") == []) {
+		return buttonToAdd;
+	} else {
 		let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
-		let returning = null;
+		let returning = buttonToAdd;
 		for (let i = 0; i < storageBookQuantity.length; i++) {
 			if (storageBookQuantity[i].id_book == props.id_book) {
 				returning = bookAdded;
@@ -30,8 +32,6 @@ export const AddToBagButton = props => {
 			}
 		}
 		return returning;
-	} else {
-		return buttonToAdd;
 	}
 };
 AddToBagButton.propTypes = {

@@ -15,6 +15,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			bookQuantity: []
 		},
 		actions: {
+			deleteBookFromShoppingCart: idBook => {
+				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
+
+				if (getStore().bookQuantity != []) {
+					for (let i = 0; i < getStore().bookQuantity.length; i++) {
+						if (getStore().bookQuantity[i].id_book == idBook) {
+							let store = getStore().bookQuantity;
+							store.splice(i, 1);
+							setStore({ bookQuantity: store });
+							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						}
+					}
+				}
+			},
 			getQuantityOfBooks: () => {
 				return JSON.parse(localStorage.getItem("book-quantity"));
 			},
