@@ -48,7 +48,7 @@ const Layout = () => {
 							<BookDetails />
 						</Route>
 						<Route exact path="/profile/:idUser">
-							Aquí enlazará al perfil del usuario
+							<Profile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

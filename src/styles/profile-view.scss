@@ -1,0 +1,20 @@
+.profile {
+    margin-left: 14rem;
+    margin-right: 14rem;
+    span {
+        margin-left: 5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .profile {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+}
+@media (max-width: 450px) {
+    .profile {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}

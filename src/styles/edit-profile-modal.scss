@@ -1,0 +1,13 @@
+.modal-dialog {
+    max-width: 50rem;
+    .modal-body {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        label {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        }
+    }
+}
