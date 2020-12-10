@@ -230,6 +230,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't update reader information, error status: ", error);
 					});
+			},
+
+			getAllShelfInfoTest: () => {
+				fetch(url + "test")
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonShelfInfo => {
+						setStore({ shelves: jsonShelfInfo });
+					})
+					.catch(error => {
+						console.error("Can't get shelf information, error status: ", error);
+					});
+			},
+			postBookOnShelf: (id_book, id_reader, shelf_name) => {
+				let url_shelf = url.concat(id_reader, "/", shelf_name, "/", id_book);
+				console.log("flux result ", url_shelf);
+				fetch(url_shelf, {
+					method: "POST",
+					mode: "no-cors",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getShelf();
+					})
+					.catch(error => {
+						console.error("Can't add a book to the self, error status: ", error);
+					});
 			}
 		}
 	};

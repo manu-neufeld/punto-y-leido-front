@@ -27,6 +27,7 @@ const injectContext = PassedComponent => {
 			state.actions.getReviews();
 			state.actions.getAllAuthorInfo();
 			state.actions.changeSearchingBarContent();
+			state.actions.getAllShelfInfoTest();
 			if (localStorage.length !== 0) {
 				state.actions.decodeToken();
 			}

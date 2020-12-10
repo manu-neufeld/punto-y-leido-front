@@ -30,7 +30,9 @@ export const Profile = () => {
 			<div>
 				<ProfileInfo />
 			</div>
-			<div>{/* <ProfileShelves /> */}</div>
+			<div>
+				<ProfileShelves />
+			</div>
 			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
