@@ -57,6 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					} else {
 						localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
 					}
+					setStore({ bookQuantity: [] });
 				}
 			},
 			editBooksQuantity: (idBook, quantity) => {
