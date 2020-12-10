@@ -9,7 +9,12 @@ export const BookListTitle = () => {
 	if (store.booksByTitle.lenght != 0) {
 		const book = store.booksByTitle.map((bookInfo, index) => (
 			<Link to={"/book/" + bookInfo.id} key={index}>
-				<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+				<LittleBookCover
+					name={bookInfo.title}
+					img={bookInfo.image}
+					subName={bookInfo.name_author}
+					idBook={bookInfo.id}
+				/>
 			</Link>
 		));
 		return book;
