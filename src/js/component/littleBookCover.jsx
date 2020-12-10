@@ -13,7 +13,7 @@ export const LittleBookCover = props => {
 			<div className="btn-group boton dropleft">
 				<button
 					type="button"
-					className="boton-dropdown-flecha"
+					className="button-dropdown-arrow"
 					data-toggle="dropdown"
 					data-display="static"
 					aria-haspopup="true"
