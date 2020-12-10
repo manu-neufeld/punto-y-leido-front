@@ -40,7 +40,7 @@ export const Modal = props => {
 						<div className="modal-body">
 							<label>
 								Nombre:
-								<input defaultValue={readerToFind.name} id="name" />
+								<input defaultValue={readerToFind.name} id="userName" />
 							</label>
 							<label>
 								Descripción:

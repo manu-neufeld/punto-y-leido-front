@@ -24,7 +24,6 @@ const injectContext = PassedComponent => {
 		useEffect(() => {
 			state.actions.getReaders();
 			state.actions.getBookInfo();
-			console.log("info libros, ", state.store.books);
 			state.actions.getReviews();
 			state.actions.getAllAuthorInfo();
 			state.actions.changeSearchingBarContent();

@@ -81,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getBookInfo: () => {
-				fetch(url_2_manu + "books")
+				fetch(url + "books")
 					.then(response => {
 						if (!response.ok) throw new Error(response.status);
 						return response.json();
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore((getStore().loggedUser = id));
 			},
 			getTokenLogin: reader => {
-				fetch(url_2_manu + "login", {
+				fetch(url + "login", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReaders: () => {
-				fetch(url_2_manu + "readers")
+				fetch(url + "readers")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -139,7 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReviews: () => {
-				fetch(url_2_manu + "reviews")
+				fetch(url + "reviews")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -154,7 +154,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			addReader: reader => {
-				fetch(url_2_manu + "register", {
+				fetch(url + "register", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -175,7 +175,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getAllAuthorInfo: () => {
-				fetch(url_2_manu + "authors")
+				fetch(url + "authors")
 					.then(response => {
 						return response.json();
 					})
@@ -190,7 +190,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ searchingBarContent: search });
 			},
 			getSearchingBookTitle: () => {
-				let url_book_title = url_2_manu.concat("books?title=", getStore().searchingBarContent);
+				let url_book_title = url.concat("books?title=", getStore().searchingBarContent);
 				fetch(url_book_title)
 					.then(response => {
 						return response.json();
@@ -203,7 +203,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			editingReaderInfo: () => {
-				let nameValue = document.querySelector("#name").value;
+				let nameValue = document.querySelector("#userName").value;
 				let descriptionValue = document.querySelector("#description").value;
 				return {
 					name: nameValue,
