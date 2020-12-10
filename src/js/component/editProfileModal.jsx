@@ -11,8 +11,20 @@ export const Modal = props => {
 	const [state, setState] = useState({
 		showModal: true
 	});
-	if (store.readers.length !== 0) {
+	if (store.readers.length != 0) {
 		const readerToFind = store.readers.find(reader => reader.id == readerId.idUser);
+		let buttonToEdit = (
+			<button
+				onClick={() => {
+					props.onClose();
+				}}
+				type="button"
+				className="close"
+				data-dismiss="modal"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		);
 		return (
 			<div
 				className="modal"
@@ -23,20 +35,7 @@ export const Modal = props => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title">Editar perfil</h5>
-							{props.onClose ? (
-								<button
-									onClick={() => {
-										props.onClose();
-									}}
-									type="button"
-									className="close"
-									data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							) : (
-								""
-							)}
+							{props.onClose ? buttonToEdit : ""}
 						</div>
 						<div className="modal-body">
 							<label>
