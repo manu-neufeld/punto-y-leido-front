@@ -16,9 +16,7 @@ export const AllBooks = () => {
 		return (
 			<div className="all-books-view">
 				<h1>Libros</h1>
-				<div className="row">
-					{books}
-				</div>
+				<div className="row">{books}</div>
 			</div>
 		);
 	} else return "Buscando los libros...";

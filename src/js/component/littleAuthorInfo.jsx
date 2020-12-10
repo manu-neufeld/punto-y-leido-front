@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
+import "../../styles/little-author-info-component.scss";
 
-export const AuthorDetail = props => {
+export const LittleAuthorInfo = props => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="card mb-3">
 			<div className="row no-gutters">
-				<div className="col-md-4 author-image">
+				<div className="col-5 author-image">
 					<img src={props.img} className="card-img" />
 				</div>
-				<div className="col-md-8">
+				<div className="col-7 author-name">
 					<div className="card-body">
-						<h5 className="card-title">{props.name}</h5>
-						<p className="card-text">{props.biography}</p>
+						<p className="card-title">{props.name}</p>
 					</div>
 				</div>
 			</div>
@@ -21,8 +21,7 @@ export const AuthorDetail = props => {
 	);
 };
 
-AuthorDetail.propTypes = {
+LittleAuthorInfo.propTypes = {
 	name: PropTypes.string,
-	biography: PropTypes.string,
 	img: PropTypes.string
 };

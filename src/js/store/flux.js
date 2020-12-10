@@ -2,7 +2,7 @@ import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	let url = "https://3000-a06e473f-9876-434a-94ac-aa7135fbfbc9.ws-eu03.gitpod.io/";
-	let url_manu = "https://3000-de54bcca-0d68-4ecd-b77b-a8a2ae17c7ce.ws-eu03.gitpod.io/";
+	let url_2_manu = "https://3000-de54bcca-0d68-4ecd-b77b-a8a2ae17c7ce.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [],
@@ -12,7 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			reviews: [],
 			loggedUser: null,
 			shoppingCart: [],
-			finalPrice: 0
+			finalPrice: 0,
+			searchingBarContent: "",
+			booksByTitle: []
 		},
 		actions: {
 			setFinalPrice: totalPrice => {
@@ -26,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getBookInfo: () => {
-				fetch(url_manu + "books")
+				fetch(url_2_manu + "books")
 					.then(response => {
 						if (!response.ok) throw new Error(response.status);
 						return response.json();
@@ -47,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore((getStore().loggedUser = id));
 			},
 			getTokenLogin: reader => {
-				fetch(url_manu + "login", {
+				fetch(url_2_manu + "login", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -69,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReaders: () => {
-				fetch(url_manu + "readers")
+				fetch(url_2_manu + "readers")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -84,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getReviews: () => {
-				fetch(url_manu + "reviews")
+				fetch(url_2_manu + "reviews")
 					.then(response => {
 						if (!response.ok) {
 							throw new Error(response.status);
@@ -99,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			addReader: reader => {
-				fetch(url_manu + "register", {
+				fetch(url_2_manu + "register", {
 					method: "POST",
 					body: JSON.stringify(reader),
 					headers: {
@@ -120,7 +122,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getAllAuthorInfo: () => {
-				fetch(url_manu + "authors")
+				fetch(url_2_manu + "authors")
 					.then(response => {
 						return response.json();
 					})
@@ -129,6 +131,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.error("Can't get author info, error status: ", error);
+					});
+			},
+			changeSearchingBarContent: search => {
+				setStore({ searchingBarContent: search });
+			},
+			getSearchingBookTitle: () => {
+				let url_book_title = url_2_manu.concat("books?title=", getStore().searchingBarContent);
+				fetch(url_book_title)
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonApiResponseTitle => {
+						setStore({ booksByTitle: jsonApiResponseTitle.flat() });
+					})
+					.catch(error => {
+						console.error("Can't get book info, error status: ", error);
+					});
+			},
+			editingReaderInfo: () => {
+				let nameValue = document.querySelector("#name").value;
+				let descriptionValue = document.querySelector("#description").value;
+				return {
+					name: nameValue,
+					description: descriptionValue
+				};
+			},
+			uploadingEditedReader: reader => {
+				fetch(url + "profile/" + getStore().loggedUser, {
+					method: "PUT",
+					body: JSON.stringify(reader),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getReaders();
+					})
+					.catch(error => {
+						console.error("Can't update reader information, error status: ", error);
 					});
 			}
 		}
