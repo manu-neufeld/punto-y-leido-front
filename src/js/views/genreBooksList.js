@@ -12,7 +12,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Histórica") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -21,7 +26,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Clásicos") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -30,7 +40,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Romántica y erótica") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -39,7 +54,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Thriller") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -48,7 +68,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Ciencia ficción y fantástica") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -57,7 +82,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Biográfica") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -66,7 +96,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Juvenil") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
@@ -75,7 +110,12 @@ export const GenreBooksList = () => {
 			if (bookInfo.genre == "Novela gráfica") {
 				return (
 					<Link to={"/book/" + bookInfo.id} key={index}>
-						<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
+						<LittleBookCover
+							name={bookInfo.title}
+							img={bookInfo.image}
+							subName={bookInfo.name_author}
+							idBook={bookInfo.id}
+						/>
 					</Link>
 				);
 			}
