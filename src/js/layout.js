@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import { Profile } from "./views/profile";
 import { BookDetails } from "./views/bookDetails";
 import { AllAuthors } from "./views/allAuthors";
+import { BookListTitle } from "./views/bookListTitle.js";
 
 //create your first component
 const Layout = () => {
@@ -28,7 +29,7 @@ const Layout = () => {
 							<Home />
 						</Route>
 						<Route exact path="/books">
-							Aquí irá la lista con todos los libros
+							<BookListTitle />
 						</Route>
 						<Route exact path="/genres">
 							Aquí irá la lista de los libros por género

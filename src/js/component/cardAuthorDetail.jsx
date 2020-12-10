@@ -7,7 +7,7 @@ export const AuthorDetail = props => {
 	return (
 		<div className="card mb-3">
 			<div className="row no-gutters">
-				<div className="col-md-4">
+				<div className="col-md-4 author-image">
 					<img src={props.img} className="card-img" />
 				</div>
 				<div className="col-md-8">

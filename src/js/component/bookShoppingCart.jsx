@@ -6,7 +6,7 @@ import "../../styles/book-shopping-cart-component.scss";
 export const BookShoppingCart = props => {
 	return (
 		<Fragment>
-			<div className="card mb-0">
+			<div className="card mb-0 card-book-shopping-cart">
 				<div className="row no-gutters">
 					<div className="col-md-4 cover-page">
 						<img src={props.image} className="card-img" alt="Portada del libro" />

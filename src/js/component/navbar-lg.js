@@ -4,6 +4,7 @@ import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 import { DropdownShoppingCart } from "./dropdownShoppingCart.jsx";
+import { SearchingBar } from "./searchingBar.jsx";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -25,7 +26,9 @@ export const Navbar = () => {
 				</Link>
 			</div>
 			<div className="tools">
-				<span> Search-baaaaaaaaar </span>
+				<span>
+					<SearchingBar />
+				</span>
 				<Link to={"/profile/" + store.loggedUser}>Perfil</Link>
 				<DropdownShoppingCart />
 			</div>

@@ -5,6 +5,7 @@ import { LittleBookCover } from "../component/littleBookCover.jsx";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/authorDetail.scss";
+import { BooksWrittenBy } from "../component/booksWrittenBy.jsx";
 
 export const AuthorDetails = () => {
 	const { store } = useContext(Context);
@@ -17,8 +18,8 @@ export const AuthorDetails = () => {
 	}
 	if (store.author.length != 0) {
 		return (
-			<Fragment>
-				<div className="container-card">
+			<div className="container-card">
+				<div>
 					<AuthorDetail
 						img={store.author[authorIndex].image}
 						name={store.author[authorIndex].name}
@@ -26,9 +27,10 @@ export const AuthorDetails = () => {
 					/>
 				</div>
 				<div>
-					<LittleBookCover />
+					<p className="sus-libros-title">Sus libros:</p>
+					<BooksWrittenBy />
 				</div>
-			</Fragment>
+			</div>
 		);
 	} else return "Estamos buscando el autor!";
 };
