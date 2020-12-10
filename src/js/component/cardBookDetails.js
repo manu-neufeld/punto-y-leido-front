@@ -1,9 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../styles/card-book-details-component.scss";
+import { AddToBagButton } from "./addToBagButton.jsx";
 
 export const CardBookDetails = props => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<Fragment>
 			<div className="card">
@@ -22,12 +26,13 @@ export const CardBookDetails = props => {
 								<p>Formato: {props.format_type}</p>
 								<p>{props.price} €</p>
 							</div>
+							<AddToBagButton id_book={props.id_book} />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="synopsis">
-				<p>Sinopsis:</p>
+				<p className="synopsis-title">Sinopsis:</p>
 				<p className="card-text">{props.synopsis}</p>
 			</div>
 		</Fragment>
@@ -42,5 +47,6 @@ CardBookDetails.propTypes = {
 	image: PropTypes.string,
 	format_type: PropTypes.string,
 	price: PropTypes.string,
-	id_author: PropTypes.integer
+	id_author: PropTypes.integer,
+	id_book: PropTypes.integer
 };

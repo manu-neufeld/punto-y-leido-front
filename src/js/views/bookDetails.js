@@ -16,6 +16,7 @@ export const BookDetails = () => {
 			<Fragment>
 				<div className="book-details">
 					<CardBookDetails
+						id_book={idBook.idBook}
 						title={bookToFind.title}
 						genre={bookToFind.genre}
 						synopsis={bookToFind.synopsis}

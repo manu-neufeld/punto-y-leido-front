@@ -30,7 +30,9 @@ a {
             font-weight: 500;
         }
 }
-
+.input-group {
+    max-width: 12rem;
+}
 @media (max-width: 768px) {
     .row {
         display: flex;
@@ -55,6 +57,9 @@ a {
         p:last-child {
             font-size: 1rem;
         }
+    }
+    .input-group {
+        max-width: none;
     }
     .card-title {
         font-size: 1rem;

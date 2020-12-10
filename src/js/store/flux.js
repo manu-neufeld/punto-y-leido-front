@@ -14,17 +14,70 @@ const getState = ({ getStore, getActions, setStore }) => {
 			shoppingCart: [],
 			finalPrice: 0,
 			searchingBarContent: "",
-			booksByTitle: []
+			booksByTitle: [],
+			bookQuantity: []
 		},
 		actions: {
+			deleteBookFromShoppingCart: idBook => {
+				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
+
+				if (getStore().bookQuantity != []) {
+					for (let i = 0; i < getStore().bookQuantity.length; i++) {
+						if (getStore().bookQuantity[i].id_book == idBook) {
+							let store = getStore().bookQuantity;
+							store.splice(i, 1);
+							setStore({ bookQuantity: store });
+							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						}
+					}
+				}
+			},
+			getQuantityOfBooks: () => {
+				return JSON.parse(localStorage.getItem("book-quantity"));
+			},
+			setBooksQuantity: idBook => {
+				let eachBook = {
+					id_book: idBook,
+					quantity: 1
+				};
+				if (getStore().loggedUser == null) {
+					alert("¡Necesitas hacer login!");
+					window.location.replace("/");
+				} else {
+					setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
+
+					if (localStorage.getItem("book-quantity") != null) {
+						let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+						let bookQuantityStore = getStore().bookQuantity;
+						let addingBookStorage = [...storageBookQuantity, bookQuantityStore].flat();
+						localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+					} else {
+						localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+					}
+				}
+			},
+			editBooksQuantity: (idBook, quantity) => {
+				let eachBook = {
+					id_book: idBook,
+					quantity: quantity
+				};
+
+				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
+
+				if (getStore().bookQuantity != []) {
+					for (let i = 0; i < getStore().bookQuantity.length; i++) {
+						if (getStore().bookQuantity[i].id_book == idBook) {
+							setStore((getStore().bookQuantity[i] = eachBook));
+							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						}
+					}
+				}
+			},
 			setFinalPrice: totalPrice => {
 				if (totalPrice !== getStore().finalPrice) {
 					setStore((getStore().finalPrice = totalPrice));
-				}
-			},
-			setShoppingCart: booksArray => {
-				if (booksArray.length !== getStore().shoppingCart.length) {
-					setStore((getStore().shoppingCart = booksArray));
 				}
 			},
 			getBookInfo: () => {
