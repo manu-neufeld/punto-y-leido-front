@@ -65,16 +65,9 @@ export const LittleBookCover = props => {
 				}}>
 				<i className="fas fa-trash-alt delete" />
 			</div>
-			<img
-				src={props.img}
-				className="card-img-top image"
-				alt="Portada del libro"
-				onClick={() => {
-					window.location.replace(
-						"https://3000-c0c5b495-4cac-492f-bf27-55110f3988e7.ws-eu01.gitpod.io/book/" + props.idBook
-					);
-				}}
-			/>
+			<Link to={"/book/" + props.idBook}>
+				<img src={props.img} className="card-img-top image" alt="Portada del libro" />
+			</Link>
 			<div className="card-body">
 				<h5 className="card-title name">{props.name}</h5>
 				<h6 className="sub-name">{props.subName}</h6>

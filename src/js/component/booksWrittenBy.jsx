@@ -13,7 +13,12 @@ export const BooksWrittenBy = props => {
 			if (idAuthor.idAuthor == book.id_author) {
 				return (
 					<Link to={"/book/" + book.id}>
-						<LittleBookCover img={book.image} name={book.title} subName={book.name_author} />
+						<LittleBookCover
+							img={book.image}
+							name={book.title}
+							subName={book.name_author}
+							idBook={book.id}
+						/>
 					</Link>
 				);
 			}
