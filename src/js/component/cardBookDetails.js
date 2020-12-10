@@ -10,7 +10,9 @@ export const CardBookDetails = props => {
 	let params = useParams();
 
 	useEffect(() => {
-		actions.postBookOnShelf(params.id_book, params.id_reader);
+		if (store.loggedUser != null) {
+			actions.postBookOnShelf(params.idBook, store.loggedUser);
+		}
 	}, []);
 
 	return (
@@ -33,13 +35,10 @@ export const CardBookDetails = props => {
 									className="dropdown-item"
 									type="button"
 									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 6, "favoritos");
-										console.log(
-											"pamametros pasados ",
-											params.id_book,
-											params.id_reader,
-											"favoritos"
-										);
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("favoritos");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "favoritos");
+										}
 									}}>
 									Favorito
 								</button>
@@ -47,8 +46,10 @@ export const CardBookDetails = props => {
 									className="dropdown-item"
 									type="button"
 									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 6, "leidos");
-										console.log("pamametros pasados ", params);
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("leidos");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "leidos");
+										}
 									}}>
 									Leído
 								</button>
@@ -56,8 +57,10 @@ export const CardBookDetails = props => {
 									className="dropdown-item"
 									type="button"
 									onClick={() => {
-										actions.postBookOnShelf(params.idBook, 5, "pendientes");
-										console.log("pamametros pasados ", params);
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("pendientes");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "pendientes");
+										}
 									}}>
 									Pendiente
 								</button>
@@ -96,7 +99,7 @@ CardBookDetails.propTypes = {
 	synopsis: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.string,
+	price: PropTypes.float,
 	id_author: PropTypes.integer,
 	id_book: PropTypes.integer
 };

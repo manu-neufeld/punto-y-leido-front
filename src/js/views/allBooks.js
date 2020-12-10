@@ -9,9 +9,13 @@ export const AllBooks = () => {
 
 	if (store.books.length != 0) {
 		const books = store.books.map((bookInfo, index) => (
-			<Link to={"/book/" + bookInfo.id} key={index}>
-				<LittleBookCover name={bookInfo.title} img={bookInfo.image} subName={bookInfo.name_author} />
-			</Link>
+			<LittleBookCover
+				key={index}
+				name={bookInfo.title}
+				img={bookInfo.image}
+				subName={bookInfo.name_author}
+				idBook={bookInfo.id}
+			/>
 		));
 		return (
 			<div className="all-books-view">

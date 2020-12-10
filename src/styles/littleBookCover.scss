@@ -1,13 +1,23 @@
-
 .little-book-cover{
     max-width: 10rem;
     margin: 2rem;
     display: flex;
+    flex-wrap: wrap;
     float:left;
     .image-little-book{
     margin: 0.25rem;
     }
-    
+    .delete{
+        position: relative;
+        top: 3.5rem;
+        left: 8.2rem;
+    }
+    .boton{
+        position: relative;
+        top: 3rem;
+        left: 8rem;
+
+    }
 }
 
 .card-body-little-book {

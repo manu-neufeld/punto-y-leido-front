@@ -15,7 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			finalPrice: 0,
 			searchingBarContent: "",
 			booksByTitle: [],
-			bookQuantity: []
+			bookQuantity: [],
+			currentShelf: "leidos",
+			idReaderShelfBook: []
 		},
 		actions: {
 			deleteBookFromShoppingCart: idBook => {
@@ -232,8 +234,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
+			getBooksByShelfAndReader: (id_reader, shelf_name) => {
+				let url_shelf = url.concat(id_reader, "/", getStore().currentShelf, "/books");
+				fetch(url_shelf)
+					.then(response => {
+						return response.json();
+					})
+					.then(bookShelfJson => {
+						setStore({ idReaderShelfBook: bookShelfJson });
+					})
+					.catch(error => {
+						console.error("Can't get self info, error status: ", error);
+					});
+			},
 			getAllShelfInfoTest: () => {
-				fetch(url + "test")
+				fetch(url + "shelves_by_id")
 					.then(response => {
 						return response.json();
 					})
@@ -249,7 +264,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("flux result ", url_shelf);
 				fetch(url_shelf, {
 					method: "POST",
-					mode: "no-cors",
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -261,10 +275,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(() => {
-						getActions().getShelf();
+						getActions().getAllShelfInfoTest();
 					})
 					.catch(error => {
 						console.error("Can't add a book to the self, error status: ", error);
+					});
+			},
+			changeCurrentShelf: shelf_name => {
+				setStore({ currentShelf: shelf_name });
+			},
+			deleteBookOnShelf: (id_book, id_reader, shelf_name) => {
+				let url_shelf_delete = url.concat(id_reader, "/", shelf_name, "/", id_book);
+				fetch(url_shelf_delete, {
+					method: "DELETE",
+					headers: {
+						"content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+					})
+					.then(() => {
+						window.location.reload();
+					})
+					.catch(error => {
+						console.error("Can't delete book from shelf, error: ", error);
 					});
 			}
 		}

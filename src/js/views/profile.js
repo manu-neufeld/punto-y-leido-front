@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { ProfileShelves } from "../component/profileShelves.jsx";
@@ -20,6 +20,16 @@ export const Profile = () => {
 			}}>
 			Editar
 		</button>
+	);
+	useEffect(() => {
+		actions.changeCurrentShelf("leidos");
+	}, []);
+
+	useEffect(
+		() => {
+			actions.getBooksByShelfAndReader(idReader.idUser, store.currentShelf);
+		},
+		[store.currentShelf]
 	);
 	return (
 		<div className="profile">
