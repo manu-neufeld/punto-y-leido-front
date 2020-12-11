@@ -29,7 +29,7 @@ export const BookShoppingCart = props => {
 					<div className="col-md-2 book-price">
 						<select
 							id={"quantity" + props.book_id}
-							className="custom-select"
+							className="custom-select quantity-input"
 							aria-label="Select quantity with button for adding to shopping cart"
 							onChange={() => {
 								let selectedQuantity = document.querySelector("#quantity" + props.book_id).value;
@@ -42,7 +42,7 @@ export const BookShoppingCart = props => {
 							<option value="4">4</option>
 							<option value="5">5</option>
 						</select>
-						<p>{props.price} €</p>
+						<p className="price-of-each-book">{props.price} €</p>
 						<DeleteFromBagButton id_book={props.book_id} />
 					</div>
 				</div>

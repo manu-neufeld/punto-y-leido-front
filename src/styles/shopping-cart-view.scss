@@ -1,6 +1,10 @@
 .book-shopping-cart{
     margin-left: 24rem;
     margin-right: 24rem;
+    .price-of-each-book {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
     p {
         margin: 0;
     }
@@ -26,6 +30,9 @@
         }
         .final-price {
             font-size: 1rem;
+        }
+        .quantity-input {
+            max-width: 5rem;
         }
     }
 }

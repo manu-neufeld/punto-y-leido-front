@@ -10,7 +10,7 @@ export const DeleteFromBagButton = props => {
 
 	const buttonToDelete = (
 		<button
-			className="btn btn-outline-secondary"
+			className="btn btn-outline-danger"
 			type="button"
 			onClick={() => {
 				actions.deleteBookFromShoppingCart(props.id_book);
