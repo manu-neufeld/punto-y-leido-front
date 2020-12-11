@@ -16,12 +16,12 @@ export const LittleBookCover = props => {
 			<div className="btn-group boton dropleft">
 				<button
 					type="button"
-					className="boton-dropdown-flecha"
+					className="button-dropdown-arrow"
 					data-toggle="dropdown"
 					data-display="static"
 					aria-haspopup="true"
 					aria-expanded="false">
-					<i className="fas fa-caret-square-down arrow" />
+					<i className="fas fa-chevron-circle-down" />
 				</button>
 				<div className="dropdown-menu dropdown-menu-lg-left">
 					<button
@@ -62,15 +62,16 @@ export const LittleBookCover = props => {
 			<div
 				onClick={() => {
 					actions.deleteBookOnShelf(props.idBook, loggedUser, store.currentShelf);
-				}}>
+				}}
+				className="little-book-cover-delete-button">
 				<i className="fas fa-trash-alt delete" />
 			</div>
-			<Link to={"/book/" + props.idBook}>
-				<img src={props.img} className="card-img-top image" alt="Portada del libro" />
+			<Link to={"/book/" + props.idBook} className="image-little-book">
+				<img src={props.img} className="card-img-top" alt="Portada del libro" />
 			</Link>
 			<div className="card-body">
-				<h5 className="card-title name">{props.name}</h5>
-				<h6 className="sub-name">{props.subName}</h6>
+				<p className="card-title name">{props.name}</p>
+				<p className="sub-name">{props.subName}</p>
 			</div>
 		</div>
 	);
