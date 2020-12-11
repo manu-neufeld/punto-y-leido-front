@@ -24,12 +24,16 @@ export const Navbar = () => {
 				<Link to="/authors">
 					<p className="nav-item">Autores</p>
 				</Link>
-			</div>
-			<div className="tools">
+				{/* </div>
+			<div className="tools"> */}
 				<span>
 					<SearchingBar />
 				</span>
-				<Link to={"/profile/" + store.loggedUser}>Perfil</Link>
+				<span>
+					<Link to={"/profile/" + store.loggedUser}>
+						<i className="fas fa-user-alt" />
+					</Link>
+				</span>
 				<DropdownShoppingCart />
 			</div>
 		</nav>

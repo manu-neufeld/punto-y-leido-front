@@ -10,7 +10,7 @@ export const DropdownShoppingCart = () => {
 	let booksInShoppingCart = actions.getQuantityOfBooks();
 
 	useEffect(() => {
-		if (booksInShoppingCart == null) {
+		if (booksInShoppingCart == null || booksInShoppingCart == []) {
 			setListElement("Ningún libro añadido");
 		} else {
 			setListElement(
@@ -22,13 +22,6 @@ export const DropdownShoppingCart = () => {
 									<Link to={"/book/" + store.books[i].id}>
 										<span>{store.books[i].title}</span>
 										<span>{store.books[i].price} €</span>
-										{/* <button
-										className="btn btn-danger"
-										onClick={() => {
-											deleteFav(index);
-										}}>
-										Del
-									</button> */}
 									</Link>
 								</li>
 							);
@@ -38,22 +31,22 @@ export const DropdownShoppingCart = () => {
 			);
 		}
 	});
-	if (booksInShoppingCart != null) {
+	if (booksInShoppingCart != null || booksInShoppingCart != []) {
 		return (
 			<span className="dropdown">
 				<button
-					className="btn dropdown-toggle"
+					className="dropdown-toggle dropdown-button-cart"
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					Carrito {booksInShoppingCart.length}
+					<i className="fas fa-shopping-cart" /> {booksInShoppingCart.length}
 				</button>
 				<ul className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					{listElement}
 					<li className="link-to-shopping-cart">
-						<Link to={"/" + store.loggedUser + "/shopping-cart"}> Ver en carrito</Link>
+						<Link to={"/" + store.loggedUser + "/shopping-cart"}>Ver carrito</Link>
 					</li>
 				</ul>
 			</span>
@@ -62,18 +55,18 @@ export const DropdownShoppingCart = () => {
 		return (
 			<span>
 				<button
-					className="btn dropdown-toggle"
+					className="dropdown-toggle dropdown-button-cart"
 					type="button"
 					id="dropdownMenuButton"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					Carrito 0
+					<i className="fas fa-shopping-cart" /> 0
 				</button>
 				<ul className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					{listElement}
 					<li className="link-to-shopping-cart">
-						<Link to={"/" + store.loggedUser + "/shopping-cart"}> Ver carrito</Link>
+						<Link to={"/" + store.loggedUser + "/shopping-cart"}>Ver carrito</Link>
 					</li>
 				</ul>
 			</span>

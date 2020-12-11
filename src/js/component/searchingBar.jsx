@@ -24,9 +24,10 @@ export const SearchingBar = () => {
 	};
 
 	return (
-		<form>
+		<form className="searching-bar">
 			<Link to="/books-search">
 				<input
+					className="searching-bar-input"
 					id="name"
 					type="text"
 					placeholder="Buscar..."

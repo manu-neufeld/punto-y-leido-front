@@ -16,7 +16,9 @@ export const NavbarMobile = () => {
 					<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
 				</Link>
 				<Link to={"/profile/" + store.loggedUser}>
-					<span>Perfil</span>
+					<span>
+						<i className="fas fa-user-alt" />
+					</span>
 				</Link>
 				<div className="nav" id="navbarNavAltMarkup">
 					<a
@@ -27,9 +29,9 @@ export const NavbarMobile = () => {
 						data-toggle="dropdown"
 						aria-haspopup="true"
 						aria-expanded="false">
-						...
+						<i className="fas fa-bars" />
 					</a>
-					<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 						<Link to="/books">
 							<p className="dropdown-item">Libros</p>
 						</Link>

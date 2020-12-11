@@ -20,12 +20,19 @@
     }
     
 }
+.dropdown-button-cart {
+    border: none;
+}
 .dropdown-menu {
-    min-width: 315px;
+    min-width: 15rem;
     font-size: 0.8rem;
 }
 @media (max-width: 450px) {
     li {
+        font-size: 0.8rem;
+    }
+    .dropdown-menu {
+        min-width: 10rem;
         font-size: 0.8rem;
     }
 }

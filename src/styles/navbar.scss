@@ -11,7 +11,17 @@
     p {
         margin: 0;
     }
+    input {
+            width: 14rem;
+        }
 }
+.searching-bar {
+        margin-left: 5rem;
+    }
+.dropdown-menu {
+    min-width: 7rem;
+}
+
 @media (max-width: 768px) {
     .logo-navbar {
     max-height: 3rem;
@@ -24,5 +34,12 @@
         p {
             margin: 0;
         }
+        input {
+            width: auto;
+        }
+        
+    }
+     .searching-bar {
+        margin-left: 0;
     }
 }
