@@ -28,8 +28,6 @@ export const AddToBagButton = props => {
 		for (let i = 0; i < storageBookQuantity.length; i++) {
 			if (storageBookQuantity[i].id_book == props.id_book) {
 				returning = bookAdded;
-			} else {
-				returning = buttonToAdd;
 			}
 		}
 		return returning;
