@@ -1,22 +1,52 @@
-
 .little-book-cover{
     max-width: 10rem;
     margin: 2rem;
     display: flex;
     flex-wrap: wrap;
     float:left;
-    img{
+    .image-little-book{
     margin: 0.25rem;
-    width: 9rem;
+    }
+    .delete{
+        position: relative;
+        top: 3.5rem;
+        left: 8.2rem;
+    }
+    .boton{
+        position: relative;
+        top: 3rem;
+        left: 8rem;
+
     }
 }
 
-
-
-.name{
-    
+.card-body-little-book {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .name-little-book{
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .sub-name-little-book {
+        display: flex;
+        align-self: center;
+        font-size: 0.8rem;
+        
+    }
 }
 
-.sub-name{
-
+@media (max-width: 992px) {
+    .image-little-book{
+    margin: 0.25rem;
+    }
+    .card-body-little-book {
+        .name-little-book {
+            text-align: left;
+            margin-left: 1rem;
+        }
+    }
 }

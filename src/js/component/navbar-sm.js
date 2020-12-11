@@ -4,6 +4,7 @@ import logo from "../../img/logo-punto-y-leido.png";
 import { Link } from "react-router-dom";
 import { DropdownShoppingCart } from "./dropdownShoppingCart.jsx";
 import "../../styles/navbar.scss";
+import { SearchingBar } from "./searchingBar.jsx";
 
 export const NavbarMobile = () => {
 	const { store, actions } = useContext(Context);
@@ -42,7 +43,9 @@ export const NavbarMobile = () => {
 				</div>
 			</nav>
 			<nav className="navbar navbar-expand bg-light">
-				<span>Searchbaaaaar</span>
+				<span>
+					<SearchingBar />
+				</span>
 				<DropdownShoppingCart />
 			</nav>
 		</Fragment>

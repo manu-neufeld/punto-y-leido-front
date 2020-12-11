@@ -11,6 +11,10 @@ import { NavbarMobile } from "./component/navbar-sm.js";
 import { Footer } from "./component/footer";
 import { Profile } from "./views/profile";
 import { BookDetails } from "./views/bookDetails";
+import { AllBooks } from "./views/allBooks.js";
+import { AllAuthors } from "./views/allAuthors";
+import { BookListTitle } from "./views/bookListTitle.js";
+import { GenreBooksList } from "./views/genreBooksList.js";
 
 //create your first component
 const Layout = () => {
@@ -27,13 +31,16 @@ const Layout = () => {
 							<Home />
 						</Route>
 						<Route exact path="/books">
-							Aquí irá la lista con todos los libros
+							<AllBooks />
+						</Route>
+						<Route exact path="/books-search">
+							<BookListTitle />
 						</Route>
 						<Route exact path="/genres">
-							Aquí irá la lista de los libros por género
+							<GenreBooksList />
 						</Route>
 						<Route exact path="/authors">
-							Aquí irá la lista de todos los autores
+							<AllAuthors />
 						</Route>
 						<Route exact path="/:idUser/shopping-cart">
 							<ShoppingCart />
@@ -45,7 +52,7 @@ const Layout = () => {
 							<BookDetails />
 						</Route>
 						<Route exact path="/profile/:idUser">
-							Aquí enlazará al perfil del usuario
+							<Profile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

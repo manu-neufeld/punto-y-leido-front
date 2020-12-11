@@ -1,0 +1,30 @@
+.all-books-view {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding-left: 14rem;
+    padding-right: 14rem;
+    h1{
+        font-size: 2.8rem;
+        text-align: center;
+    }
+}
+@media (max-width: 992px) {
+    .all-books-view {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+@media (max-width: 768px) {
+    .all-books-view {
+        display: block;
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 0.80rem;
+        h1{
+            font-size: 2.4rem;
+            text-align: center;
+        }
+    }
+}

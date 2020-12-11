@@ -7,7 +7,43 @@ a {
 }
 .book-image {
     max-width: 12rem;
+    .boton{
+    position: relative;
+    top:2.5rem;
+    left: 9.2rem;
+    }
 }
+.dropdown-toggle{
+    font-size: 1rem;
+    display: inline-block;
+    background-color: transparent;
+}
+.boton-dropdown-flecha{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+}
+.arrow{
+    background-color: #150a1a;
+    color: #cdcbcb;
+}
+.btn-secondary.dropdown-toggle{
+    color: #150a1a;
+    background-color: #cdcbcb;
+    border-color: #f8f9f1;
+}
+.btn-secondary:not(:disabled):not(.disabled):active.show > .btn-secondary.dropdown-toggle {
+    color: #150a1a;
+    background-color: #cdcbcb;
+    border-color: #f8f9f1;
+}
+.btn-secondary{
+    color: #150a1a;
+    background-color: #cdcbcb;
+    border-color: #f8f9f1;
+}
+
 .book-info {
     display: flex;
     flex-flow: column nowrap;
@@ -30,7 +66,9 @@ a {
             font-weight: 500;
         }
 }
-
+.input-group {
+    max-width: 12rem;
+}
 @media (max-width: 768px) {
     .row {
         display: flex;
@@ -47,6 +85,11 @@ a {
     }
     .book-image {
         max-width: 10rem;
+        .boton{
+        position: relative;
+        top:1,8rem;
+        left: 7.2rem;
+        }
     }
     .format-price {
         display: flex;
@@ -55,6 +98,9 @@ a {
         p:last-child {
             font-size: 1rem;
         }
+    }
+    .input-group {
+        max-width: none;
     }
     .card-title {
         font-size: 1rem;

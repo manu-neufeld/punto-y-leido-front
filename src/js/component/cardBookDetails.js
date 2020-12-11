@@ -1,14 +1,71 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useContext, useEffect } from "react";
+import { Context } from "../store/appContext.js";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../styles/card-book-details-component.scss";
+import { AddToBagButton } from "./addToBagButton.jsx";
 
 export const CardBookDetails = props => {
+	const { store, actions } = useContext(Context);
+	let params = useParams();
+
+	useEffect(() => {
+		if (store.loggedUser != null) {
+			actions.postBookOnShelf(params.idBook, store.loggedUser);
+		}
+	}, []);
+
 	return (
 		<Fragment>
 			<div className="card">
 				<div className="row no-gutters">
 					<div className="col-md-4 book-image">
+						<div className="btn-group boton dropleft">
+							<button
+								type="button"
+								className="boton-dropdown-flecha"
+								data-toggle="dropdown"
+								data-display="static"
+								aria-haspopup="true"
+								aria-expanded="false">
+								<i className="fas fa-caret-square-down fa-2x arrow" />
+							</button>
+							<div className="dropdown-menu dropdown-menu-lg-left">
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("favoritos");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "favoritos");
+										}
+									}}>
+									Favorito
+								</button>
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("leidos");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "leidos");
+										}
+									}}>
+									Leído
+								</button>
+								<button
+									className="dropdown-item"
+									type="button"
+									onClick={() => {
+										if (store.loggedUser != null) {
+											actions.changeCurrentShelf("pendientes");
+											actions.postBookOnShelf(props.id_book, store.loggedUser, "pendientes");
+										}
+									}}>
+									Pendiente
+								</button>
+							</div>
+						</div>
 						<img src={props.image} className="card-img" alt="Portada del libro" />
 					</div>
 					<div className="col-md-8 book-info">
@@ -22,12 +79,13 @@ export const CardBookDetails = props => {
 								<p>Formato: {props.format_type}</p>
 								<p>{props.price} €</p>
 							</div>
+							<AddToBagButton id_book={props.id_book} />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="synopsis">
-				<p>Sinopsis:</p>
+				<p className="synopsis-title">Sinopsis:</p>
 				<p className="card-text">{props.synopsis}</p>
 			</div>
 		</Fragment>
@@ -41,6 +99,7 @@ CardBookDetails.propTypes = {
 	synopsis: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.string,
-	id_author: PropTypes.integer
+	price: PropTypes.float,
+	id_author: PropTypes.integer,
+	id_book: PropTypes.integer
 };
