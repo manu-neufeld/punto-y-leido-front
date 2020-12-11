@@ -14,7 +14,7 @@ export const Profile = () => {
 	let idReader = useParams();
 	const button = (
 		<button
-			className="btn btn-primary"
+			className="btn btn-outline-primary"
 			onClick={() => {
 				setState({ showModal: true });
 			}}>
