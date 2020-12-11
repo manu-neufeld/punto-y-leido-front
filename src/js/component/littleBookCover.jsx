@@ -59,13 +59,18 @@ export const LittleBookCover = props => {
 					</button>
 				</div>
 			</div>
-			<div
+			<button
+				type="button"
+				data-toggle="dropdown"
+				data-display="static"
+				aria-haspopup="true"
+				aria-expanded="false"
+				className={"little-book-cover-delete-button button-dropdown-arrow " + props.display}
 				onClick={() => {
 					actions.deleteBookOnShelf(props.idBook, loggedUser, store.currentShelf);
-				}}
-				className="little-book-cover-delete-button">
+				}}>
 				<i className="fas fa-trash-alt delete" />
-			</div>
+			</button>
 			<Link to={"/book/" + props.idBook} className="image-little-book">
 				<img src={props.img} className="card-img-top" alt="Portada del libro" />
 			</Link>
@@ -81,5 +86,6 @@ LittleBookCover.propTypes = {
 	idBook: PropTypes.number,
 	img: PropTypes.string,
 	name: PropTypes.string,
-	subName: PropTypes.string
+	subName: PropTypes.string,
+	display: PropTypes.string
 };

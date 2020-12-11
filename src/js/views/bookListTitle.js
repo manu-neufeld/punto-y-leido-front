@@ -14,6 +14,7 @@ export const BookListTitle = () => {
 					img={bookInfo.image}
 					subName={bookInfo.format_type}
 					idBook={bookInfo.id}
+					display="displaying"
 				/>
 			</Link>
 		));

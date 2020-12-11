@@ -7,10 +7,10 @@ export const AboutUsHome = () => {
 		<div className="about-us-home">
 			<img src={logo} alt="Punto y leído logo" className="logo-header" />
 			<p className="about-us-text">
-				Donut carrot cake cheesecake cake cake ice cream jujubes. Cake cake halvah. Tiramisu soufflé apple pie
-				ice cream. Fruitcake liquorice macaroon donut cookie tootsie roll. Jujubes croissant sugar plum I love
-				gummi bears icing chupa chups. Pie sweet brownie I love fruitcake jelly jujubes muffin. Marshmallow
-				jujubes cake jelly beans jujubes oat cake jelly brownie.
+				¡Bienvenide a Punto y leído! Añade reseñas, crea tus propias estanterías, guardate tus libros favoritos,
+				los que quieres leer en el futuro, los que has reseñado o todos los que has leído y, sobretodo, ¡haz
+				muchos amigos!. Somos una web que, de una vez por todas, junta a quien le gusta el olor a libro nuevo y
+				a quien prefiere el formato electrónico. ¡Explora y diviértete!
 			</p>
 		</div>
 	);

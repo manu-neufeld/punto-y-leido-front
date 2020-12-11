@@ -15,7 +15,8 @@
     .little-book-cover-delete-button{
         position: relative;
         top: 3.5rem;
-        left: 8.5rem;
+        left: 8rem;
+        
     }
     .boton {
         position: relative;
@@ -27,6 +28,7 @@
 .button-dropdown-arrow{
     border: none;
     border-radius: 1rem;
+    width: 1.8rem;
 }
 .dropdown-menu.dropdown-menu-lg-left.show{
     min-width: 9rem;
@@ -53,4 +55,8 @@
             text-align: left;
         }
     }
+}
+
+.displaying {
+    display: none;
 }

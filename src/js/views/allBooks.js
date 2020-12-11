@@ -15,6 +15,7 @@ export const AllBooks = () => {
 				img={bookInfo.image}
 				subName={bookInfo.name_author}
 				idBook={bookInfo.id}
+				display="displaying"
 			/>
 		));
 		return (

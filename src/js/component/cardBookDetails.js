@@ -23,12 +23,12 @@ export const CardBookDetails = props => {
 						<div className="btn-group boton dropleft">
 							<button
 								type="button"
-								className="boton-dropdown-flecha"
+								className="button-dropdown-arrow"
 								data-toggle="dropdown"
 								data-display="static"
 								aria-haspopup="true"
 								aria-expanded="false">
-								<i className="fas fa-caret-square-down fa-2x arrow" />
+								<i className="fas fa-chevron-circle-down" />
 							</button>
 							<div className="dropdown-menu dropdown-menu-lg-left">
 								<button
