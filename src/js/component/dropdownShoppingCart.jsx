@@ -10,7 +10,7 @@ export const DropdownShoppingCart = () => {
 	let booksInShoppingCart = actions.getQuantityOfBooks();
 
 	useEffect(() => {
-		if (booksInShoppingCart == null || booksInShoppingCart == []) {
+		if (booksInShoppingCart == null) {
 			setListElement("Ningún libro añadido");
 		} else {
 			setListElement(
@@ -31,7 +31,7 @@ export const DropdownShoppingCart = () => {
 			);
 		}
 	});
-	if (booksInShoppingCart != null || booksInShoppingCart != []) {
+	if (booksInShoppingCart) {
 		return (
 			<span className="dropdown">
 				<button
