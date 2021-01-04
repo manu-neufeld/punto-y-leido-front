@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			finalPrice: 0,
 			searchingBarContent: "",
 			booksByTitle: [],
+			authorsByName: [],
 			bookQuantity: [],
 			currentShelf: "leidos",
 			idReaderShelfBook: []
@@ -202,6 +203,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.error("Can't get book info, error status: ", error);
+					});
+			},
+			getSearchingAuthorName: () => {
+				let url_author_name = url.concat("authors?name=", getStore().searchingBarContent);
+				fetch(url_author_name)
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonApiResponseName => {
+						setStore({ authorsByName: jsonApiResponseName.flat() });
+					})
+					.catch(error => {
+						console.error("Can't get author info, error status: ", error);
 					});
 			},
 			editingReaderInfo: () => {

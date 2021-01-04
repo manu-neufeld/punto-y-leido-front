@@ -10,15 +10,14 @@ export const SearchingBar = () => {
 		let search = event.target.value;
 		if (event.keyCode == 13) {
 			event.preventDefault();
-			console.log(search);
 
 			if (search) {
 				let string = search.replaceAll(" ", "+");
-				console.log("replace ", string);
 
 				actions.changeSearchingBarContent(string);
 				myInput.value = "";
 				actions.getSearchingBookTitle();
+				actions.getSearchingAuthorName();
 			}
 		}
 	};
