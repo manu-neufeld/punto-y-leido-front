@@ -32,6 +32,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -46,6 +47,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -60,6 +62,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -74,6 +77,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -88,6 +92,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -102,6 +107,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
@@ -116,6 +122,7 @@ export const GenreBooksList = () => {
 							img={bookInfo.image}
 							subName={bookInfo.name_author}
 							idBook={bookInfo.id}
+							display="displaying"
 						/>
 					</Link>
 				);
