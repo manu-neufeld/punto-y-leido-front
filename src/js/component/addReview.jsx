@@ -35,10 +35,11 @@ export const AddingReview = () => {
 				<div className="form-group review-inputs">
 					<select
 						id="stars"
-						className="custom-select"
+						className="custom-select valoration"
 						placeholder="Valoración"
 						aria-label="Select your valoration"
-						defaultValue={null}>
+						defaultValue={null}
+						required>
 						<option value="0" selected>
 							Selecciona tu valoración
 						</option>
@@ -48,7 +49,13 @@ export const AddingReview = () => {
 						<option value="4">4</option>
 						<option value="5">5</option>
 					</select>
-					<textarea className="form-control" id="review" placeholder="Escribe tu reseña." value={null} />
+					<textarea
+						className="form-control"
+						id="review"
+						placeholder="Escribe tu reseña."
+						value={null}
+						required
+					/>
 				</div>
 				<button type="submit" className="btn btn-primary">
 					Añadir reseña
