@@ -176,6 +176,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Can't create contact, error status: ", error);
 					});
 			},
+			addReview: review => {
+				fetch(url + "add_review", {
+					method: "POST",
+					body: JSON.stringify(review),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getReviews();
+						console.log("ESTOY EN EL FETCH", getStore().reviews);
+					})
+					.catch(error => {
+						console.error("Can't create the review, error status: ", error);
+					});
+			},
 			getAllAuthorInfo: () => {
 				fetch(url + "authors")
 					.then(response => {

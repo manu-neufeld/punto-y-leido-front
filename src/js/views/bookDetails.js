@@ -4,6 +4,7 @@ import { CardBookDetails } from "../component/cardBookDetails.js";
 import { ReviewsBookDetails } from "../component/reviewsBookDetails.jsx";
 import { Context } from "../store/appContext";
 import "../../styles/book-details-view.scss";
+import { AddingReview } from "../component/addReview.jsx";
 
 export const BookDetails = () => {
 	const { store, actions } = useContext(Context);
@@ -29,6 +30,7 @@ export const BookDetails = () => {
 				</div>
 				<div className="book-reviews">
 					<h5>Reseñas</h5>
+					<AddingReview />
 					<ReviewsBookDetails />
 				</div>
 			</Fragment>
