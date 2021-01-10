@@ -315,8 +315,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonFollowingInfo => {
 						setStore({ followers: jsonFollowingInfo });
-						console.log("FOLLOWERS ALMACENADOS EN STORE", getStore().followers);
-						console.log("EL USUARIO LOGUEADO ES EL ", getStore().loggedUser);
 					})
 					.catch(error => {
 						console.error("Can't get followers information, error status: ", error);
