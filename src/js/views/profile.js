@@ -25,11 +25,8 @@ export const Profile = () => {
 	let followButton = null;
 
 	if (store.followers.length != 0 && store.loggedUser != null) {
-		for (let index = 0; index < store.followers.length - 1; index++) {
-			if (
-				store.followers[index].id_follower == store.loggedUser &&
-				store.followers[index].id_followed != idReader.idUser
-			) {
+		for (let index = 0; index < store.followers.length; index++) {
+			if (store.followers[index].id_followed != idReader.idUser) {
 				followButton = (
 					<button
 						className="btn btn-outline-primary"
