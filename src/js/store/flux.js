@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			booksByTitle: [],
 			bookQuantity: [],
 			currentShelf: "leidos",
-			idReaderShelfBook: []
+			idReaderShelfBook: [],
+			followers: []
 		},
 		actions: {
 			deleteBookFromShoppingCart: idBook => {
@@ -302,6 +303,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.error("Can't delete book from shelf, error: ", error);
+					});
+			},
+			addFollowed: () => {},
+			readFollowers: () => {
+				fetch(url + "following_followed")
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonFollowingInfo => {
+						setStore({ followers: jsonFollowingInfo });
+						console.log("FOLLOWERS ALMACENADOS EN STORE", getStore().followers);
+					})
+					.catch(error => {
+						console.error("Can't get followers information, error status: ", error);
 					});
 			}
 		}
