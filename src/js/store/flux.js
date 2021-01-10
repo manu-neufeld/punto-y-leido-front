@@ -305,7 +305,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Can't delete book from shelf, error: ", error);
 					});
 			},
-			addFollowed: () => {},
 			readFollowers: () => {
 				fetch(url + "following_followed")
 					.then(response => {
@@ -318,7 +317,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't get followers information, error status: ", error);
 					});
-			}
+			},
+			addFollowed: () => {}
 		}
 	};
 };
