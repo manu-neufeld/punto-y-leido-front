@@ -26,19 +26,16 @@ export const Profile = () => {
 
 	if (store.followers.length != 0 && store.loggedUser != null) {
 		for (let index = 0; index < store.followers.length - 1; index++) {
-			console.log("id seguidor: ", store.followers[index].id_follower);
-			console.log("id seguido: ", store.followers[index].id_followed);
 			if (
 				store.followers[index].id_follower == store.loggedUser &&
 				store.followers[index].id_followed != idReader.idUser
 			) {
-				console.log("ACCEDO AL IF DE PENDIENTE DE SEGUIR!!!!!!!");
 				followButton = (
 					<button
 						className="btn btn-outline-primary"
 						onClick={() => {
 							console.log("ACCEDO AL ON CLICK");
-							// actions.addFollowed(idReader.idUser);
+							actions.addFollowed({ id_followed: idReader.idUser });
 						}}>
 						Seguir
 					</button>
@@ -48,7 +45,6 @@ export const Profile = () => {
 				store.followers[index].id_follower == store.loggedUser &&
 				store.followers[index].id_followed == idReader.idUser
 			) {
-				console.log("ACCEDO AL IF DE YA SEGUIDO!!!!!!");
 				followButton = "¡Seguido!";
 				break;
 			}

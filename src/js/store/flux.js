@@ -308,6 +308,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			readFollowers: () => {
 				fetch(url + "following_followed")
 					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
 						return response.json();
 					})
 					.then(jsonFollowingInfo => {
@@ -318,7 +321,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Can't get followers information, error status: ", error);
 					});
 			},
-			addFollowed: () => {}
+			addFollowed: followed => {
+				fetch(url + "following/" + getStore().loggedUser, {
+					method: "POST",
+					body: JSON.stringify(followed),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().readFollowers();
+					})
+					.catch(error => {
+						console.error("Can't add new followed, error status: ", error);
+					});
+			}
 		}
 	};
 };
