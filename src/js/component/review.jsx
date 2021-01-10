@@ -8,7 +8,7 @@ export const Review = props => {
 	return (
 		<Fragment>
 			<div className="review-header">
-				<Link to={"profile/" + props.readerId}>
+				<Link to={"/profile/" + props.readerId}>
 					<h6>{props.username}</h6>
 				</Link>
 				<h6>
