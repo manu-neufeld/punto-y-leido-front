@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Review } from "./review.jsx";
+import { FollowersModal } from "./followersModal.jsx";
 import "../../styles/profile-info-component.scss";
 
 export const ProfileInfo = () => {
@@ -10,9 +11,14 @@ export const ProfileInfo = () => {
 
 	if (store.readers.length !== 0) {
 		const readerToFind = store.readers.find(reader => reader.id == readerId.idUser);
-
+		let followers = 0;
+		let followed = 0;
+		for (let index = 0; index < store.followers.length; index++) {
+			if (store.followers[index].id_follower == readerId.idUser) followed += 1;
+			if (store.followers[index].id_followed == readerId.idUser) followers += 1;
+		}
 		return (
-			<form className="reader-info">
+			<div className="reader-info">
 				<div className="label-p">
 					<label>Username: </label>
 					<p className="username">{readerToFind.username}</p>
@@ -25,7 +31,16 @@ export const ProfileInfo = () => {
 					<label>Descripción: </label>
 					<p className="description">{readerToFind.description}</p>
 				</div>
-			</form>
+				<div className="label-p" onClick={() => {}}>
+					<FollowersModal show={state.showModal} onClose={() => setState({ showModal: false })} />
+					<label>Seguidores: </label>
+					<p className="followers">{followers}</p>
+				</div>
+				<div className="label-p" onClick={() => {}}>
+					<label>Seguidos: </label>
+					<p className="followed">{followed}</p>
+				</div>
+			</div>
 		);
 	} else {
 		return "Cargando tu perfil...";

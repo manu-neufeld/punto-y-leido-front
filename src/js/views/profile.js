@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { ProfileShelves } from "../component/profileShelves.jsx";
 import { ProfileInfo } from "../component/profileInfo.jsx";
-import { Modal } from "../component/editProfileModal.jsx";
+import { EditProfileModal } from "../component/editProfileModal.jsx";
 import "../../styles/profile-view.scss";
 
 export const Profile = () => {
@@ -70,7 +70,7 @@ export const Profile = () => {
 			<div>
 				<ProfileShelves />
 			</div>
-			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
+			<EditProfileModal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };
