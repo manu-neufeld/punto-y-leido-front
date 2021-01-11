@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 import "../../styles/edit-profile-modal.scss";
 
-export const EditProfileModal = props => {
+export const FollowedModal = props => {
 	const { store, actions } = useContext(Context);
 	let readerId = useParams();
 	const [state, setState] = useState({
@@ -80,7 +80,7 @@ export const EditProfileModal = props => {
  * Define the data-types for
  * your component's properties
  **/
-EditProfileModal.propTypes = {
+FollowedModal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool
@@ -90,7 +90,7 @@ EditProfileModal.propTypes = {
  * Define the default values for
  * your component's properties
  **/
-EditProfileModal.defaultProps = {
+FollowedModal.defaultProps = {
 	show: false,
 	onClose: null
 };

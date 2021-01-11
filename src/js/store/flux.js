@@ -315,6 +315,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonFollowingInfo => {
 						setStore({ followers: jsonFollowingInfo });
+						console.log("FOLLOWERS ", getStore().followers);
 					})
 					.catch(error => {
 						console.error("Can't get followers information, error status: ", error);

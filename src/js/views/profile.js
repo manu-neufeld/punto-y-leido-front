@@ -31,7 +31,6 @@ export const Profile = () => {
 					<button
 						className="btn btn-outline-primary"
 						onClick={() => {
-							console.log("ACCEDO AL ON CLICK");
 							actions.addFollowed({ id_followed: idReader.idUser });
 						}}>
 						Seguir
