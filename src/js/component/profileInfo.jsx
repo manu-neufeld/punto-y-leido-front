@@ -2,16 +2,10 @@ import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Review } from "./review.jsx";
-import { FollowersModal } from "./followersModal.jsx";
-import { FollowedModal } from "./followedModal.jsx";
 import "../../styles/profile-info-component.scss";
 
 export const ProfileInfo = () => {
 	const { store, actions } = useContext(Context);
-	const [showFollowers, setShowFollowers] = useState(false);
-	const [state, setState] = useState({
-		showModal: false
-	});
 
 	let readerId = useParams();
 
@@ -37,27 +31,11 @@ export const ProfileInfo = () => {
 					<label>Descripción: </label>
 					<p className="description">{readerToFind.description}</p>
 				</div>
-				<div
-					className="label-p"
-					onClick={() => {
-						setShowFollowers(true);
-					}}>
-					<FollowersModal
-						show={showFollowers}
-						closeFunction={() => {
-							setShowFollowers(false);
-						}}
-					/>
-					{console.log("SHOW FOLLOWERS STATE: ", showFollowers)}
+				<div className="label-p">
 					<label>Seguidores: </label>
 					<p className="followers">{followers}</p>
 				</div>
-				<div
-					className="label-p"
-					onClick={() => {
-						setState({ showModal: true });
-					}}>
-					<FollowedModal show={state.showModal} onClose={() => setState({ showModal: false })} />
+				<div className="label-p">
 					<label>Seguidos: </label>
 					<p className="followed">{followed}</p>
 				</div>
