@@ -1,8 +1,13 @@
 .home-header {
     display: flex;
     justify-content: center;
-    padding-left: 14rem;
-    padding-right: 14rem;
+    margin-top: 2rem;
+    margin-left: 14rem;
+    margin-right: 14rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
     h1{
         font-size: 2.8rem;
         text-align: center;
@@ -10,16 +15,16 @@
 }
 @media (max-width: 992px) {
     .home-header {
-        padding-left: 5rem;
-        padding-right: 5rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
 }
 @media (max-width: 768px) {
     .home-header {
         display: block;
         width: 100%;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         font-size: 0.80rem;
         h1{
             font-size: 2.4rem;
@@ -27,3 +32,80 @@
         }
     }
 }
+
+// BACKGROUND
+
+$color-3: #EFF5E0;
+$color-3-t: transparentize($color-3, 1);
+
+$color-4: #F7FAF0;
+$color-4-t: transparentize($color-4, 1);
+
+$size: 2.8em;
+$size-half: $size/2;
+$begin: $size/9.53;
+$step: $size/18;
+$space: $size/8.4;
+$step-s: $step/1.5;
+
+$step-b: $space;
+$step-e: $space + $step;
+$step-b-2: $space*2 + $step;
+$step-e-2: $space*2 + $step*2;
+$step-b-3: $space*3 + $step*2;
+$step-e-3: $space*3 + $step*3;
+
+$small-b: ($space*3 + $step)/2;
+$small-e: $small-b + $step;
+$small-b-2: $small-b + $step + $space;
+$small-e-2: $small-b + $step*2 + $space;
+
+$small-c: $size + $space - $step/1.9;
+
+
+
+$bgcolor: $color-4;
+
+HTML {
+  height: 100%;
+  }
+
+BODY {
+  background: 
+    radial-gradient(circle at right,
+      $color-3-t $step-b,
+      $color-3 $step-b, $color-3 $step-e,
+      $color-3-t $step-e, $color-3-t $step-b-2,
+      $color-3 $step-b-2, $color-3 $step-e-2,
+      $color-3-t $step-e-2, $color-3-t $step-b-3,
+      $color-3 $step-b-3, $color-3 $step-e-3,
+      $color-3-t $step-e-3
+      ) 0 0,
+    radial-gradient(circle at left,
+      $color-3-t $small-b,
+      $color-3 $small-b, $color-3 $small-e,
+      $color-3-t $small-e, $color-3-t $small-b-2,
+      $color-3 $small-b-2, $color-3 $small-e-2,
+      $color-3-t $small-e-2
+      ) 0 $small-c,
+    
+    linear-gradient(to right top,
+      $color-3 $step,
+      $color-3-t $step
+      ) $small-e-2 $step,
+     linear-gradient(to left top,
+      $color-3 $step,
+      $color-3-t $step
+      ) $small-e-2 $step,
+    linear-gradient(to right bottom,
+      $color-3 $step,
+      $color-3-t $step
+      ) $small-e-2 $step,
+     linear-gradient(to left bottom,
+      $color-3 $step,
+      $color-3-t $step
+      ) $small-e-2 $step
+    ;
+  background-size: $size $size;
+  background-color: $bgcolor;
+  }

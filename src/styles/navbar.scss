@@ -1,9 +1,14 @@
+$green: #A1C349;
+
 .logo-navbar {
     max-height: 4rem;
 }
 .navbar {
+    padding: 0;
     display: flex;
     justify-content: space-around;
+    background-color: rgba(160, 195, 73, 0.61);
+    border-bottom: solid $green;
     a{
         margin-left: 2.5rem;
         margin-right: 2.5rem;
@@ -37,7 +42,6 @@
         input {
             width: auto;
         }
-        
     }
      .searching-bar {
         margin-left: 0;

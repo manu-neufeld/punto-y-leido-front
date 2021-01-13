@@ -11,7 +11,7 @@ export const NavbarMobile = () => {
 
 	return (
 		<Fragment>
-			<nav className="navbar navbar-expand bg-light">
+			<nav className="navbar navbar-expand">
 				<Link to="/">
 					<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
 				</Link>
@@ -44,7 +44,7 @@ export const NavbarMobile = () => {
 					</div>
 				</div>
 			</nav>
-			<nav className="navbar navbar-expand bg-light">
+			<nav className="navbar navbar-expand">
 				<span>
 					<SearchingBar />
 				</span>

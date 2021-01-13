@@ -32,8 +32,13 @@ export const RegisterHome = () => {
 				<form
 					onSubmit={event => {
 						if (addingReader() !== undefined) {
+							event.preventDefault();
+							let readerLogging = {
+								email: addingReader().email,
+								password: addingReader().password
+							};
 							actions.addReader(addingReader());
-							actions.setLogged();
+							actions.getTokenLogin(readerLogging);
 						} else {
 							event.preventDefault();
 							alert("Has escrito mal la contraseña, inténtalo de nuevo.");
@@ -79,11 +84,9 @@ export const RegisterHome = () => {
 							value={null}
 						/>
 					</div>
-					{/* <Link to="/"> */}
 					<button type="submit" className="btn btn-primary form-control">
-						Create account
+						Crear cuenta
 					</button>
-					{/* </Link> */}
 				</form>
 			</div>
 		);

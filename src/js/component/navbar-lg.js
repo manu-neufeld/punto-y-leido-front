@@ -9,7 +9,7 @@ import { SearchingBar } from "./searchingBar.jsx";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<nav className="navbar navbar-expand bg-light">
+		<nav className="navbar navbar-expand">
 			<Link to="/">
 				<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
 			</Link>
