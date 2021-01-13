@@ -28,7 +28,7 @@ export const BookDetails = () => {
 					/>
 				</div>
 				<div className="book-reviews">
-					<h5>Reseñas</h5>
+					<p>Reseñas</p>
 					<ReviewsBookDetails />
 				</div>
 			</Fragment>

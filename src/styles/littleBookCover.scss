@@ -1,9 +1,14 @@
 .little-book-cover{
-    max-width: 10rem;
+    padding: 1rem;
+    max-width: 12rem;
     display: flex;
     flex-wrap: wrap;
-    float:left;
+    float: left;
     margin: 0 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
+
     .image-little-book{
         img{
         max-width: 10rem;
@@ -25,6 +30,9 @@
         justify-content: end;
     }
 }
+.card-body {
+    padding: 0;
+}
 .button-dropdown-arrow{
     border: none;
     border-radius: 1rem;
@@ -38,6 +46,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
     .name-little-book{
         font-size: 0.8rem;
         font-weight: 500;

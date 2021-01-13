@@ -84,7 +84,7 @@ export const RegisterHome = () => {
 							value={null}
 						/>
 					</div>
-					<button type="submit" className="btn btn-primary form-control submit-button">
+					<button type="submit" className="btn btn-primary form-control">
 						Crear cuenta
 					</button>
 				</form>

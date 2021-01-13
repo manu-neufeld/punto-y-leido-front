@@ -85,7 +85,7 @@ export const CardBookDetails = props => {
 				</div>
 			</div>
 			<div className="synopsis">
-				<p className="synopsis-title">Sinopsis:</p>
+				<p className="synopsis-title">Sinopsis</p>
 				<p className="card-text">{props.synopsis}</p>
 			</div>
 		</Fragment>

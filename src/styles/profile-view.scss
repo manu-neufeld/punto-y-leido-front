@@ -5,7 +5,27 @@
         margin-left: 5rem;
     }
 }
-
+.btn-outline-primary{
+    color: #A1C349;
+    background-color: rgba(160, 195, 73, 0);
+    border-color: #A1C349;
+    &:hover {
+        background-color: rgba(160, 195, 73, 0.836);
+        border-color: #A1C349;
+    }
+    &:focus {
+        border-color: #A1C349;
+        box-shadow: 0 0 0 0.2rem rgba(160, 195, 73, 0.61);
+    }
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: rgba(160, 195, 73, 0.836);
+    border-color: #A1C349;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(160, 195, 73, 0.61);
+}
 @media (max-width: 992px) {
     .profile {
         margin-left: 5rem;

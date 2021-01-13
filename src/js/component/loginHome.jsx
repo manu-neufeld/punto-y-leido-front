@@ -46,7 +46,7 @@ export const LoginHome = () => {
 							value={null}
 						/>
 					</div>
-					<button type="submit" className="btn btn-primary form-control submit-button">
+					<button type="submit" className="btn btn-primary form-control">
 						Entrar
 					</button>
 				</form>
