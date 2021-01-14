@@ -17,7 +17,7 @@ export const CardBookDetails = props => {
 
 	return (
 		<Fragment>
-			<div className="card">
+			<div className="card book-info-photo">
 				<div className="row no-gutters">
 					<div className="col-md-4 book-image">
 						<div className="btn-group boton dropleft">
@@ -69,7 +69,7 @@ export const CardBookDetails = props => {
 						<img src={props.image} className="card-img" alt="Portada del libro" />
 					</div>
 					<div className="col-md-8 book-info">
-						<div className="card-body">
+						<div className="card-body card-body-book">
 							<p className="card-title">{props.title}</p>
 							<Link to={"/author/" + props.id_author}>
 								<p className="author-name">{props.author}</p>
@@ -82,11 +82,11 @@ export const CardBookDetails = props => {
 							<AddToBagButton id_book={props.id_book} />
 						</div>
 					</div>
+					<div className="synopsis col-12">
+						<p className="synopsis-title">Sinopsis</p>
+						<p className="card-text">{props.synopsis}</p>
+					</div>
 				</div>
-			</div>
-			<div className="synopsis">
-				<p className="synopsis-title">Sinopsis</p>
-				<p className="card-text">{props.synopsis}</p>
 			</div>
 		</Fragment>
 	);

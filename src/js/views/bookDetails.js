@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CardBookDetails } from "../component/cardBookDetails.js";
+import { CardBookDetails } from "../component/cardBookDetails.jsx";
 import { ReviewsBookDetails } from "../component/reviewsBookDetails.jsx";
 import { Context } from "../store/appContext";
 import "../../styles/book-details-view.scss";

@@ -12,7 +12,7 @@ export const LittleAuthorInfo = props => {
 					<img src={props.img} className="card-img" />
 				</div>
 				<div className="col-7 author-name">
-					<div className="card-body">
+					<div className="card-body card-body-author">
 						<p className="card-title">{props.name}</p>
 					</div>
 				</div>
