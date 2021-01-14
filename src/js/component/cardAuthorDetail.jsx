@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const AuthorDetail = props => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div className="card mb-3">
+		<div className="card card-author-detail">
 			<div className="row no-gutters">
 				<div className="col-md-4 author-image">
 					<img src={props.img} className="card-img" />
