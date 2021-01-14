@@ -1,4 +1,12 @@
-# Punto y leído Project. e-commerce and social network
+# <h1>Punto y Leído.</h1> 
+
+<p>Proyecto final junto a <a href="https://github.com/crduque">Cristina R. Duque</a>.</p>
+
+<p>Da de alta tu perfil en la web para tener acceso a todo lo que ofrece</p>
+
+<p>Tienda online y red social de libros para lectores. Guarda tus libros favoritos, o pendientes de leer, basa tus búsquedas en los gustos de las personas que sigues, y  comenta tu última lectura</p>
+
+<p>Puedes buscar libros y autores, añade y compra los libros que necesites, o comprar por autor</p>
 
 
 
@@ -9,21 +17,4 @@
 <a href="https://app.moqups.com/Xu8kMCVdg3/edit/page/ad64222d5">Laptop Mockup</a>
 
 <a href="https://app.moqups.com/AC1hnaCMIi/edit/page/ad64222d5">Mobile Mockup</a>
-
-### Requirements:
-- Make sure you are using node version 10
-
-1. Install the packages:
-```
-$ npm install
-```
-2. Create a .env file:
-```
-$ cp .env.example .env
-```
-3. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
-
-```bash
-$ npm run start
-```
 
