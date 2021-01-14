@@ -1,4 +1,5 @@
 # <h1>Punto y Leído.</h1> 
+<img src="./src/img/logo-punto-y-leido.png"/>
 
 <p>Proyecto final junto a <a href="https://github.com/crduque">Cristina R. Duque</a>.</p>
 
@@ -13,6 +14,8 @@
 
 <h2>Data base diagram</h2>
 <img src="./src/img/ReadMe-img/DB-diagram.jpg" />
+
+<h3> Mockups creados para móvil y ordenador en moqups.com:
 
 <a href="https://app.moqups.com/Xu8kMCVdg3/edit/page/ad64222d5">Laptop Mockup</a>
 
