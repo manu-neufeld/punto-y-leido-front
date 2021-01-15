@@ -23,13 +23,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
 				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
 
-				if (getStore().bookQuantity != []) {
+				if (getStore().bookQuantity != null) {
 					for (let i = 0; i < getStore().bookQuantity.length; i++) {
 						if (getStore().bookQuantity[i].id_book == idBook) {
 							let store = getStore().bookQuantity;
 							store.splice(i, 1);
-							setStore({ bookQuantity: store });
-							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+							localStorage.setItem("book-quantity", JSON.stringify(store));
+							setStore({ bookQuantity: JSON.parse(localStorage.getItem("book-quantity")) });
+							window.location.reload();
 						}
 					}
 				}
@@ -40,23 +41,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setBooksQuantity: idBook => {
 				let eachBook = {
 					id_book: idBook,
-					quantity: 1
+					quantity: "1"
 				};
 				if (getStore().loggedUser == null) {
 					alert("¡Necesitas hacer login!");
 					window.location.replace("/");
 				} else {
-					setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
-
-					if (localStorage.getItem("book-quantity") != null) {
-						let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
-						let bookQuantityStore = getStore().bookQuantity;
-						let addingBookStorage = [...storageBookQuantity, bookQuantityStore].flat();
-						localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+					if (getStore().bookQuantity != null) {
+						if (localStorage.getItem("book-quantity") != null) {
+							let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+							let addingBookStorage = [...storageBookQuantity, eachBook].flat();
+							localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+							setStore({ bookQuantity: JSON.parse(localStorage.getItem("book-quantity")) });
+						} else {
+							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						}
 					} else {
-						localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						setStore({ bookQuantity: eachBook });
 					}
-					setStore({ bookQuantity: [] });
 				}
 			},
 			editBooksQuantity: (idBook, quantity) => {
@@ -68,10 +70,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
 				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
 
-				if (getStore().bookQuantity != []) {
+				if (getStore().bookQuantity != null) {
 					for (let i = 0; i < getStore().bookQuantity.length; i++) {
 						if (getStore().bookQuantity[i].id_book == idBook) {
 							setStore((getStore().bookQuantity[i] = eachBook));
+							console.log("EDITING! ", getStore().bookQuantity);
 							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
 						}
 					}

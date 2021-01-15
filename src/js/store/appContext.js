@@ -32,7 +32,6 @@ const injectContext = PassedComponent => {
 			if (localStorage.length !== 0) {
 				state.actions.decodeToken();
 			}
-
 			state.actions.getAllShelfInfoTest();
 		}, []);
 
