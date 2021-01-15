@@ -16,13 +16,13 @@ export const Navbar = () => {
 
 			<div className="navbar-nav nav sites" id="navbarNavAltMarkup">
 				<Link to="/books">
-					<p className="nav-item">Libros</p>
+					<p className="nav-item">LIBROS</p>
 				</Link>
 				<Link to="/genres">
-					<p className="nav-item">Géneros</p>
+					<p className="nav-item">GÉNEROS</p>
 				</Link>
 				<Link to="/authors">
-					<p className="nav-item">Autores</p>
+					<p className="nav-item">AUTORES</p>
 				</Link>
 				{/* </div>
 			<div className="tools"> */}

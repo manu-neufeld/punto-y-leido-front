@@ -7,7 +7,7 @@ export const ProfileShelves = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
-			<ul className="nav nav-tabs" id="myTab" role="tablist">
+			<ul className="nav nav-pills nav-fill pills-in-profile" id="myTab" role="tablist">
 				<li className="nav-item" role="presentation">
 					<a
 						className="nav-link active"
