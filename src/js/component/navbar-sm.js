@@ -8,7 +8,6 @@ import { SearchingBar } from "./searchingBar.jsx";
 
 export const NavbarMobile = () => {
 	const { store, actions } = useContext(Context);
-
 	return (
 		<Fragment>
 			<nav className="navbar navbar-expand">
@@ -17,7 +16,15 @@ export const NavbarMobile = () => {
 				</Link>
 				<Link to={"/profile/" + store.loggedUser}>
 					<span>
-						<i className="fas fa-user-alt" />
+						<i
+							className="fas fa-user-alt"
+							onClick={() => {
+								if (store.loggedUser == null) {
+									alert("¡Necesitas hacer login!");
+									window.location.replace("/");
+								}
+							}}
+						/>
 					</span>
 				</Link>
 				<div className="nav" id="navbarNavAltMarkup">

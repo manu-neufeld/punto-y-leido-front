@@ -31,11 +31,20 @@ export const Navbar = () => {
 				</span>
 				<span>
 					<Link to={"/profile/" + store.loggedUser}>
-						<i className="fas fa-user-alt" />
+						<i
+							className="fas fa-user-alt"
+							onClick={() => {
+								if (store.loggedUser == null) {
+									alert("¡Necesitas hacer login!");
+									window.location.replace("/");
+								}
+							}}
+						/>
 					</Link>
 				</span>
 				<DropdownShoppingCart />
 			</div>
 		</nav>
 	);
+	// }
 };
