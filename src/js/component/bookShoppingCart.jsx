@@ -12,7 +12,7 @@ export const BookShoppingCart = props => {
 
 	return (
 		<Fragment>
-			<div className="card mb-0 card-book-shopping-cart">
+			<div className="card card-book-shopping-cart">
 				<div className="row no-gutters">
 					<Link to={"/book/" + props.book_id}>
 						<div className="col-md-4 cover-page">

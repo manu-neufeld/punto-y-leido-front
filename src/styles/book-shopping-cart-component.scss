@@ -1,10 +1,15 @@
 .card-book-shopping-cart {
-    padding-top: 3rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    padding-bottom: auto;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
 }
 .book-price {
     text-align: right;
     font-weight: bold;
+    margin-left: 3rem;
     font-size: 1.05rem;
 }
 .cover-page {
@@ -15,8 +20,12 @@
     font-size: 1.25rem;
 }
 @media (max-width: 768px) {
+    .card-book-shopping-cart{
+        margin-bottom: 0.5rem;
+    }
     .book-price {
         text-align: center;
+        margin: 0;
     }
 }
 

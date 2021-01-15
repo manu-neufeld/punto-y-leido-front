@@ -12,6 +12,7 @@ export const ShoppingCart = () => {
 	}
 	return (
 		<div className="book-shopping-cart">
+			<h1>Carrito</h1>
 			<ShoppingCartContainer />
 			<p className="final-price">Total: {total} €</p>
 		</div>
