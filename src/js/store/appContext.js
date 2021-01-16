@@ -31,6 +31,7 @@ const injectContext = PassedComponent => {
 			if (localStorage.length !== 0) {
 				state.actions.decodeToken();
 			}
+			state.actions.readFollowers();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

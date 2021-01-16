@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { ProfileShelves } from "../component/profileShelves.jsx";
 import { ProfileInfo } from "../component/profileInfo.jsx";
-import { Modal } from "../component/editProfileModal.jsx";
+import { EditProfileModal } from "../component/editProfileModal.jsx";
 import "../../styles/profile-view.scss";
 
 export const Profile = () => {
@@ -12,7 +12,8 @@ export const Profile = () => {
 		showModal: false
 	});
 	let idReader = useParams();
-	const button = (
+
+	const editButton = (
 		<button
 			className="btn btn-outline-primary"
 			onClick={() => {
@@ -21,6 +22,31 @@ export const Profile = () => {
 			Editar
 		</button>
 	);
+	let followButton = null;
+
+	if (store.followers.length != 0 && store.loggedUser != null) {
+		for (let index = 0; index < store.followers.length; index++) {
+			if (store.followers[index].id_followed != idReader.idUser) {
+				followButton = (
+					<button
+						className="btn btn-outline-primary"
+						onClick={() => {
+							actions.addFollowed({ id_followed: idReader.idUser });
+						}}>
+						Seguir
+					</button>
+				);
+			}
+			if (
+				store.followers[index].id_follower == store.loggedUser &&
+				store.followers[index].id_followed == idReader.idUser
+			) {
+				followButton = "¡Seguido!";
+				break;
+			}
+		}
+	}
+
 	useEffect(() => {
 		actions.changeCurrentShelf("leidos");
 	}, []);
@@ -35,7 +61,7 @@ export const Profile = () => {
 		<div className="profile">
 			<h1>
 				Perfil
-				<span>{store.loggedUser == idReader.idUser ? button : ""}</span>
+				<span>{store.loggedUser == idReader.idUser ? editButton : followButton}</span>
 			</h1>
 			<div>
 				<ProfileInfo />
@@ -43,7 +69,7 @@ export const Profile = () => {
 			<div>
 				<ProfileShelves />
 			</div>
-			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
+			<EditProfileModal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };
