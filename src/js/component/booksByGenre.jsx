@@ -24,7 +24,6 @@ export const BooksByGenre = props => {
 			if (title == book.genre) {
 				return eachBook;
 			} else {
-				console.log(title);
 				return null;
 			}
 		});

@@ -7,11 +7,9 @@ export const ShoppingCartContainer = () => {
 	let finalPrice = 0;
 
 	let booksQuantity = actions.getQuantityOfBooks();
-	// console.log("CONSOLE.LOG", booksQuantity);
 
 	if (booksQuantity != null) {
 		let drawBooks = booksQuantity.map((book, index) => {
-			// console.log("BOOK QUANTITY", booksQuantity[index].quantity);
 			for (let i = 0; i < store.books.length; i++) {
 				if (book.id_book == store.books[i].id) {
 					let each_price = store.books[i].price * book.quantity;

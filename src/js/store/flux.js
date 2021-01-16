@@ -75,7 +75,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					for (let i = 0; i < getStore().bookQuantity.length; i++) {
 						if (getStore().bookQuantity[i].id_book == idBook) {
 							setStore((getStore().bookQuantity[i] = eachBook));
-							console.log("EDITING! ", getStore().bookQuantity);
 							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
 						}
 					}
@@ -196,7 +195,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(() => {
 						getActions().getReviews();
-						console.log("ESTOY EN EL FETCH", getStore().reviews);
 					})
 					.catch(error => {
 						console.error("Can't create the review, error status: ", error);
@@ -287,7 +285,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postBookOnShelf: (id_book, id_reader, shelf_name) => {
 				let url_shelf = url.concat(id_reader, "/", shelf_name, "/", id_book);
-				console.log("flux result ", url_shelf);
 				fetch(url_shelf, {
 					method: "POST",
 					headers: {
@@ -340,7 +337,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonFollowingInfo => {
 						setStore({ followers: jsonFollowingInfo });
-						console.log("FOLLOWERS ", getStore().followers);
 					})
 					.catch(error => {
 						console.error("Can't get followers information, error status: ", error);
