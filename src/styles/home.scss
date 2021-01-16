@@ -104,6 +104,12 @@ BODY {
         color: #89A838;
         text-decoration: none;
     }
+    footer {
+        background-color: rgba(160, 195, 73, 0.37);
+        .footer-contain{
+            width: 30%;
+        }
+    }
   background: 
     radial-gradient(circle at right,
       $color-3-t $step-b,
@@ -142,3 +148,4 @@ BODY {
   background-size: $size $size;
   background-color: $bgcolor;
   }
+  
