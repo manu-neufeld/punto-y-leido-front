@@ -33,7 +33,7 @@ export const DropdownShoppingCart = () => {
 	});
 	if (booksInShoppingCart) {
 		return (
-			<span className="dropdown mr-auto my-auto">
+			<span className="dropdown dropdown-in-shopping-cart mr-auto my-auto">
 				<button
 					className="dropdown-toggle dropdown-button-cart"
 					type="button"

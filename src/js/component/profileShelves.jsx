@@ -68,21 +68,6 @@ export const ProfileShelves = () => {
 						Comentados
 					</a>
 				</li>
-				<li className="nav-item" role="presentation">
-					<a
-						className="nav-link"
-						id="comprados-tab"
-						data-toggle="tab"
-						href="#comprados"
-						role="tab"
-						aria-controls="comprados"
-						aria-selected="false"
-						onClick={() => {
-							actions.changeCurrentShelf("comprados");
-						}}>
-						Comprados
-					</a>
-				</li>
 			</ul>
 			<div className="tab-content" id="myTabContent">
 				<div className="tab-pane fade show active" id="leidos" role="tabpanel" aria-labelledby="leidos-tab">
@@ -95,9 +80,6 @@ export const ProfileShelves = () => {
 					<BookContentInShelf />
 				</div>
 				<div className="tab-pane fade" id="comentados" role="tabpanel" aria-labelledby="comentados-tab">
-					<BookContentInShelf />
-				</div>
-				<div className="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">
 					<BookContentInShelf />
 				</div>
 			</div>

@@ -17,7 +17,6 @@ export const AddingReview = () => {
 	const fillingReview = () => {
 		let review = document.querySelector("#review").value;
 		let stars = document.querySelector("#stars").value;
-
 		return {
 			id_reader: store.loggedUser,
 			username: username,
@@ -31,6 +30,7 @@ export const AddingReview = () => {
 			<form
 				onSubmit={() => {
 					actions.addReview(fillingReview());
+					actions.postBookOnShelf(idBook.idBook, store.loggedUser, "comentados");
 				}}>
 				<div className="form-group review-inputs">
 					<select
