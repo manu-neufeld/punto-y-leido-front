@@ -9,39 +9,34 @@ import { SearchingBar } from "./searchingBar.jsx";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<nav className="navbar navbar-expand">
-			<Link to="/">
-				<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
+		<nav className="navbar navbar-expand p-0">
+			<Link to="/" className="navbar-brand">
+				<img src={logo} alt="Punto y leído logo" className="logo-navbar" />
 			</Link>
-
-			<div className="navbar-nav nav sites" id="navbarNavAltMarkup">
-				<Link to="/books">
-					<p className="nav-item">LIBROS</p>
+			<div className="navbar-nav mr-auto">
+				<Link to="/books" className="nav-item">
+					<p>LIBROS</p>
 				</Link>
-				<Link to="/genres">
-					<p className="nav-item">GÉNEROS</p>
+				<Link to="/genres" className="nav-item">
+					<p>GÉNEROS</p>
 				</Link>
-				<Link to="/authors">
-					<p className="nav-item">AUTORES</p>
+				<Link to="/authors" className="nav-item">
+					<p>AUTORES</p>
 				</Link>
-				{/* </div>
-			<div className="tools"> */}
-				<span>
-					<SearchingBar />
-				</span>
-				<span>
-					<Link to={"/profile/" + store.loggedUser}>
-						<i
-							className="fas fa-user-alt"
-							onClick={() => {
-								if (store.loggedUser == null) {
-									alert("¡Necesitas hacer login!");
-									window.location.replace("/");
-								}
-							}}
-						/>
-					</Link>
-				</span>
+			</div>
+			<div className="tools navbar-nav pr-5">
+				<SearchingBar />
+				<Link to={"/profile/" + store.loggedUser}>
+					<i
+						className="fas fa-user-alt fa-lg"
+						onClick={() => {
+							if (store.loggedUser == null) {
+								alert("¡Necesitas hacer login!");
+								window.location.replace("/");
+							}
+						}}
+					/>
+				</Link>
 				<DropdownShoppingCart />
 			</div>
 		</nav>

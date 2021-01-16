@@ -22,7 +22,7 @@ export const SearchingBar = () => {
 	};
 
 	return (
-		<form className="searching-bar">
+		<form className="searching-bar ml-auto">
 			<Link to="/books-search">
 				<input
 					className="searching-bar-input"

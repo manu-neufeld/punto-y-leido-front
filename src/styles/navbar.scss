@@ -5,11 +5,16 @@ $green-transparent: rgba(160, 195, 73, 0.61);
     max-height: 4rem;
 }
 .navbar {
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
+    // padding: 0;
+    // display: flex;
+    // justify-content: space-around;
     background-color: $green-transparent;
     border-bottom: solid $green;
+    // position: fixed;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    // z-index: 1030;
     a{
         margin-left: 2.5rem;
         margin-right: 2.5rem;
@@ -21,9 +26,6 @@ $green-transparent: rgba(160, 195, 73, 0.61);
             width: 14rem;
         }
 }
-.searching-bar {
-        margin-left: 5rem;
-    }
 .dropdown-menu {
     min-width: 7rem;
 }
