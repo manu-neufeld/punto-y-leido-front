@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Review } from "./review.jsx";
 import "../../styles/profile-info-component.scss";
@@ -39,7 +39,7 @@ export const ProfileInfo = () => {
 						onClick={() => {
 							setShowFollowers(true);
 						}}>
-						Seguidores:{" "}
+						<Link to="#">Seguidores: </Link>
 					</label>
 					<p className="followers">{followers}</p>
 					{showFollowers ? (
@@ -56,7 +56,7 @@ export const ProfileInfo = () => {
 						onClick={() => {
 							setShowFollowed(true);
 						}}>
-						Seguidos:{" "}
+						<Link to="#">Seguidos: </Link>
 					</label>
 					<p className="followed">{followed}</p>
 					{showFollowed ? (
