@@ -15,7 +15,7 @@ export const NavbarMobile = () => {
 					<img src={logo} alt="Punto y leído logo" className="logo-navbar" />
 				</Link>
 				<div className="navbar-nav">
-					<Link to={"/profile/" + store.loggedUser}>
+					<Link to={"/profile/" + store.loggedUser} className="my-auto">
 						<span>
 							<i
 								className="fas fa-user-alt fa-lg"

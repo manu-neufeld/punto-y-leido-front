@@ -26,7 +26,7 @@ export const Navbar = () => {
 			</div>
 			<div className="tools navbar-nav pr-5">
 				<SearchingBar />
-				<Link to={"/profile/" + store.loggedUser}>
+				<Link to={"/profile/" + store.loggedUser} className="my-auto">
 					<i
 						className="fas fa-user-alt fa-lg"
 						onClick={() => {

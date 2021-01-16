@@ -2,19 +2,17 @@ $green: #A1C349;
 $green-transparent: rgba(160, 195, 73, 0.61);
 
 .logo-navbar {
-    max-height: 4rem;
+    max-height: 3.5rem;
+}
+.navigation-bar {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    margin-bottom: auto;
 }
 .navbar {
-    // padding: 0;
-    // display: flex;
-    // justify-content: space-around;
     background-color: $green-transparent;
     border-bottom: solid $green;
-    // position: fixed;
-    // top: 0;
-    // right: 0;
-    // left: 0;
-    // z-index: 1030;
     a{
         margin-left: 2.5rem;
         margin-right: 2.5rem;
@@ -22,9 +20,7 @@ $green-transparent: rgba(160, 195, 73, 0.61);
     p {
         margin: 0;
     }
-    input {
-            width: 14rem;
-        }
+
 }
 .dropdown-menu {
     min-width: 7rem;
@@ -49,4 +45,12 @@ $green-transparent: rgba(160, 195, 73, 0.61);
      .searching-bar {
         margin-left: 0;
     }
+}
+.input-group-text {
+    background: transparent;
+    color: white;
+    border: 1px solid #A1C349;
+}
+.input-group {
+    max-width: none;
 }
