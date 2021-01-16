@@ -43,7 +43,14 @@ export const BookShoppingCart = props => {
 							<option value="5">5</option>
 						</select>
 						<p className="price-of-each-book">{props.price} €</p>
-						<DeleteFromBagButton id_book={props.book_id} />
+						<button
+							className="btn btn-outline-danger"
+							type="button"
+							onClick={() => {
+								actions.deleteBookFromShoppingCart(props.book_id);
+							}}>
+							Eliminar
+						</button>
 					</div>
 				</div>
 			</div>
@@ -57,6 +64,6 @@ BookShoppingCart.propTypes = {
 	image: PropTypes.string,
 	format_type: PropTypes.string,
 	price: PropTypes.float,
-	book_id: PropTypes.integer,
-	quantityValue: PropTypes.integer
+	book_id: PropTypes.string,
+	quantityValue: PropTypes.string
 };
