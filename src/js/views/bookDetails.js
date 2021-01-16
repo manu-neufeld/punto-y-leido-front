@@ -1,13 +1,26 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CardBookDetails } from "../component/cardBookDetails.jsx";
 import { ReviewsBookDetails } from "../component/reviewsBookDetails.jsx";
 import { Context } from "../store/appContext";
 import "../../styles/book-details-view.scss";
+import { AddingReview } from "../component/addReview.jsx";
 
 export const BookDetails = () => {
 	const { store, actions } = useContext(Context);
+	const [showResults, setShowResults] = useState(false);
 	let idBook = useParams();
+
+	const openAddReviewButton = (
+		<button
+			className="btn btn-primary"
+			onClick={() => {
+				setShowResults(true);
+			}}>
+			Añadir reseña
+		</button>
+	);
+
 	if (store.books.length == 0 && store.reviews.length == 0) {
 		return <h2>Estamos buscando tu libro...</h2>;
 	} else {
@@ -29,6 +42,7 @@ export const BookDetails = () => {
 				</div>
 				<div className="book-reviews">
 					<p>Reseñas</p>
+					{showResults ? <AddingReview /> : openAddReviewButton}
 					<ReviewsBookDetails />
 				</div>
 			</Fragment>
