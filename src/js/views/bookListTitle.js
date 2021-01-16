@@ -20,7 +20,7 @@ export const BookListTitle = () => {
 		));
 		return (
 			<div className="book-list-title">
-				<h1>Libros</h1>
+				<h1>Resultado de la búsqueda</h1>
 				{book}
 			</div>
 		);
