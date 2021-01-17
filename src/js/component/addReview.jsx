@@ -41,7 +41,7 @@ export const AddingReview = () => {
 						defaultValue={null}
 						required>
 						<option value="0" selected>
-							Selecciona tu valoración
+							Valoración
 						</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -50,7 +50,7 @@ export const AddingReview = () => {
 						<option value="5">5</option>
 					</select>
 					<textarea
-						className="form-control"
+						className="form-control mt-3"
 						id="review"
 						placeholder="Escribe tu reseña."
 						value={null}

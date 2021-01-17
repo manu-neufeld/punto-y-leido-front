@@ -8,13 +8,13 @@ export const Review = props => {
 	return (
 		<Fragment>
 			<div className="review-header">
-				<Link to={"/profile/" + props.readerId}>
-					<h6>{props.username}</h6>
+				<Link to={"/profile/" + props.readerId} className="mr-5 review-author">
+					<p>{props.username}</p>
 				</Link>
-				<h6>
-					Puntuación: {props.stars}
+				<p className="mr-auto">
+					Valoración: {props.stars}
 					/5
-				</h6>
+				</p>
 			</div>
 			<div className="review-body">
 				<p>{props.review}</p>
