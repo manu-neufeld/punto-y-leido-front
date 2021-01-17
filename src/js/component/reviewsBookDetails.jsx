@@ -10,6 +10,32 @@ export const ReviewsBookDetails = () => {
 	if (store.reviews.lenght == 0) {
 		return "Cargando las reseñas...";
 	} else {
+		// console.log("SHELVES JSON", store.shelves);
+		// console.log("REVIEWS STORE", store.reviews);
+
+		// function checkForDuplicates(array, keyName) {
+		// 	return new Set(array.map(item => item[keyName])).size !== array.length;
+		// }
+
+		// console.log("ID BOOKS REPETIDOS ", checkForDuplicates(store.reviews, "id_book"));
+		// console.log("IDS NO REPETIDOS ", checkForDuplicates(store.reviews, "id"));
+
+		// for (let indexShelf = 0; indexShelf < store.shelves.length; indexShelf++) {
+		// 	for (let indexReview = 0; indexReview < store.reviews.length; indexReview++) {
+		//         if (
+		//             store.shelves[indexShelf].id_reader == store.reviews[indexReview].id_reader &&
+		//             store.shelves[indexShelf].id
+		//             ) {
+		// 			actions.postBookOnShelf(
+		// 				store.reviews[indexReview].id_book,
+		// 				store.reviews[indexReview].id_reader,
+		// 				"comentados"
+		// 			);
+		// 			actions.getAllShelfInfoTest();
+		// 		}
+		// 	}
+		// }
+
 		const reviews = store.reviews.map((eachReview, index) => {
 			if (idBook.idBook == eachReview.id_book) {
 				return (

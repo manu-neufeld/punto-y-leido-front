@@ -362,6 +362,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't add new followed, error status: ", error);
 					});
+			},
+			logoutButton: () => {
+				localStorage.clear();
+				setStore({ loggedUser: null });
+				setStore({ shoppingCart: [] });
+				window.location.replace("/");
 			}
 		}
 	};

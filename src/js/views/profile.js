@@ -22,6 +22,16 @@ export const Profile = () => {
 			Editar
 		</button>
 	);
+	const logOutButton = (
+		<button
+			className="btn btn-outline-danger"
+			onClick={() => {
+				actions.logoutButton();
+			}}>
+			Cerrar sesión
+		</button>
+	);
+
 	let followButton = null;
 
 	if (store.followers.length != 0 && store.loggedUser != null) {
@@ -62,6 +72,7 @@ export const Profile = () => {
 			<h1>
 				Perfil
 				<span>{store.loggedUser == idReader.idUser ? editButton : followButton}</span>
+				<span>{store.loggedUser == idReader.idUser ? logOutButton : null}</span>
 			</h1>
 			<div>
 				<ProfileInfo />
