@@ -10,13 +10,17 @@
         margin: 0;
     }
     .final-price {
-        text-align: right;
+        text-align: center;
         font-weight: bold;
         padding: 1.25rem;
         font-size: 1.75rem;
     }
     h1{
         margin-bottom: 1.25rem;
+    }
+    .continue-to-paypal{
+        font-size: 1.25rem;
+        text-align: center;
     }
 }
 
