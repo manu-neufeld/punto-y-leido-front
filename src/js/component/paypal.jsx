@@ -28,6 +28,10 @@ export const PayPal = props => {
 					},
 					onApprove: async (data, action) => {
 						const order = await action.order.capture();
+						if (order) {
+							localStorage.removeItem("book-quantity");
+							window.location.replace("/success-payment");
+						}
 						console.log("MY ORDER: ", order);
 					},
 					onError: err => {
