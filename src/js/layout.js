@@ -57,10 +57,10 @@ const Layout = () => {
 						<Route exact path="/profile/:idUser">
 							<Profile />
 						</Route>
-						<Route exact path="/success-payment/:idUser">
+						<Route exact path="/success-payment">
 							<SuccessPaymentPage />
 						</Route>
-						<Route exact path="/failed-payment/:idUser">
+						<Route exact path="/failed-payment">
 							<FailedPaymentPage />
 						</Route>
 						<Route>
