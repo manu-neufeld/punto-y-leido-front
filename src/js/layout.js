@@ -16,6 +16,7 @@ import { AllAuthors } from "./views/allAuthors";
 import { BookListTitle } from "./views/bookListTitle.js";
 import { GenreBooksList } from "./views/genreBooksList.js";
 import { SuccessPaymentPage } from "./views/successPaymentPage.js";
+import { FailedPaymentPage } from "./views/failedPaymentPage.js";
 import { Error404 } from "./views/error404.js";
 
 //create your first component
@@ -58,6 +59,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/success-payment/:idUser">
 							<SuccessPaymentPage />
+						</Route>
+						<Route exact path="/failed-payment/:idUser">
+							<FailedPaymentPage />
 						</Route>
 						<Route>
 							<Error404 />
