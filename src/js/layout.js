@@ -29,45 +29,46 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					{width > 768 ? <Navbar /> : <NavbarMobile />}
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/books">
-							<AllBooks />
-						</Route>
-						<Route exact path="/books-search">
-							<BookListTitle />
-						</Route>
-						<Route exact path="/genres">
-							<GenreBooksList />
-						</Route>
-						<Route exact path="/authors">
-							<AllAuthors />
-						</Route>
-						<Route exact path="/:idUser/shopping-cart">
-							<ShoppingCart />
-						</Route>
-						<Route exact path="/author/:idAuthor">
-							<AuthorDetails />
-						</Route>
-						<Route exact path="/book/:idBook">
-							<BookDetails />
-						</Route>
-						<Route exact path="/profile/:idUser">
-							<Profile />
-						</Route>
-						<Route exact path="/success-payment">
-							<SuccessPaymentPage />
-						</Route>
-						<Route exact path="/failed-payment">
-							<FailedPaymentPage />
-						</Route>
-						<Route>
-							<Error404 />
-						</Route>
-					</Switch>
-
+					<div className="content-layout">
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/books">
+								<AllBooks />
+							</Route>
+							<Route exact path="/books-search">
+								<BookListTitle />
+							</Route>
+							<Route exact path="/genres">
+								<GenreBooksList />
+							</Route>
+							<Route exact path="/authors">
+								<AllAuthors />
+							</Route>
+							<Route exact path="/:idUser/shopping-cart">
+								<ShoppingCart />
+							</Route>
+							<Route exact path="/author/:idAuthor">
+								<AuthorDetails />
+							</Route>
+							<Route exact path="/book/:idBook">
+								<BookDetails />
+							</Route>
+							<Route exact path="/profile/:idUser">
+								<Profile />
+							</Route>
+							<Route exact path="/success-payment">
+								<SuccessPaymentPage />
+							</Route>
+							<Route exact path="/failed-payment">
+								<FailedPaymentPage />
+							</Route>
+							<Route>
+								<Error404 />
+							</Route>
+						</Switch>
+					</div>
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

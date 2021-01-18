@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-	<footer className="footer mt-5 pt-2 text-center">
+	<footer className="footer pt-2 text-center">
 		<div className="footer-contain mx-auto">
 			<div className=" d-flex justify-content-around ">
 				<i className="fab fa-instagram fa-2x" />

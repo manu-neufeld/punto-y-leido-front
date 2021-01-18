@@ -105,10 +105,16 @@ BODY {
         text-decoration: none;
     }
     footer {
+        margin-top: 40px;
         background-color: rgba(160, 195, 73, 0.37);
+        height: 80px;
         .footer-contain{
             width: 30%;
         }
+    }
+    .content-layout {
+        min-height: calc(100vh - 120px - 69px);
+
     }
   background: 
     radial-gradient(circle at right,
