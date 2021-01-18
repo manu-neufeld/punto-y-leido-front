@@ -1,10 +1,6 @@
 a {
     color: black;
 }
-.card {
-    border: none;
-    margin-bottom: 3rem;
-}
 .book-image {
     max-width: 12rem;
     .boton{
@@ -28,47 +24,43 @@ a {
     background-color: #150a1a;
     color: #cdcbcb;
 }
-.btn-secondary.dropdown-toggle{
-    color: #150a1a;
-    background-color: #cdcbcb;
-    border-color: #f8f9f1;
-}
-.btn-secondary:not(:disabled):not(.disabled):active.show > .btn-secondary.dropdown-toggle {
-    color: #150a1a;
-    background-color: #cdcbcb;
-    border-color: #f8f9f1;
-}
-.btn-secondary{
-    color: #150a1a;
-    background-color: #cdcbcb;
-    border-color: #f8f9f1;
-}
-
 .book-info {
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
 }
-.card-body {
+.card-body-book {
     height: fit-content;
+    margin-left: 1rem;
     .card-title{
         font-size: 1.6rem;
-        font-weight: 500;
+        font-weight: 600;
     }
     .author-name {
         font-size: 1.25rem;
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 .format-price{
     p:last-child {
             font-size: 1.25rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 }
 .input-group {
     max-width: 12rem;
 }
+.book-info-photo{
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
+}
+.synopsis {
+    margin-top: 1rem;
+}
+
 @media (max-width: 768px) {
     .row {
         display: flex;
@@ -76,11 +68,9 @@ a {
         padding-bottom: 0;
         margin-bottom: 0;
     }
-    .card-body {
+    .card-body-book {
         text-align: center;
         padding: 0;
-    }
-    .card {
         margin-bottom: 0;
     }
     .book-image {

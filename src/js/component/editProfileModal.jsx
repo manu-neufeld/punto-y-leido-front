@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 import "../../styles/edit-profile-modal.scss";
 
-export const Modal = props => {
+export const EditProfileModal = props => {
 	const { store, actions } = useContext(Context);
 	let readerId = useParams();
 	const [state, setState] = useState({
@@ -13,7 +13,7 @@ export const Modal = props => {
 	});
 	if (store.readers.length != 0) {
 		const readerToFind = store.readers.find(reader => reader.id == readerId.idUser);
-		let buttonToEdit = (
+		let buttonToClose = (
 			<button
 				onClick={() => {
 					props.onClose();
@@ -35,7 +35,7 @@ export const Modal = props => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title">Editar perfil</h5>
-							{props.onClose ? buttonToEdit : ""}
+							{props.onClose ? buttonToClose : ""}
 						</div>
 						<div className="modal-body">
 							<label>
@@ -80,7 +80,7 @@ export const Modal = props => {
  * Define the data-types for
  * your component's properties
  **/
-Modal.propTypes = {
+EditProfileModal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool
@@ -90,7 +90,7 @@ Modal.propTypes = {
  * Define the default values for
  * your component's properties
  **/
-Modal.defaultProps = {
+EditProfileModal.defaultProps = {
 	show: false,
 	onClose: null
 };

@@ -33,7 +33,7 @@ export const DropdownShoppingCart = () => {
 	});
 	if (booksInShoppingCart) {
 		return (
-			<span className="dropdown">
+			<span className="dropdown dropdown-in-shopping-cart mr-auto my-auto">
 				<button
 					className="dropdown-toggle dropdown-button-cart"
 					type="button"
@@ -41,7 +41,7 @@ export const DropdownShoppingCart = () => {
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					<i className="fas fa-shopping-cart" /> {booksInShoppingCart.length}
+					<i className="fas fa-shopping-cart fa-lg" /> {booksInShoppingCart.length}
 				</button>
 				<ul className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					{listElement}
@@ -53,7 +53,7 @@ export const DropdownShoppingCart = () => {
 		);
 	} else {
 		return (
-			<span>
+			<span className="my-auto">
 				<button
 					className="dropdown-toggle dropdown-button-cart"
 					type="button"
@@ -61,7 +61,7 @@ export const DropdownShoppingCart = () => {
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					<i className="fas fa-shopping-cart" /> 0
+					<i className="fas fa-shopping-cart fa-lg" /> 0
 				</button>
 				<ul className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					{listElement}

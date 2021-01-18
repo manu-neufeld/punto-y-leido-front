@@ -1,9 +1,18 @@
+$green: #A1C349;
+$green-transparent: rgba(160, 195, 73, 0.61);
+
 .logo-navbar {
-    max-height: 4rem;
+    max-height: 3.5rem;
+}
+.navigation-bar {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    margin-bottom: auto;
 }
 .navbar {
-    display: flex;
-    justify-content: space-around;
+    background-color: $green-transparent;
+    border-bottom: solid $green;
     a{
         margin-left: 2.5rem;
         margin-right: 2.5rem;
@@ -11,13 +20,8 @@
     p {
         margin: 0;
     }
-    input {
-            width: 14rem;
-        }
+
 }
-.searching-bar {
-        margin-left: 5rem;
-    }
 .dropdown-menu {
     min-width: 7rem;
 }
@@ -37,9 +41,16 @@
         input {
             width: auto;
         }
-        
     }
      .searching-bar {
         margin-left: 0;
     }
+}
+.input-group-text {
+    background: transparent;
+    color: white;
+    border: 1px solid #A1C349;
+}
+.input-group {
+    max-width: none;
 }

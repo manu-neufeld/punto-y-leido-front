@@ -23,18 +23,23 @@ export const SearchingBar = () => {
 	};
 
 	return (
-		<form className="searching-bar">
-			<Link to="/books-search">
-				<input
-					className="searching-bar-input"
-					id="name"
-					type="text"
-					placeholder="Buscar..."
-					onKeyPress={() => {
-						newSearch(event);
-					}}
-				/>
-			</Link>
-		</form>
+		<Link to="/books-search" className="input-group ml-auto">
+			<input
+				id="name"
+				onKeyPress={() => {
+					newSearch(event);
+				}}
+				type="text"
+				className="form-control"
+				placeholder="Buscar..."
+				aria-label="Recipient's username"
+				aria-describedby="basic-addon2"
+			/>
+			<div className="input-group-append">
+				<span className="input-group-text" id="basic-addon2">
+					<i className="fa fa-search fa-lg " />
+				</span>
+			</div>
+		</Link>
 	);
 };

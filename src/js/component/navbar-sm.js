@@ -8,46 +8,53 @@ import { SearchingBar } from "./searchingBar.jsx";
 
 export const NavbarMobile = () => {
 	const { store, actions } = useContext(Context);
-
 	return (
 		<Fragment>
-			<nav className="navbar navbar-expand bg-light">
-				<Link to="/">
-					<img src={logo} alt="Punto y leído logo" className="navbar-brand logo-navbar" />
+			<nav className="navbar navbar-expand p-0">
+				<Link to="/" className="navbar-brand mr-auto">
+					<img src={logo} alt="Punto y leído logo" className="logo-navbar" />
 				</Link>
-				<Link to={"/profile/" + store.loggedUser}>
-					<span>
-						<i className="fas fa-user-alt" />
-					</span>
-				</Link>
-				<div className="nav" id="navbarNavAltMarkup">
-					<a
-						className="nav-link dropdown-toggle"
-						href="#"
-						id="navbarDropdownMenuLink"
-						role="button"
-						data-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false">
-						<i className="fas fa-bars" />
-					</a>
-					<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-						<Link to="/books">
-							<p className="dropdown-item">Libros</p>
-						</Link>
-						<Link to="/genres">
-							<p className="dropdown-item">Géneros</p>
-						</Link>
-						<Link to="/authors">
-							<p className="dropdown-item">Autores</p>
-						</Link>
+				<div className="navbar-nav">
+					<Link to={"/profile/" + store.loggedUser} className="my-auto">
+						<span>
+							<i
+								className="fas fa-user-alt fa-lg"
+								onClick={() => {
+									if (store.loggedUser == null) {
+										alert("¡Necesitas hacer login!");
+										window.location.replace("/");
+									}
+								}}
+							/>
+						</span>
+					</Link>
+					<div className="nav" id="navbarNavAltMarkup">
+						<a
+							className="dropdown-toggle"
+							href="#"
+							id="navbarDropdownMenuLink"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false">
+							<i className="fas fa-bars fa-lg" />
+						</a>
+						<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+							<Link to="/books">
+								<p className="dropdown-item">Libros</p>
+							</Link>
+							<Link to="/genres">
+								<p className="dropdown-item">Géneros</p>
+							</Link>
+							<Link to="/authors">
+								<p className="dropdown-item">Autores</p>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</nav>
-			<nav className="navbar navbar-expand bg-light">
-				<span>
-					<SearchingBar />
-				</span>
+			<nav className="navbar navbar-expand">
+				<SearchingBar />
 				<DropdownShoppingCart />
 			</nav>
 		</Fragment>

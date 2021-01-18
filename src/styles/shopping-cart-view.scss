@@ -1,6 +1,7 @@
 .book-shopping-cart{
     margin-left: 24rem;
     margin-right: 24rem;
+    margin-top: 2rem;
     .price-of-each-book {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -9,10 +10,17 @@
         margin: 0;
     }
     .final-price {
-        padding-top: 3rem;
         text-align: center;
         font-weight: bold;
+        padding: 1.25rem;
+        font-size: 1.75rem;
+    }
+    h1{
+        margin-bottom: 1.25rem;
+    }
+    .continue-to-paypal{
         font-size: 1.25rem;
+        text-align: center;
     }
 }
 

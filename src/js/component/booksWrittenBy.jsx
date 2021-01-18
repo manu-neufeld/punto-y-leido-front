@@ -18,6 +18,7 @@ export const BooksWrittenBy = props => {
 							name={book.title}
 							subName={book.name_author}
 							idBook={book.id}
+							display="displaying"
 						/>
 					</Link>
 				);
