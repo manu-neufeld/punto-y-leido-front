@@ -40,11 +40,15 @@ export const EditProfileModal = props => {
 						<div className="modal-body">
 							<label>
 								Nombre:
-								<input defaultValue={readerToFind.name} id="userName" />
+								<input defaultValue={readerToFind.name} id="userName" placeholder="Tu nombre" />
 							</label>
 							<label>
-								Descripción:
-								<textarea defaultValue={readerToFind.description} id="description" />
+								Sobre mí:
+								<textarea
+									defaultValue={readerToFind.description}
+									id="description"
+									placeholder="¿Qué te gusta leer?"
+								/>
 							</label>
 						</div>
 						<div className="modal-footer">

@@ -23,7 +23,7 @@ export const ProfileInfo = () => {
 		return (
 			<div className="reader-info">
 				<div className="label-p">
-					<label>Username: </label>
+					<label>Usuario: </label>
 					<p className="username">{readerToFind.username}</p>
 				</div>
 				<div className="label-p">
