@@ -1,17 +1,22 @@
 import React, { useContext, Fragment } from "react";
 import { Context } from "../store/appContext";
-import { ReviewsBookDetails } from "../component/reviewsBookDetails.jsx";
 
 export const HomeBooks = () => {
 	const { store } = useContext(Context);
-	let bookIndex = [Math.round(Math.random() * (store.books.length - 1))];
-	let reviewIndex = -1;
+
+	let bookIndex = 14; //Math.round(Math.random() * (store.books.length - 1));
+	console.log("index, ", bookIndex);
+
+	console.log("reviews, ", store.reviews);
+	let reviewIndex;
 	for (let index = 0; index < store.reviews.length; index++) {
 		if (bookIndex == store.reviews[index].id_book) {
 			reviewIndex = index;
 		}
 	}
-	if (store.reviews.lenght == 0) {
+	console.log("id review, ", reviewIndex);
+
+	if (reviewIndex !== undefined) {
 		let bookRandomCard = (
 			<div className="card mb-3">
 				<div className="row g-0">
@@ -21,7 +26,7 @@ export const HomeBooks = () => {
 					<div className="col-md-8">
 						<div className="card-body">
 							<h5 className="card-title">{store.books[bookIndex].title}</h5>
-							<p className="card-text">Todavía no hay reseñas en este libro, ¡Comenta por primera vez!</p>
+							<p className="card-text">{store.reviews[reviewIndex].review}</p>
 						</div>
 					</div>
 				</div>
@@ -38,7 +43,7 @@ export const HomeBooks = () => {
 					<div className="col-md-8">
 						<div className="card-body">
 							<h5 className="card-title">{store.books[bookIndex].title}</h5>
-							<p className="card-text">{store.reviews[reviewIndex].review}</p>
+							<p className="card-text">Todavía no hay reseñas en este libro, ¡Comenta por primera vez!</p>
 						</div>
 					</div>
 				</div>

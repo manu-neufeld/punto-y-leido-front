@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
-	let url = "https://3000-b58ecb20-e445-4908-8037-deecde4cbf8b.ws-eu03.gitpod.io/";
+	let url = "https://3000-f8bc0289-c450-4d88-80b0-9304a625bacc.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [],
@@ -149,7 +149,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonReaders => {
-						setStore({ reviews: jsonReaders });
+						setStore({ reviews: jsonReaders.flat() });
 					})
 					.catch(error => {
 						console.error("Can't get reviews, error status: ", error);
