@@ -36,11 +36,11 @@ export const ShoppingCart = () => {
 				<p className="final-price">Total: {total} €</p>
 				<Link
 					to="#"
-					className="continue-to-paypal text-center"
+					className="continue-to-paypal d-flex justify-content-center"
 					onClick={() => {
 						setShowPayment(true);
 					}}>
-					<p className="text-center">Continuar al pago</p>
+					<button className="btn btn-primary">Continuar al pago</button>
 				</Link>
 			</div>
 		);

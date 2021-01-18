@@ -30,11 +30,15 @@ export const BookListTitle = () => {
 			</Link>
 		));
 		return (
-			<div className="book-list-title">
+			<Fragment>
 				<h1>Resultado de la búsqueda</h1>
-				{book}
-				{author}
-			</div>
+				<div className="book-list-title">
+					<h2>Libros</h2>
+					<div className="searched-books">{book}</div>
+					<h2>Autores</h2>
+					<div className="searched-authors">{author}</div>
+				</div>
+			</Fragment>
 		);
 	} else return "Estamos buscando los libros";
 };
