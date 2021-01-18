@@ -31,7 +31,7 @@ export const BookListTitle = () => {
 		));
 		return (
 			<Fragment>
-				<h1>Resultado de la búsqueda</h1>
+				<h1 className="text-center">Resultado de la búsqueda</h1>
 				<div className="book-list-title">
 					<h2>Libros</h2>
 					<div className="searched-books">{book}</div>
