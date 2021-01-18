@@ -11,13 +11,13 @@ export const GenreBooksList = () => {
 		return (
 			<Fragment>
 				<BooksByGenre genreTitle="Histórica" />
+				<BooksByGenre genreTitle="Ciencia ficción y fantástica" />
 				<BooksByGenre genreTitle="Clásicos" />
+				<BooksByGenre genreTitle="Novela gráfica" />
 				<BooksByGenre genreTitle="Romántica y erótica" />
 				<BooksByGenre genreTitle="Juvenil" />
 				<BooksByGenre genreTitle="Biográfica" />
 				<BooksByGenre genreTitle="Thriller" />
-				<BooksByGenre genreTitle="Ciencia ficción y fantástica" />
-				<BooksByGenre genreTitle="Novela gráfica" />
 			</Fragment>
 		);
 	} else return "Buscando los libros...";
