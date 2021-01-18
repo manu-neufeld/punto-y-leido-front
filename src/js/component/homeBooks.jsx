@@ -4,17 +4,15 @@ import { Context } from "../store/appContext";
 export const HomeBooks = () => {
 	const { store } = useContext(Context);
 
-	let bookIndex = 14; //Math.round(Math.random() * (store.books.length - 1));
-	console.log("index, ", bookIndex);
-
-	console.log("reviews, ", store.reviews);
+	let bookIndex = Math.round(Math.random() * (store.books.length - 1));
+	let book = store.books[bookIndex];
 	let reviewIndex;
+
 	for (let index = 0; index < store.reviews.length; index++) {
-		if (bookIndex == store.reviews[index].id_book) {
+		if (book.id == store.reviews[index].id_book) {
 			reviewIndex = index;
 		}
 	}
-	console.log("id review, ", reviewIndex);
 
 	if (reviewIndex !== undefined) {
 		let bookRandomCard = (

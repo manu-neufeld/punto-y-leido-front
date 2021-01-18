@@ -5,7 +5,6 @@ export const HomeCarousel = () => {
 	const { store } = useContext(Context);
 
 	let authorIndex = Math.round(Math.random() * (store.author.length - 1));
-	console.log("index, ", authorIndex);
 
 	let authorCarousel = (
 		<div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
