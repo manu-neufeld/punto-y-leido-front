@@ -1,0 +1,38 @@
+.leftButton{
+    position:absolute;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+    width:5%;
+    height: 80%;
+    transition:0.5s;
+    &:hover{
+        background:rgba(0,0,0,0.356);
+    }
+   
+    cursor:pointer;
+    border: none;
+    background:none;
+    outline:none;
+   
+
+}
+.rightButton{
+       &:hover{
+        background:rgba(0,0,0,0.356);
+       
+      
+    }
+    cursor:pointer;
+    transition:0.5s;
+     border: none;
+    background:none;
+    outline:none;
+    position:absolute;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    width:5%;
+    height: 80%;
+    
+}

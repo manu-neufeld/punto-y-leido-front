@@ -2,6 +2,7 @@ import React, { useContext, Fragment, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { LittleAuthorInfo } from "../component/littleAuthorInfo.jsx";
+import "../../styles/random-home-carousel.scss";
 
 export const HomeCarousel = () => {
 	const { store } = useContext(Context);
