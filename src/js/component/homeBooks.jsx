@@ -1,5 +1,6 @@
 import React, { useContext, Fragment } from "react";
 import { Context } from "../store/appContext";
+import { useParams, Link } from "react-router-dom";
 import "../../styles/random-home-books.scss";
 
 function getRandomBook(store) {
@@ -19,12 +20,14 @@ function getFirstReviewFromBook(store, bookId) {
 
 function createBookComponent(book, review) {
 	let reviewMessage = "Todavía no hay reseñas en este libro, ¡Comenta por primera vez!";
-	if (review != undefined) {
+	if (review !== undefined) {
 		reviewMessage = review.review;
 	}
 	return (
 		<div className="col-6 home-card-book-random">
-			<img src={book.image} className="card-img-top home-random-image" alt="Portada del libro" />
+			<Link to={"/book/" + book.id}>
+				<img src={book.image} className="card-img-top home-random-image" alt="Portada del libro" />
+			</Link>
 			<div className="home-book-random-body">
 				<p className="home-book-random-title">{book.title}</p>
 				<p className="home-book-random-review">{reviewMessage}</p>
@@ -39,7 +42,7 @@ export const HomeBooks = () => {
 	let bookComponents = [];
 	for (let i = 0; i < 4; i++) {
 		let book = getRandomBook(store);
-		let review = getFirstReviewFromBook(store, book.id_book);
+		let review = getFirstReviewFromBook(store, book.id);
 
 		let bookComponent = createBookComponent(book, review);
 		bookComponents.push(bookComponent);
