@@ -4,9 +4,6 @@
     padding-left: 14rem;
     padding-right: 14rem;
     flex-wrap: wrap;
-
-
-
 }
 
 .home-card-book-random {
@@ -16,11 +13,13 @@
     border-radius: 0.2rem;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
-    .home-book-random-title{
-        font-size: 2rem;
-    }
+    min-height: 15rem;
+    max-height: 15rem;
+
+   
 }
 .home-random-image{
+    margin: 0.5rem;
     max-width: 10rem;
     min-width: 10rem;
     min-height: 13rem;
@@ -28,10 +27,13 @@
 }
 
 .home-book-random-body{
-    padding-top: none;
-    margin-left: 1rem;
-
-    .home-book-random-title{
-        font-size: 1.5rem;
+    margin: 0.5rem;
+     .home-book-random-title{
+        font-size: 2rem;
+    }
+    .home-book-random-review{
+        display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
     }
 }

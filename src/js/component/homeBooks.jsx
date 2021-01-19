@@ -3,6 +3,21 @@ import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
 import "../../styles/random-home-books.scss";
 
+export const HomeBooks = () => {
+	const { store } = useContext(Context);
+
+	let bookComponents = [];
+	for (let i = 0; i < 4; i++) {
+		let book = getRandomBook(store);
+		let review = getFirstReviewFromBook(store, book.id);
+
+		let bookComponent = createBookComponent(book, review);
+		bookComponents.push(bookComponent);
+	}
+
+	return <div className="row home-container-books">{bookComponents}</div>;
+};
+
 function getRandomBook(store) {
 	let bookIndex = Math.round(Math.random() * (store.books.length - 1));
 	return store.books[bookIndex];
@@ -24,29 +39,16 @@ function createBookComponent(book, review) {
 		reviewMessage = review.review;
 	}
 	return (
-		<div className="col-6 home-card-book-random">
-			<Link to={"/book/" + book.id}>
-				<img src={book.image} className="card-img-top home-random-image" alt="Portada del libro" />
-			</Link>
-			<div className="home-book-random-body">
-				<p className="home-book-random-title">{book.title}</p>
-				<p className="home-book-random-review">{reviewMessage}</p>
+		<div className="col-6">
+			<div className="home-card-book-random">
+				<Link to={"/book/" + book.id}>
+					<img src={book.image} className="card-img-top home-random-image" alt="Portada del libro" />
+				</Link>
+				<div className="home-book-random-body">
+					<p className="home-book-random-title">{book.title}</p>
+					<p className="home-book-random-review">{reviewMessage}</p>
+				</div>
 			</div>
 		</div>
 	);
 }
-
-export const HomeBooks = () => {
-	const { store } = useContext(Context);
-
-	let bookComponents = [];
-	for (let i = 0; i < 4; i++) {
-		let book = getRandomBook(store);
-		let review = getFirstReviewFromBook(store, book.id);
-
-		let bookComponent = createBookComponent(book, review);
-		bookComponents.push(bookComponent);
-	}
-
-	return <div className="row home-container-books">{bookComponents}</div>;
-};
