@@ -19,15 +19,22 @@ export const HomeCarousel = () => {
 
 	return (
 		<div className="home-container-carousel">
-			<button className="leftButton" onClick={goLeft}>
-				<i className="fas fa-chevron-left" />
-			</button>
-			<Link to={"/author/" + store.author[authorIndex].id}>
-				<LittleAuthorInfo key={1} name={store.author[authorIndex].name} img={store.author[authorIndex].image} />
-			</Link>
-			<button className="rightButton" onClick={goRight}>
-				<i className="fas fa-chevron-right" />
-			</button>
+			<h1 className="home-carousel-title">Conoce nuestros a autores</h1>
+			<div className="home-carousel-button-component">
+				<button className="leftButton" onClick={goLeft}>
+					<i className="fas fa-chevron-left" />
+				</button>
+				<Link to={"/author/" + store.author[authorIndex].id}>
+					<LittleAuthorInfo
+						key={1}
+						name={store.author[authorIndex].name}
+						img={store.author[authorIndex].image}
+					/>
+				</Link>
+				<button className="rightButton" onClick={goRight}>
+					<i className="fas fa-chevron-right" />
+				</button>
+			</div>
 		</div>
 	);
 };

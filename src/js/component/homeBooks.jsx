@@ -15,7 +15,12 @@ export const HomeBooks = () => {
 		bookComponents.push(bookComponent);
 	}
 
-	return <div className="row home-container-books">{bookComponents}</div>;
+	return (
+		<Fragment>
+			<h1 className="home-random-books-title">¡Estos son nuestros libros!</h1>
+			<div className="row home-container-books">{bookComponents}</div>
+		</Fragment>
+	);
 };
 
 function getRandomBook(store) {

@@ -1,9 +1,15 @@
+
 .home-container-books{
     display: flex;
     justify-content: center;
     padding-left: 14rem;
     padding-right: 14rem;
     flex-wrap: wrap;
+}
+
+.home-random-books-title{
+    margin: 1rem;
+    text-align: center;
 }
 
 .home-card-book-random {
@@ -34,6 +40,7 @@
     .home-book-random-review{
         display: -webkit-box;
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
+            -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }
