@@ -12,7 +12,7 @@ export const AddToBagButton = props => {
 
 	const buttonToAdd = (
 		<button
-			className="btn btn-outline-success"
+			className="btn btn-outline-primary"
 			type="button"
 			onClick={() => {
 				actions.setBooksQuantity(props.id_book);

@@ -1,11 +1,9 @@
 import React, { Fragment, useContext, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { BookShoppingCart } from "./bookShoppingCart.jsx";
 
 export const ShoppingCartContainer = () => {
 	const { store, actions } = useContext(Context);
-	// let idAuthor = useParams();
 	let finalPrice = 0;
 
 	let booksQuantity = actions.getQuantityOfBooks();
@@ -25,7 +23,7 @@ export const ShoppingCartContainer = () => {
 								format_type={store.books[i].format_type}
 								price={each_price.toFixed(2)}
 								book_id={store.books[i].id}
-								quantityValue={book.quantity}
+								quantityValue={booksQuantity[index].quantity}
 							/>
 						</Fragment>
 					);

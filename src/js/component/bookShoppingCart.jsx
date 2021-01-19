@@ -12,7 +12,7 @@ export const BookShoppingCart = props => {
 
 	return (
 		<Fragment>
-			<div className="card mb-0 card-book-shopping-cart">
+			<div className="card card-book-shopping-cart">
 				<div className="row no-gutters">
 					<Link to={"/book/" + props.book_id}>
 						<div className="col-md-4 cover-page">
@@ -43,7 +43,14 @@ export const BookShoppingCart = props => {
 							<option value="5">5</option>
 						</select>
 						<p className="price-of-each-book">{props.price} €</p>
-						<DeleteFromBagButton id_book={props.book_id} />
+						<button
+							className="btn btn-outline-danger"
+							type="button"
+							onClick={() => {
+								actions.deleteBookFromShoppingCart(props.book_id);
+							}}>
+							Eliminar
+						</button>
 					</div>
 				</div>
 			</div>
@@ -56,7 +63,7 @@ BookShoppingCart.propTypes = {
 	author: PropTypes.string,
 	image: PropTypes.string,
 	format_type: PropTypes.string,
-	price: PropTypes.float,
-	book_id: PropTypes.integer,
-	quantityValue: PropTypes.integer
+	price: PropTypes.number,
+	book_id: PropTypes.string,
+	quantityValue: PropTypes.string
 };

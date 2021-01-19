@@ -26,10 +26,10 @@
 }
 .home-random-image{
     margin: 0.5rem;
-    max-width: 10rem;
-    min-width: 10rem;
-    min-height: 13rem;
-    max-height: 13rem;
+    max-width: 7rem;
+    min-width: 7rem;
+    min-height: 10rem;
+    max-height: 10rem;
 }
 
 .home-book-random-body{
@@ -38,9 +38,9 @@
         font-size: 2rem;
     }
     .home-book-random-review{
-        display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+        width: 230px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         overflow: hidden;
     }
 }

@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
-	let url = "https://3000-c2f05231-9fe8-4037-87ae-44f83a6e092b.ws-eu03.gitpod.io/";
+	let url = "https://3000-bff73ec2-81e2-4522-aa99-9972e09752c6.ws-eu03.gitpod.io/";
 	return {
 		store: {
 			books: [],
@@ -14,22 +14,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 			finalPrice: 0,
 			searchingBarContent: "",
 			booksByTitle: [],
+			authorsByName: [],
 			bookQuantity: [],
 			currentShelf: "leidos",
-			idReaderShelfBook: []
+			idReaderShelfBook: [],
+			followers: []
 		},
 		actions: {
 			deleteBookFromShoppingCart: idBook => {
 				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
 				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
 
-				if (getStore().bookQuantity != []) {
+				if (getStore().bookQuantity != null) {
 					for (let i = 0; i < getStore().bookQuantity.length; i++) {
 						if (getStore().bookQuantity[i].id_book == idBook) {
 							let store = getStore().bookQuantity;
 							store.splice(i, 1);
-							setStore({ bookQuantity: store });
-							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+							localStorage.setItem("book-quantity", JSON.stringify(store));
+							setStore({ bookQuantity: JSON.parse(localStorage.getItem("book-quantity")) });
+							window.location.reload();
 						}
 					}
 				}
@@ -40,23 +43,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setBooksQuantity: idBook => {
 				let eachBook = {
 					id_book: idBook,
-					quantity: 1
+					quantity: "1"
 				};
 				if (getStore().loggedUser == null) {
 					alert("¡Necesitas hacer login!");
 					window.location.replace("/");
 				} else {
-					setStore({ bookQuantity: [...getStore().bookQuantity, eachBook] });
-
-					if (localStorage.getItem("book-quantity") != null) {
-						let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
-						let bookQuantityStore = getStore().bookQuantity;
-						let addingBookStorage = [...storageBookQuantity, bookQuantityStore].flat();
-						localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+					if (getStore().bookQuantity != null) {
+						if (localStorage.getItem("book-quantity") != null) {
+							let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
+							let addingBookStorage = [...storageBookQuantity, eachBook].flat();
+							localStorage.setItem("book-quantity", JSON.stringify(addingBookStorage));
+							setStore({ bookQuantity: JSON.parse(localStorage.getItem("book-quantity")) });
+						} else {
+							localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						}
 					} else {
-						localStorage.setItem("book-quantity", JSON.stringify(getStore().bookQuantity));
+						setStore({ bookQuantity: eachBook });
 					}
-					setStore({ bookQuantity: [] });
 				}
 			},
 			editBooksQuantity: (idBook, quantity) => {
@@ -68,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let storageBookQuantity = JSON.parse(localStorage.getItem("book-quantity"));
 				setStore({ bookQuantity: storageBookQuantity }); // asigno a store lo que tenga almacenado en localstorage
 
-				if (getStore().bookQuantity != []) {
+				if (getStore().bookQuantity != null) {
 					for (let i = 0; i < getStore().bookQuantity.length; i++) {
 						if (getStore().bookQuantity[i].id_book == idBook) {
 							setStore((getStore().bookQuantity[i] = eachBook));
@@ -176,6 +180,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.error("Can't create contact, error status: ", error);
 					});
 			},
+			addReview: review => {
+				fetch(url + "add_review", {
+					method: "POST",
+					body: JSON.stringify(review),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().getReviews();
+					})
+					.catch(error => {
+						console.error("Can't create the review, error status: ", error);
+					});
+			},
 			getAllAuthorInfo: () => {
 				fetch(url + "authors")
 					.then(response => {
@@ -202,6 +227,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.error("Can't get book info, error status: ", error);
+					});
+			},
+			getSearchingAuthorName: () => {
+				let url_author_name = url.concat("authors?name=", getStore().searchingBarContent);
+				fetch(url_author_name)
+					.then(response => {
+						return response.json();
+					})
+					.then(jsonApiResponseName => {
+						setStore({ authorsByName: jsonApiResponseName.flat() });
+					})
+					.catch(error => {
+						console.error("Can't get author info, error status: ", error);
 					});
 			},
 			editingReaderInfo: () => {
@@ -261,7 +299,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			postBookOnShelf: (id_book, id_reader, shelf_name) => {
 				let url_shelf = url.concat(id_reader, "/", shelf_name, "/", id_book);
-				console.log("flux result ", url_shelf);
 				fetch(url_shelf, {
 					method: "POST",
 					headers: {
@@ -303,6 +340,48 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Can't delete book from shelf, error: ", error);
 					});
+			},
+			readFollowers: () => {
+				fetch(url + "following_followed")
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(jsonFollowingInfo => {
+						setStore({ followers: jsonFollowingInfo });
+					})
+					.catch(error => {
+						console.error("Can't get followers information, error status: ", error);
+					});
+			},
+			addFollowed: followed => {
+				fetch(url + "following/" + getStore().loggedUser, {
+					method: "POST",
+					body: JSON.stringify(followed),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(response.status);
+						}
+						return response.json();
+					})
+					.then(() => {
+						getActions().readFollowers();
+					})
+					.catch(error => {
+						console.error("Can't add new followed, error status: ", error);
+					});
+			},
+			logoutButton: () => {
+				localStorage.clear();
+				setStore({ loggedUser: null });
+				setStore({ shoppingCart: [] });
+				window.location.replace("/");
 			}
 		}
 	};

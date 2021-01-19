@@ -1,3 +1,11 @@
+.review {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
+}
+
 @media (max-width: 768px) {
     h5 {
         font-size: 1rem;
@@ -8,4 +16,9 @@
     p {
         font-size: 0.80rem;
     }
+}
+
+
+.valoration {
+    max-width: 9rem;
 }

@@ -1,9 +1,16 @@
 .little-book-cover{
-    max-width: 10rem;
+    padding: 1rem;
+    max-width: 12rem;
     display: flex;
     flex-wrap: wrap;
-    float:left;
+    float: left;
     margin: 0 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+
     .image-little-book{
         img{
         max-width: 10rem;
@@ -23,6 +30,7 @@
         top: 3.5rem;
         left: 8rem;
         justify-content: end;
+        width: fit-content;
     }
 }
 .button-dropdown-arrow{
@@ -38,6 +46,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    padding: 0;
     .name-little-book{
         font-size: 0.8rem;
         font-weight: 500;

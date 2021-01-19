@@ -39,7 +39,7 @@ function getFirstReviewFromBook(store, bookId) {
 }
 
 function createBookComponent(book, review) {
-	let reviewMessage = "Todavía no hay reseñas en este libro, ¡Comenta por primera vez!";
+	let reviewMessage = "Todavía no hay comentarios";
 	if (review !== undefined) {
 		reviewMessage = review.review;
 	}

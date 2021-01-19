@@ -6,18 +6,28 @@
         max-width: 13rem;
     }
 }
+.card-author-detail {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: solid #a1c3497d 0.5px;
+    border-radius: 0.2rem;
+}
 .sus-libros-title {
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 0;
-    margin-left: 4rem;
-}
-.little-book-cover {
-    padding-top: 0;
+    margin-top: 2rem;
+    // margin-left: 4rem;
+    font-weight: 600;
 }
 .author-image {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img{
+        max-width: 13rem;
         margin: none;
     }
 }

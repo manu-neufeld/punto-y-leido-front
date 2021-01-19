@@ -74,7 +74,7 @@ export const LittleBookCover = props => {
 			<Link to={"/book/" + props.idBook} className="image-little-book">
 				<img src={props.img} className="card-img-top" alt="Portada del libro" />
 			</Link>
-			<div className="card-body">
+			<div className="card-body card-body-little-book">
 				<p className="card-title name">{props.name}</p>
 				<p className="sub-name">{props.subName}</p>
 			</div>

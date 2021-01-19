@@ -1,11 +1,45 @@
 .profile {
+    margin-top: 2rem;
     margin-left: 14rem;
     margin-right: 14rem;
+    h1 {
+        padding-left: 1.5rem;
+    }
     span {
         margin-left: 5rem;
     }
 }
-
+.btn-outline-primary{
+    color: #6e8b25;
+    background-color: rgba(160, 195, 73, 0);
+    border-color: #6e8b25;
+    &:hover {
+        background-color: rgba(160, 195, 73, 0.836);
+        border-color: #A1C349;
+    }
+    &:focus {
+        border-color: #A1C349;
+        box-shadow: 0 0 0 0.2rem rgba(160, 195, 73, 0.61);
+    }
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: rgba(160, 195, 73, 0.836);
+    border-color: #A1C349;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(160, 195, 73, 0.61);
+}
+.pills-in-profile {
+    margin-top: 2rem;
+    background-color: rgba(160, 195, 73, 0.178);
+    border-color: #A1C349;
+    border-radius: 0.25rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #A1C349;
+}
 @media (max-width: 992px) {
     .profile {
         margin-left: 5rem;
