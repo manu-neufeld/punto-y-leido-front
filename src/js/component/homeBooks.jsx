@@ -19,17 +19,15 @@ function getFirstReviewFromBook(store, bookId) {
 
 function createBookComponent(book, review) {
 	let reviewMessage = "Todavía no hay reseñas en este libro, ¡Comenta por primera vez!";
-	if (review !== undefined) {
+	if (review != undefined) {
 		reviewMessage = review.review;
 	}
 	return (
-		<div className="col">
-			<div className="card">
-				<img src={book.image} className="card-img-top" alt="Portada del libro" />
-				<div className="card-body">
-					<h5 className="card-title">{book.title}</h5>
-					<p className="card-text">{reviewMessage}</p>
-				</div>
+		<div className="col-6 home-card-book-random">
+			<img src={book.image} className="card-img-top home-random-image" alt="Portada del libro" />
+			<div className="home-book-random-body">
+				<p className="home-book-random-title">{book.title}</p>
+				<p className="home-book-random-review">{reviewMessage}</p>
 			</div>
 		</div>
 	);
@@ -47,9 +45,5 @@ export const HomeBooks = () => {
 		bookComponents.push(bookComponent);
 	}
 
-	return (
-		<Fragment>
-			<div className="row row-cols-1 row-cols-md-2 g-4">{bookComponents}</div>
-		</Fragment>
-	);
+	return <div className="row home-container-books">{bookComponents}</div>;
 };

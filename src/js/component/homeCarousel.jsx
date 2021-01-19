@@ -18,7 +18,7 @@ export const HomeCarousel = () => {
 	};
 
 	return (
-		<Fragment>
+		<div className="home-container-carousel">
 			<Link to={"/author/" + store.author[authorIndex].id}>
 				<LittleAuthorInfo key={1} name={store.author[authorIndex].name} img={store.author[authorIndex].image} />
 			</Link>
@@ -28,6 +28,6 @@ export const HomeCarousel = () => {
 			<button className="rightButton" onClick={goRight}>
 				<i className="fas fa-chevron-right" />
 			</button>
-		</Fragment>
+		</div>
 	);
 };
