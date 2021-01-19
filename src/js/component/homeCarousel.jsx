@@ -1,33 +1,32 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { LittleAuthorInfo } from "../component/littleAuthorInfo.jsx";
 
 export const HomeCarousel = () => {
 	const { store } = useContext(Context);
 
 	let authorIndex = Math.round(Math.random() * (store.author.length - 1));
 
-	let authorCarousel = (
-		<div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-			<div className="carousel-inner">
-				<div className="carousel-item active">
-					<img src={store.author[authorIndex].image} className="d-block w-100" alt="..." />
-				</div>
-				<div className="carousel-item">
-					<img src={store.author[authorIndex].image} className="d-block w-100" alt="..." />
-				</div>
-				<div className="carousel-item">
-					<img src={store.author[authorIndex].image} className="d-block w-100" alt="..." />
-				</div>
-			</div>
-			<a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-				<span className="carousel-control-prev-icon" aria-hidden="true" />
-				<span className="visually-hidden">Previous</span>
-			</a>
-			<a className="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-				<span className="carousel-control-next-icon" aria-hidden="true" />
-				<span className="visually-hidden">Next</span>
-			</a>
-		</div>
+	const [x, setX] = useState(0);
+	const goLeft = () => {
+		x === 0 ? setX(-100 * 2) : setX(x + 100);
+	};
+	const goRight = () => {
+		x === -100 * 2 ? setX(0) : setX(x - 100);
+	};
+
+	return (
+		<Fragment>
+			<Link to={"/author/" + store.author[authorIndex].id}>
+				<LittleAuthorInfo key={1} name={store.author[authorIndex].name} img={store.author[authorIndex].image} />
+			</Link>
+			<button className="leftButton" onClick={goLeft}>
+				<i className="fas fa-chevron-left" />
+			</button>
+			<button className="rightButton" onClick={goRight}>
+				<i className="fas fa-chevron-right" />
+			</button>
+		</Fragment>
 	);
-	return authorCarousel;
 };
