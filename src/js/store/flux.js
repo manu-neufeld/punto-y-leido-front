@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 const getState = ({ getStore, getActions, setStore }) => {
-	let url = "https://3000-bff73ec2-81e2-4522-aa99-9972e09752c6.ws-eu03.gitpod.io/";
+	let url = "https://punto-y-leido.herokuapp.com/";
 	return {
 		store: {
 			books: [],

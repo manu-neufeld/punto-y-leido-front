@@ -6,21 +6,23 @@ import "../../styles/random-home-books.scss";
 export const HomeBooks = () => {
 	const { store } = useContext(Context);
 
-	let bookComponents = [];
-	for (let i = 0; i < 4; i++) {
-		let book = getRandomBook(store);
-		let review = getFirstReviewFromBook(store, book.id);
+	if (store.books.length != 0) {
+		let bookComponents = [];
+		for (let i = 0; i < 4; i++) {
+			let book = getRandomBook(store);
+			let review = getFirstReviewFromBook(store, book.id);
 
-		let bookComponent = createBookComponent(book, review);
-		bookComponents.push(bookComponent);
-	}
+			let bookComponent = createBookComponent(book, review);
+			bookComponents.push(bookComponent);
+		}
 
-	return (
-		<Fragment>
-			<h1 className="home-random-books-title">¡Estos son nuestros libros!</h1>
-			<div className="row home-container-books">{bookComponents}</div>
-		</Fragment>
-	);
+		return (
+			<Fragment>
+				<h1 className="home-random-books-title">¡Estos son nuestros libros!</h1>
+				<div className="row home-container-books">{bookComponents}</div>
+			</Fragment>
+		);
+	} else return null;
 };
 
 function getRandomBook(store) {

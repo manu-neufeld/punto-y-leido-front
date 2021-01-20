@@ -9,7 +9,8 @@ import { HomeCarousel } from "../component/homeCarousel.jsx";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	if (store.books.length == 0 || store.reviews.length == 0) {
+
+	if (store.books.length == 0 && store.reviews.length == 0 && store.author.length == 0) {
 		return <h2>Estamos cargando su página favorita...</h2>;
 	} else {
 		return (
