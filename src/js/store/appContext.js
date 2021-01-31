@@ -28,7 +28,7 @@ const injectContext = PassedComponent => {
 			state.actions.getAllShelfInfoTest();
 			state.actions.getAllAuthorInfo();
 			state.actions.changeSearchingBarContent();
-			if (localStorage.length !== 0) {
+			if (localStorage.getItem("x-access-tokens") !== null) {
 				state.actions.decodeToken();
 			}
 			state.actions.readFollowers();
